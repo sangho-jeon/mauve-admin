@@ -4,7 +4,7 @@ import apiUrl, { API_HOST } from "../api";
 class RoomService {
   constructor() {
     this.base = axios.create();
-    this.userUrl = apiUrl.chat.room;
+    this.userUrl = apiUrl.chat;
   }
   async getAllRoom() {}
 }
