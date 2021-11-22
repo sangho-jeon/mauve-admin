@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const ChatBlockSection = styled.div`
   display: flex;
-  background-color: gray;
+  background-color: ##f7f6f6;
   justify-content: space-around;
   align-items: center;
-  width: 75vw;
+  width: 80vw;
   height: 55vw;
 `;
