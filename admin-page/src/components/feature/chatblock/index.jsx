@@ -3,10 +3,10 @@ import { ChatBlockSection } from "./styled";
 import ChatSection from "./chat";
 import InfoSection from "./info";
 
-const ChatBlock = () => {
+const ChatBlock = (props) => {
   return (
     <ChatBlockSection>
-      <ChatSection />
+      <ChatSection text={props.text} />
       <InfoSection />
     </ChatBlockSection>
   );
