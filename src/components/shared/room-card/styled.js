@@ -5,7 +5,7 @@ export const Card = styled.button`
   height: 5vw;
   border: none;
   border-radius: 5px;
-  margin-top: 1vw;
+  margin-bottom: 1vw;
   font-size: 16px;
   background-color: white;
   cursor: pointer;

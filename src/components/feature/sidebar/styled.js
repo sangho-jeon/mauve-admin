@@ -10,8 +10,12 @@ export const MainContainer = styled.div`
 `;
 
 export const Header = styled.header`
-  margin-top: 2vw;
+  margin: 2vw 0 1vw;
   font-size: 30px;
   font-weight: bold;
   color: white;
+`;
+
+export const CardContainer = styled.div`
+  overflow: scroll;
 `;
