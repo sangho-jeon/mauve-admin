@@ -6,7 +6,7 @@ import InfoSection from "./info";
 const ChatBlock = (props) => {
   return (
     <ChatBlockSection>
-      <ChatSection text={props.text} />
+      <ChatSection id={props.id} />
       <InfoSection />
     </ChatBlockSection>
   );

@@ -4,11 +4,14 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20vw;
+  width: 25vw;
   height: 55vw;
-  background-color: #b2d3fd;
-  font-size: 30px;
-  color: blue;
+  background-color: #cdf0ea;
 `;
 
-export const Header = styled.header``;
+export const Header = styled.header`
+  margin-top: 2vw;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+`;
