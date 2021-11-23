@@ -6,7 +6,7 @@ import dummy from "./dummy.json";
 const SideBar = (props) => {
   return (
     <MainContainer>
-      <Header>Chat List</Header>
+      <Header>회원 리스트</Header>
       {dummy.body.room.map((room) => (
         <RoomCard
           click={props.click}

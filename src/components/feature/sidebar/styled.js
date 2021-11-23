@@ -6,7 +6,7 @@ export const MainContainer = styled.div`
   align-items: center;
   width: 25vw;
   height: 55vw;
-  background-color: #cdf0ea;
+  background-color: #7e67ff;
 `;
 
 export const Header = styled.header`

@@ -9,7 +9,6 @@ const RoomCard = (props) => {
         <Text>{props.text}</Text>
       </Left>
       <Right>
-        메세지
         <Count>{props.count}</Count>
         <Waiting>{props.wait}</Waiting>
       </Right>
