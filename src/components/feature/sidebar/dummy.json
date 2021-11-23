@@ -1,0 +1,64 @@
+{
+  "statusCode": 200,
+  "body": {
+    "room": [
+      {
+        "_id": "6303e48a9c10dd00179b767f",
+        "title": "정지원 CHAT ROOM",
+        "user": {
+          "_id": "1039e48a9c10dd00179b767d",
+          "name": "정지원",
+          "profile_img": {
+            "location": " "
+          }
+        },
+        "coach": {
+          "_id": "618b8b15e1570e4894492b12",
+          "name": "정지원_코치",
+          "profile_img": {
+            "location": " "
+          }
+        },
+        "non_read_chats_num": 13
+      },
+      {
+        "_id": "2341e48a9c10dd00179b767t",
+        "title": "전효원 CHAT ROOM",
+        "user": {
+          "_id": "1234e48a9c10dd00179b767t",
+          "name": "전효원",
+          "profile_img": {
+            "location": " "
+          }
+        },
+        "coach": {
+          "_id": "618b8b15e1570e4894492b12",
+          "name": "정지원_코치",
+          "profile_img": {
+            "location": " "
+          }
+        },
+        "non_read_chats_num": 0
+      },
+      {
+        "_id": "4939e48a9c10dd00179b767p",
+        "title": "전상호 CHAT ROOM",
+        "user": {
+          "_id": "0194e48a9c10dd00179b767p",
+          "name": "전상호",
+          "profile_img": {
+            "location": " "
+          }
+        },
+        "coach": {
+          "_id": "618b8b15e1570e4894492b12",
+          "name": "정지원_코치",
+          "profile_img": {
+            "location": " "
+          }
+        },
+        "non_read_chats_num": 1
+      }
+    ]
+  }
+}

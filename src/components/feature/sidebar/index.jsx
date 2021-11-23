@@ -1,15 +1,20 @@
 import React from "react";
 import { MainContainer, Header } from "./styled";
 import RoomCard from "../../shared/room-card";
+import dummy from "./dummy.json";
+
 const SideBar = (props) => {
   return (
     <MainContainer>
-      <Header>sidebar</Header>
-
-      <RoomCard click={props.click} value="first" />
-      <RoomCard click={props.click} value="second" />
-      <RoomCard click={props.click} value="third" />
-      <RoomCard click={props.click} value="fourth" />
+      <Header>Chat List</Header>
+      {dummy.body.room.map((room) => (
+        <RoomCard
+          click={props.click}
+          id={room._id}
+          name={room.user.name}
+          count={room.non_read_chats_num}
+        ></RoomCard>
+      ))}
     </MainContainer>
   );
 };

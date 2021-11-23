@@ -1,9 +1,9 @@
 import React from "react";
 import { BubbleContainer, Bubble } from "./styled";
-const ChatBox = () => {
+const ChatBox = (prop) => {
   return (
-    <BubbleContainer>
-      <Bubble>chat</Bubble>
+    <BubbleContainer sender={prop.sender}>
+      <Bubble sender={prop.sender}>{prop.text}</Bubble>
     </BubbleContainer>
   );
 };
