@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const ChatBlockSection = styled.div`
   display: flex;
   background-color: ##f7f6f6;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   width: 80vw;
   height: 55vw;

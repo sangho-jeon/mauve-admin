@@ -7,8 +7,11 @@ export const MainContainer = styled.div`
   width: 20vw;
   height: 55vw;
   background-color: #b2d3fd;
-  font-size: 30px;
-  color: blue;
 `;
 
-export const Header = styled.header``;
+export const Header = styled.header`
+  margin-top: 2vw;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+`;

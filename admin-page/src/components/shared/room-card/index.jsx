@@ -1,10 +1,17 @@
 import React from "react";
-import { Card } from "./styled";
+import { Card, Name, Text, Count, Waiting, Left, Right } from "./styled";
 
 const RoomCard = (props) => {
   return (
     <Card onClick={props.click} value={props.value}>
-      {props.value}
+      <Left>
+        <Name>{props.name}</Name>
+        <Text>{props.text}</Text>
+      </Left>
+      <Right>
+        <Count>{props.count}</Count>
+        <Waiting>{props.wait}</Waiting>
+      </Right>
     </Card>
   );
 };

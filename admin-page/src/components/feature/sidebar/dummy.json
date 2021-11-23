@@ -1,0 +1,26 @@
+{
+  "statusCode": 200,
+  "body": {
+    "room": [
+      {
+        "_id": "6188e48a9c10dd00179b767f",
+        "title": "정지원 CHAT ROOM",
+        "user": {
+          "_id": "6188e48a9c10dd00179b767d",
+          "name": "정지원",
+          "profile_img": {
+            "location": " "
+          }
+        },
+        "coach": {
+          "_id": "618b8b15e1570e4894492b12",
+          "name": "정지원_코치",
+          "profile_img": {
+            "location": " "
+          }
+        },
+        "non_read_chats_num": 13
+      }
+    ]
+  }
+}
