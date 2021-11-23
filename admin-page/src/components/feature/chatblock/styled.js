@@ -5,6 +5,6 @@ export const ChatBlockSection = styled.div`
   background-color: ##f7f6f6;
   justify-content: space-evenly;
   align-items: center;
-  width: 80vw;
+  width: 75vw;
   height: 55vw;
 `;

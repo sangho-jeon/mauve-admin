@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Card = styled.button`
-  width: 15vw;
-  height: 3vw;
+  width: 20vw;
+  height: 4vw;
   border: none;
   border-radius: 5px;
   margin-left: 0.5vw;
@@ -17,7 +17,7 @@ export const Card = styled.button`
 export const Left = styled.div`
   display: block;
   margin-left: 1vw;
-  width: 6vw;
+  width: 5vw;
   text-align: left;
 `;
 export const Right = styled.div`
@@ -26,7 +26,7 @@ export const Right = styled.div`
 `;
 
 export const Name = styled.div`
-  width: 6vw;
+  width: 5vw;
   text-overflow: ellipsis;
 `;
 export const Text = styled.div`

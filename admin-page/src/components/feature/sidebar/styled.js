@@ -4,9 +4,9 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 20vw;
+  width: 25vw;
   height: 55vw;
-  background-color: #b2d3fd;
+  background-color: #cdf0ea;
 `;
 
 export const Header = styled.header`

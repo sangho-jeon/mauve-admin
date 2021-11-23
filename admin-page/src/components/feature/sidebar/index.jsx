@@ -9,20 +9,12 @@ const SideBar = (props) => {
       <Header>Chat List</Header>
       {dummy.body.room.map((room) => (
         <RoomCard
-          key={room._id}
+          click={props.click}
+          id={room._id}
           name={room.user.name}
           count={room.non_read_chats_num}
         ></RoomCard>
       ))}
-
-      <RoomCard
-        click={props.click}
-        value="first"
-        name="paul"
-        text="dldldlsdcsdc"
-        count="5"
-        wait="2021-11-17"
-      />
     </MainContainer>
   );
 };
