@@ -5,7 +5,7 @@ export const BubbleContainer = styled.div`
   color: white;
 
   ${({ sender }) =>
-    sender !== true
+    sender === true
       ? css`
           justify-content: flex-end;
         `
@@ -24,11 +24,11 @@ export const Bubble = styled.div`
   ${({ sender }) =>
     sender !== true
       ? css`
-          margin-right: 2vw;
+          margin-left: 2vw;
           background-color: #c490e4;
         `
       : css`
-          margin-left: 2vw;
+          margin-right: 2vw;
           background-color: #a6b1e1;
         `}
 `;
