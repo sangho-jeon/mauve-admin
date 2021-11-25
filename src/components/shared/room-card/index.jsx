@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Name, Text, Count, Waiting, Left, Right, Top, Bottom } from "./styled";
+import { Card, Name, Text, Count, Waiting, Left, Right, Top, Bottom, Weight, Diet } from "./styled";
 
 const RoomCard = (props) => {
   return (
@@ -10,6 +10,13 @@ const RoomCard = (props) => {
           <Count>{props.count}</Count>
         </Left>
         <Right>
+          체중
+          <Weight/>
+          <Weight/>    
+          식단
+          <Diet/>
+          <Diet/>
+          <Diet/>
         </Right>
       </Top>
       <Bottom>

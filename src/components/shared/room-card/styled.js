@@ -31,6 +31,33 @@ export const Left = styled.div`
 `;
 
 export const Right = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 11vw;
+  font-size: 14px;
+`;
+
+export const Weight = styled.div`
+width: 10px;
+height: 10px;
+border-radius: 5px;
+background-color: orange;
+// width: 4px;
+// height: 4px;
+// border-radius: 2px;
+// background-color: grey;
+`;
+
+export const Diet = styled.div`
+width: 10px;
+height: 10px;
+border-radius: 5px;
+background-color: green;
+// width: 4px;
+// height: 4px;
+// border-radius: 2px;
+// background-color: grey;
 `;
 
 export const Bottom = styled.div`
