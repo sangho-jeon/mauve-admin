@@ -4,9 +4,10 @@ import { Card, Name, Text, Count, Waiting, Left, Right } from "./styled";
 const RoomCard = (props) => {
   return (
     <Card onClick={props.click} value={props.id}>
-      <Left>
+      <Left value={props.id}>
         <Name>{props.name}</Name>
         <Text>{props.text}</Text>
+        {props.id}
       </Left>
       <Right>
         <Count>{props.count}</Count>

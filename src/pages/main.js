@@ -11,6 +11,7 @@ const MainPage = () => {
 
   const OnClick = (e) => {
     setId(e.target.value);
+    console.log(e);
   };
 
   ////////////////////////////////////////////////////////

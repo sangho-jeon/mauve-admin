@@ -6,10 +6,10 @@
         {
           "_id": "61964dfcc72cbd376f814c37",
           "tag": "chat",
-          "chat": "hello",
+          "chat": "안녕하세요 sdlkfjl",
           "readers": ["618b8b15e1570e4894492b12", "6188e48a9c10dd00179b767d"],
           "sender": {
-            "_id": "6188e48a9c10dd00179b767d",
+            "_id": "6303e48a9c10dd00179b767f",
             "name": "정지원",
             "profile_img": {
               "location": " "
@@ -20,9 +20,9 @@
           "created_at_time": "21:58"
         },
         {
-          "_id": "619651d60d0fdd3e5657c52f",
+          "_id": "619651d60d0fdd3e5657c52t",
           "tag": "chat",
-          "chat": "hello",
+          "chat": "배고팡",
           "readers": ["6188e48a9c10dd00179b767d"],
           "sender": {
             "_id": "6188e48a9c10dd00179b767d",
@@ -34,54 +34,6 @@
           "nonReadersNum": 1,
           "created_at_date": "2021-11-18",
           "created_at_time": "22:15"
-        },
-        {
-          "_id": "619652bc05ec24b484d142ad",
-          "tag": "picture",
-          "media": {
-            "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/picture/1637241532336061beae04bf13fac9d31593a29291a5e.jpeg"
-          },
-          "readers": ["6188e48a9c10dd00179b767d"],
-          "sender": {
-            "_id": "6188e48a9c10dd00179b767d",
-            "name": "정지원",
-            "profile_img": {
-              "location": " "
-            }
-          },
-          "nonReadersNum": 1,
-          "created_at_date": "2021-11-18",
-          "created_at_time": "22:18"
-        },
-        {
-          "_id": "619652c705ec24b484d142b4",
-          "tag": "weight",
-          "weight": {
-            "_id": "619652c605ec24b484d142b0",
-            "time": "night",
-            "kilograms": 59.6,
-            "created_at": "2021-11-18 22:19"
-          },
-          "readers": ["6188e48a9c10dd00179b767d"],
-          "sender": {
-            "_id": "6188e48a9c10dd00179b767d",
-            "name": "정지원",
-            "profile_img": {
-              "location": " "
-            }
-          },
-          "nonReadersNum": 1,
-          "created_at_date": "2021-11-18",
-          "created_at_time": "22:19"
-        },
-        {
-          "_id": "619652f805ec24b484d142ba",
-          "tag": "chat",
-          "chat": "hello",
-          "readers": ["6188e48a9c10dd00179b767d"],
-          "nonReadersNum": 1,
-          "created_at_date": "2021-11-18",
-          "created_at_time": "22:19"
         },
         {
           "_id": "619654892ccf450ab5c42d3f",

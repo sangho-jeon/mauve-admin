@@ -12,6 +12,7 @@ export const Card = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 10000;
 `;
 export const Left = styled.div`
   display: flex;
