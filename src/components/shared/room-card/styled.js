@@ -21,6 +21,7 @@ export const Left = styled.div`
   width: 18vw;
   height: 4vw;
   text-align: left;
+  pointer-events: none;
 `;
 export const Right = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ export const Right = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   height: 4vw;
+  pointer-events: none;
 `;
 
 export const Name = styled.div`
@@ -46,9 +48,9 @@ export const Count = styled.div`
   justify-content: center;
   align-items: center;
   float: right;
-  width: 2vw;
-  height: 2vw;
-  border-radius: 1vw;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
   font-weight: bold;
   background-color: gray;
   color: white;
