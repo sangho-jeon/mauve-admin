@@ -1,48 +1,61 @@
 import styled from "styled-components";
 
 export const Card = styled.button`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
   width: 22vw;
   height: 5vw;
   border: none;
   border-radius: 5px;
   margin-bottom: 1vw;
-  font-size: 16px;
+  padding: 0.5vw;
   background-color: white;
+  font-size: 16px;
   cursor: pointer;
+`;
+
+export const Top = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10000;
-`;
-export const Left = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 18vw;
-  height: 4vw;
-  text-align: left;
+  width: 100%;
   pointer-events: none;
 `;
-export const Right = styled.div`
+
+export const Left = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+`;
+
+export const Right = styled.div`
+`;
+
+export const Bottom = styled.div`
+  display: flex;
   justify-content: space-between;
-  height: 4vw;
+  align-items: center;
+  width: 100%;
   pointer-events: none;
 `;
 
 export const Name = styled.div`
+  margin-right: 8px;
   font-size: 24px;
   font-weight: bold;
   text-overflow: ellipsis;
 `;
+
 export const Text = styled.div`
-  height: 18px;
+  width: 17vw;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-align: left;
 `;
+
 export const Count = styled.div`
   display: flex;
   justify-content: center;
@@ -52,9 +65,10 @@ export const Count = styled.div`
   height: 24px;
   border-radius: 12px;
   font-weight: bold;
-  background-color: gray;
+  background-color: red;
   color: white;
 `;
+
 export const Waiting = styled.div`
   font-weight: bold;
   color: red;
