@@ -14,6 +14,11 @@ const SideBar = (props) => {
           id={room._id}
           name={room.user.name}
           count={room.non_read_chats_num}
+          morning={room.morning_weight ? true : false}
+          night={room.night_weight ? true : false}
+          breakfast={room.breakfast ? true : false}
+          lunch={room.lunch ? true : false}
+          dinner={room.dinner ? true : false}
         ></RoomCard>
       ))}
       </CardContainer>
