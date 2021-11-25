@@ -11,12 +11,12 @@ const RoomCard = (props) => {
         </Left>
         <Right>
           체중
-          <Weight/>
-          <Weight/>    
+          <Weight sender={props.morning} />
+          <Weight sender={props.night} />    
           식단
-          <Diet/>
-          <Diet/>
-          <Diet/>
+          <Diet sender={props.breakfast} />
+          <Diet sender={props.lunch} />
+          <Diet sender={props.dinner} />
         </Right>
       </Top>
       <Bottom>
