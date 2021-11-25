@@ -18,7 +18,7 @@ const ChatSection = (props) => {
 
   useEffect(() => {
     setChatMonitor(dummy.body.chats["2021-11-18"]);
-  }, []);
+  }, [props]);
 
   const handleInput = (e) => {
     setInputMessage(e.target.value);
