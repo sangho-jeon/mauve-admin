@@ -14,7 +14,7 @@ const ChatSection = (props) => {
   const [recentChat, setRecentChat] = useState("");
 
   useEffect(() => {
-    setChatMonitor(dummy.body.chats["2021-11-18"]);
+    setChatMonitor(dummy.body);
   }, [props]);
 
   const handleInput = (e) => {
@@ -47,7 +47,6 @@ const ChatSection = (props) => {
   };
 
   const myId = props.id;
-  const chats = dummy.body.chats["2021-11-18"];
   return (
     <Chatlayout>
       <ChatContainer>
