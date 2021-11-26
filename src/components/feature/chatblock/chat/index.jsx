@@ -4,10 +4,7 @@ import ChatBox from "../../../shared/chat";
 import dummy from "./dummy.json";
 
 const ChatSection = (props) => {
-  //prop으로 받은 socket을 이용해서 지난 chat을 받아와야 한다.
-  //state를 두개를 이용해서 기존 chat과 신규 chat을 받아와서 update해야한다.
-
-  const [inputMessage, setInputMessage] = useState("");
+  const [inputMessage, setInputMessage] = useState(""); //textarea에 입력되는 데이터를 저장하는 state
 
   // 여기 두가지 상태 값이 있는데
   // 하나는 기존의 채팅 내용을 담아두고 UI와 직접 연결되는 상태값이다
@@ -27,9 +24,6 @@ const ChatSection = (props) => {
   const handleEnter = (e) => {
     if (e.key === "Enter") {
       // console.log(buildChat(inputMessage));
-
-      console.log(chatMonitor);
-      console.log(inputMessage);
       buildChat(inputMessage);
     }
   };
@@ -66,7 +60,9 @@ const ChatSection = (props) => {
         ))}
       </ChatContainer>
       <ChatInput
-        type="text"
+        type="textarea"
+        cols="40"
+        rows="5"
         placeholder="내용을 입력해주세요"
         onChange={handleInput}
         onKeyPress={handleEnter}
