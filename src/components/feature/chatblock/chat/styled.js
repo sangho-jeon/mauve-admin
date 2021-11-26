@@ -6,8 +6,7 @@ export const Chatlayout = styled.div`
   align-items: center;
   width: 30vw;
   height: 50vw;
-  border-radius: 20px;
-  background-color: white;
+  background-color: #cccccc;
   box-shadow: 0px 5px 10px #00000015;
 `;
 
@@ -17,7 +16,7 @@ export const ChatContainer = styled.div`
   margin-top: 1vw;
   width: 30vw;
   height: 40vw;
-  border-radius: 20px;
+  background-color: white;
 `;
 
 export const ChatInput = styled.textarea`
