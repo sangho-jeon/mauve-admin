@@ -19,10 +19,12 @@ export const ChatContainer = styled.div`
   background-color: white;
 `;
 
-export const ChatInput = styled.input`
+export const ChatInput = styled.textarea`
   width: 27vw;
   height: 4vw;
   margin-top: 1vw;
+  padding: 0.5vw;
+  resize: none;
   border-color: gray;
 
   border-radius: 10px;
