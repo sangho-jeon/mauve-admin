@@ -1,4 +1,4 @@
-export const API_HOST = "http://22f0-1-227-58-161.ngrok.io";
+export const API_HOST = "http://localhost3000";
 
 const apiUrl = {
   auth: {

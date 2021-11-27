@@ -4,7 +4,7 @@ import apiUrl, { API_HOST } from "../api";
 class RoomService {
   constructor() {
     this.base = axios.create();
-    this.userUrl = apiUrl.chat;
+    this.chatUrl = apiUrl.chat.room;
   }
   async getAllRoom() {
     const accessToken =
@@ -13,8 +13,8 @@ class RoomService {
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzYxMDE2NDUsImV4cCI6MTY2NzY1OTI0NX0.9CRfrnEsq_QImJnY2z3MgqsC74ZA4BEFJYSNCCbsm3M";
 
     if (accessToken !== null && refreshToken !== null) {
-      const url = this.userUrl;
-
+      const url = this.chatUrl;
+      console.log(url);
       const config = {
         headers: {
           Refresh: refreshToken,

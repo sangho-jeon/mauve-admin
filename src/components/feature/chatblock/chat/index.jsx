@@ -22,9 +22,11 @@ const ChatSection = (props) => {
   };
 
   const handleEnter = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && inputMessage !== "\n") {
       // console.log(buildChat(inputMessage));
       buildChat(inputMessage);
+    } else if (e.key === "Enter" && inputMessage === "\n") {
+      setInputMessage("");
     }
   };
 
@@ -64,7 +66,7 @@ const ChatSection = (props) => {
         rows="5"
         placeholder="내용을 입력해주세요"
         onChange={handleInput}
-        onKeyPress={handleEnter}
+        onKeyUp={handleEnter}
         value={inputMessage}
       ></ChatInput>
     </Chatlayout>
