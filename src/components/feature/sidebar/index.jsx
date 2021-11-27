@@ -13,7 +13,6 @@ const SideBar = (props) => {
   const getRoomData = async () => {
     try {
       const { room } = await roomService.getAllRoom();
-      console.log(room);
       setRoomList(room);
     } catch (error) {
       console.log(error);
