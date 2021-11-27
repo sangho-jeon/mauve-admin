@@ -7,7 +7,7 @@ import { coachInfo } from "../../../../utils/coachInfo";
 const chatService = new ChatService();
 
 const ChatSection = (props) => {
-  const myId = coachInfo.myid;
+  const myId = coachInfo.myId;
   const [inputMessage, setInputMessage] = useState(""); //textarea에 입력되는 데이터를 저장하는 state
 
   // 여기 두가지 상태 값이 있는데
@@ -18,6 +18,7 @@ const ChatSection = (props) => {
   const [recentChat, setRecentChat] = useState("");
 
   const getChat = async () => {
+    //초기 기존 채팅 받아오는 부분.
     try {
       const { chat } = await chatService.getChatByRoomId(props.id);
       setChatMonitor(chat);
@@ -27,11 +28,21 @@ const ChatSection = (props) => {
     }
   };
 
+  const sendChat = async (text) => {
+    try {
+      const { chat } = await chatService.postChat(props.id, text);
+      setChatMonitor([...chatMonitor, chat]);
+      setInputMessage("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     getChat();
   }, [props]);
 
-  // 인풋 처리 부분
+  ///////////////////////////////// 인풋 처리 부분
   const handleInput = (e) => {
     setInputMessage(e.target.value);
   };
@@ -39,26 +50,10 @@ const ChatSection = (props) => {
   const handleEnter = (e) => {
     if (e.key === "Enter" && inputMessage !== "\n") {
       // console.log(buildChat(inputMessage));
-      buildChat(inputMessage);
+      sendChat(inputMessage);
     } else if (e.key === "Enter" && inputMessage === "\n") {
       setInputMessage("");
     }
-  };
-
-  const buildChat = (input) => {
-    const newChat = {
-      tag: "chat",
-      body: { text: input },
-      sender: {
-        _id: myId,
-        name: "정지원",
-        profile_img: {
-          location: " ",
-        },
-      },
-    };
-    setChatMonitor([...chatMonitor, newChat]);
-    setInputMessage("");
   };
 
   return (

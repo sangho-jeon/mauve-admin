@@ -8,6 +8,7 @@ const apiUrl = {
   chat: {
     room: `/room?limit=20&offset=0`,
     chat: `/chat/`,
+    postchat: ``,
   },
 };
 
