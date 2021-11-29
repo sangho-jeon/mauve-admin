@@ -1,0 +1,58 @@
+.fc {
+  width: 20vw;
+  height: 15vw;
+}
+
+
+/* title */
+.fc, .fc-header-toolbar, .fc-toolbar {
+  margin: 0 !important;
+}
+
+.fc-toolbar-chunk {
+  display: flex;
+  align-items: center;
+}
+
+.fc-button {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.fc-icon {
+  visibility: hidden;
+}
+
+#fc-dom-2 {
+  font-size: 16px;
+}
+
+
+/* 주기 표시 */
+.fc-event-title-container { 
+  height: 4px;
+  background-color: #7e67ff;
+}
+
+.fc-h-event {
+  border-style: none !important;
+}
+
+.fc-scrollgrid-sync-inner, .fc-daygrid-day-frame {
+  height: 20px;
+}
+
+.fc-daygrid-day-bottom {
+  display: none;
+}
+
+
+/* 그리드 */
+.fc-col-header-cell-cushion {
+  font-size: 10px;
+}
+
+.fc-daygrid-day-number {
+  font-size: 10px;
+  padding: 2px !important;
+}
