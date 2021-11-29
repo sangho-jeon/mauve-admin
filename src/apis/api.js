@@ -1,4 +1,4 @@
-export const API_HOST = "http://22f0-1-227-58-161.ngrok.io";
+export const API_HOST = "http://7ebf-223-62-175-194.ngrok.io";
 
 const apiUrl = {
   auth: {
@@ -7,6 +7,8 @@ const apiUrl = {
   },
   chat: {
     room: `/room?limit=20&offset=0`,
+    chat: `/chat/`,
+    postchat: ``,
   },
 };
 
