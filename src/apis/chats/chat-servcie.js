@@ -1,6 +1,8 @@
 import axios from "axios";
 import apiUrl, { API_HOST } from "../api";
 import { coachInfo } from "../../utils/coachInfo";
+import moment from "moment";
+import "moment-timezone";
 
 class ChatService {
   constructor() {
@@ -12,8 +14,9 @@ class ChatService {
 
   async getChatByRoomId(room) {
     if (this.accessToken !== null && this.refreshToken !== null) {
-      const url =
-        this.chatUrl + room + "?from=2021-11-17T22:00&to=2021-11-27T18:00";
+      const date = moment().tz("Asia/Seoul").format("YYYY-MM-DDTHH:59");
+      console.log("date" + date);
+      const url = this.chatUrl + room + "?from=2021-11-19T22:00&to=" + date;
       console.log(url);
       const config = {
         headers: {
@@ -38,7 +41,8 @@ class ChatService {
 
   async postChat(sendroom, text) {
     if (this.accessToken !== null && this.refreshToken !== null) {
-      const url = "http://localhost:3000" + this.chatUrl + sendroom;
+      const url =
+        "http://7ebf-223-62-175-194.ngrok.io" + this.chatUrl + sendroom;
       console.log(url);
       const config = {
         headers: {

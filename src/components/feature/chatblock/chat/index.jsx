@@ -3,10 +3,11 @@ import { ChatContainer, ChatInput, Chatlayout } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
 import { coachInfo } from "../../../../utils/coachInfo";
+import { initiateSocket } from "../../../../utils/socket";
 
 const chatService = new ChatService();
 
-const ChatSection = (props) => {
+const ChatSection = ({ id, socket }) => {
   const myId = coachInfo.myId;
   const [inputMessage, setInputMessage] = useState(""); //textarea에 입력되는 데이터를 저장하는 state
 
@@ -15,14 +16,13 @@ const ChatSection = (props) => {
   const [chatMonitor, setChatMonitor] = useState([]);
 
   // 나머지 하나는 서버에서 받은 갱신된(새로 추가된) 내용을 받는 상태값이다.
-  const [recentChat, setRecentChat] = useState("");
+  const [recentChat, setRecentChat] = useState();
 
   const getChat = async () => {
     //초기 기존 채팅 받아오는 부분.
     try {
-      const { chat } = await chatService.getChatByRoomId(props.id);
-      setChatMonitor(chat);
-      console.log(chatMonitor);
+      const { chat } = await chatService.getChatByRoomId(id);
+      setChatMonitor(chat.reverse());
     } catch (error) {
       console.log(error);
     }
@@ -30,7 +30,7 @@ const ChatSection = (props) => {
 
   const sendChat = async (text) => {
     try {
-      const { chat } = await chatService.postChat(props.id, text);
+      const { chat } = await chatService.postChat(id, text);
       setChatMonitor([...chatMonitor, chat]);
       setInputMessage("");
     } catch (error) {
@@ -39,8 +39,30 @@ const ChatSection = (props) => {
   };
 
   useEffect(() => {
+    // 각 룸 페이지에 들어갈때
     getChat();
-  }, [props]);
+  }, [id]);
+
+  useEffect(() => {
+    if (socket) {
+      socket.on("chat", (data) => {
+        console.log("chat 들어온다~~~~~");
+        setRecentChat(data);
+        updateChat(data);
+        console.log("datata" + JSON.stringify(data));
+      });
+    }
+  }, []);
+
+  const updateChat = (data) => {
+    recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
+    setRecentChat(undefined);
+  };
+
+  // useEffect(() => {
+  //   recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
+  //   setRecentChat(undefined);
+  // }, [recentChat]);
 
   ///////////////////////////////// 인풋 처리 부분
   const handleInput = (e) => {
@@ -62,7 +84,8 @@ const ChatSection = (props) => {
         chatSection {myId}
         {chatMonitor.map(
           (chats) =>
-            chats.tag === "chat" && (
+            chats.tag === "chat" &&
+            chats.body && (
               <ChatBox
                 text={chats.body.text}
                 sender={myId === chats.sender._id ? true : false}
