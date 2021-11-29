@@ -1,7 +1,8 @@
 import React from "react";
 import './calendar.css';
-import FullCalendar from '@fullcalendar/react' // must go before plugins
-import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import dummy from './dummy.json';
 
 const Calendar = () => {
 	return (
@@ -15,22 +16,15 @@ const Calendar = () => {
 			end: "",
 		}}          
 		events = {
-			[{
-				// title: '주기 1',
-				allDay: true,
-				start: '2021-11-02',
-				end: '2021-11-09'
-			},
-				{
-					// title: '주기 2',
-					allDay: true,
-					start: '2021-11-20',
-					end: '2021-11-30'
-				}
-			]
+      dummy.map((dummy) => (
+        {
+          allDay: true,
+          start: new Date(dummy.start),
+          end: new Date(dummy.end).setDate(new Date(dummy.end).getDate() + 1),
+        }
+      ))
 		}
 		/>
-		
 	);
 };
 
