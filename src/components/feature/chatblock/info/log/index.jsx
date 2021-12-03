@@ -9,7 +9,7 @@ const LogSection = () => {
 
   const getWeight = (e, tag) => {
     if (weight(e, tag).length === 0) {
-      return "";
+      return "입력 전";
     } else {
       return weight(e, tag)[0].kilograms;
     }
@@ -36,7 +36,7 @@ const LogSection = () => {
       <Text>간식</Text>
     </Title>
     <LogContainer>
-      {dummy.map((dummy) => (
+      {dummy.slice(0).reverse().map((dummy) => (
         <Log
           date={dummy.date}
           morning={getWeight(dummy.weight, "morning")}
