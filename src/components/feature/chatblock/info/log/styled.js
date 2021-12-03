@@ -23,9 +23,8 @@ export const Title = styled.div`
 export const Text = styled.div`
   width: 6vw;
   text-align: center;
+  font-size: 14px;
 `;
-
-
 
 export const LogContainer = styled.div`
   display: flex;

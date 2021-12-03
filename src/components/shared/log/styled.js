@@ -6,6 +6,7 @@ export const MainContainer = styled.div`
   align-items: center;
   width: 38vw;
   min-height: 6.5vw;
+  margin-bottom: 0.5vw;
   background-color: white;
 `;
 
@@ -15,13 +16,13 @@ export const Date = styled.div`
   align-items: center;
   width: 6vw;
   height: 6vw;
-
+  font-size: 14px;
 `;
 
 export const Weight = styled.div`
   width: 6vw;
   height: 6vw;
-
+  font-size: 14px;
 `;
 
 export const MorningWeight = styled.div`
@@ -38,7 +39,6 @@ export const NightWeight = styled.div`
   align-items: center;
   width: 6vw;
   height: 3vw;
-
 `;
 
 export const Breakfast = styled.img`
@@ -48,7 +48,6 @@ export const Breakfast = styled.img`
   width: 6vw;
   height: 6vw;
   object-fit: cover;
-
 `;
 
 export const Lunch = styled.img`
@@ -58,7 +57,6 @@ export const Lunch = styled.img`
   width: 6vw;
   height: 6vw;
   object-fit: cover;
-
 `;
 
 export const Dinner = styled.img`
@@ -68,7 +66,6 @@ export const Dinner = styled.img`
   width: 6vw;
   height: 6vw;
   object-fit: cover;
-
 `;
 
 export const Snack = styled.img`
@@ -78,5 +75,4 @@ export const Snack = styled.img`
   width: 6vw;
   height: 6vw;
   object-fit: cover;
-
 `;
