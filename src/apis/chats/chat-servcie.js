@@ -41,8 +41,7 @@ class ChatService {
 
   async postChat(sendroom, text) {
     if (this.accessToken !== null && this.refreshToken !== null) {
-      const url =
-        "http://7ebf-223-62-175-194.ngrok.io" + this.chatUrl + sendroom;
+      const url = this.chatUrl + sendroom;
       console.log(url);
       const config = {
         headers: {

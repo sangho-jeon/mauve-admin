@@ -15,7 +15,7 @@ const ChatBlock = (props) => {
   //이 부분에서 socket이랑 연결한 후에 prop으로 소켓을 넘겨줘야 리렌더링이 발생하지 않는다.
   useEffect(() => {
     const socket = io(
-      "http://36df-223-62-175-194.ngrok.io/chat?roomId=6188e48a9c10dd00179b767f",
+      "http://api.tuninglesson.com/chat?roomId=6188e48a9c10dd00179b767f",
       {
         transports: ["websocket"],
         auth: {

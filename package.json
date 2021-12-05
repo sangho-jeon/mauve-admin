@@ -2,7 +2,7 @@
   "name": "admin-page",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://7ebf-223-62-175-194.ngrok.io",
+  "proxy": "http://api.tuninglesson.com/app",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",

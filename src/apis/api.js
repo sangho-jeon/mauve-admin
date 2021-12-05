@@ -1,4 +1,4 @@
-export const API_HOST = "http://7ebf-223-62-175-194.ngrok.io";
+export const API_HOST = "http://api.tuninglesson.com/app";
 
 const apiUrl = {
   auth: {
