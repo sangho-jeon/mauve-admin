@@ -2,7 +2,7 @@
   "name": "admin-page",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://7ebf-223-62-175-194.ngrok.io",
+  "proxy": "http://api-test.mauve.care/app",
   "dependencies": {
     "@fullcalendar/daygrid": "^5.10.1",
     "@fullcalendar/react": "^5.10.1",

@@ -22,7 +22,10 @@ const ChatSection = ({ id, socket }) => {
     //초기 기존 채팅 받아오는 부분.
     try {
       const { chat } = await chatService.getChatByRoomId(id);
+      socket.emit("join", id);
       setChatMonitor(chat.reverse());
+      console.log(chatMonitor);
+      console.log(socket);
     } catch (error) {
       console.log(error);
     }
@@ -46,17 +49,17 @@ const ChatSection = ({ id, socket }) => {
   useEffect(() => {
     if (socket) {
       socket.on("chat", (data) => {
-        console.log("chat 들어온다~~~~~");
+        console.log("chat 들어온다~~~~~" + JSON.stringify(data));
         setRecentChat(data);
         updateChat(data);
-        console.log("datata" + JSON.stringify(data));
       });
     }
   }, []);
 
   const updateChat = (data) => {
     recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
-    setRecentChat(undefined);
+    console.log(chatMonitor);
+    setRecentChat(null);
   };
 
   // useEffect(() => {

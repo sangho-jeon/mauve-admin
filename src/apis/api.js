@@ -1,4 +1,4 @@
-export const API_HOST = "http://7ebf-223-62-175-194.ngrok.io";
+export const API_HOST = "http://api-test.mauve.care/app";
 
 const apiUrl = {
   auth: {
@@ -6,8 +6,8 @@ const apiUrl = {
     refresh: `/auth/refresh`,
   },
   chat: {
-    room: `/room?limit=20&offset=0`,
-    chat: `/chat/`,
+    room: API_HOST + `/room?limit=20&offset=0`,
+    chat: API_HOST + `/chat/`,
     postchat: ``,
   },
 };
