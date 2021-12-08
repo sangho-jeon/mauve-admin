@@ -22,8 +22,10 @@ const ChatSection = ({ id, socket }) => {
     //초기 기존 채팅 받아오는 부분.
     try {
       const { chat } = await chatService.getChatByRoomId(id);
+      socket.emit("join", id);
       setChatMonitor(chat.reverse());
       console.log(chatMonitor);
+      console.log(socket);
     } catch (error) {
       console.log(error);
     }

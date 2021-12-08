@@ -15,7 +15,6 @@ class ChatService {
   async getChatByRoomId(room) {
     if (this.accessToken !== null && this.refreshToken !== null) {
       const date = moment().tz("Asia/Seoul").format("YYYY-MM-DDTHH:59");
-      console.log("date" + date);
       const url = this.chatUrl + room + "?from=2021-11-19T22:00&to=" + date;
       console.log(url);
       const config = {
