@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
 
 export const Header = styled.header`
   margin: 2vw 0 1vw;
-  font-size: 30px;
+  font-size: 2vw;
   font-weight: bold;
   color: white;
 `;

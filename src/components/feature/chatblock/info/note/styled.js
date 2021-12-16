@@ -10,7 +10,7 @@ export const Note = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 18px;
+  font-size: 1.3vw;
   font-weight: bold;
 `;
 
@@ -20,5 +20,5 @@ export const NoteInput = styled.textarea`
   margin-top: 0.5vw;
   resize: none;
   border-style: none;
-  font-size: 14px;
+  font-size: 1.1vw;
 `;
