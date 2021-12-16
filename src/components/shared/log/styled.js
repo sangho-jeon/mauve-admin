@@ -16,13 +16,13 @@ export const Date = styled.div`
   align-items: center;
   width: 6vw;
   height: 6vw;
-  font-size: 14px;
+  font-size: 1vw;
 `;
 
 export const Weight = styled.div`
   width: 6vw;
   height: 6vw;
-  font-size: 14px;
+  font-size: 1vw;
 `;
 
 export const MorningWeight = styled.div`

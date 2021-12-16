@@ -24,13 +24,13 @@
 }
 
 #fc-dom-2 {
-  font-size: 16px;
+  font-size: 1vw;
 }
 
 
 /* 주기 표시 */
 .fc-event-title-container { 
-  height: 4px;
+  height: 0.3vw;
   background-color: #7e67ff;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .fc-scrollgrid-sync-inner, .fc-daygrid-day-frame {
-  height: 20px;
+  height: 1.2vw;
 }
 
 .fc-daygrid-day-bottom {
@@ -49,10 +49,14 @@
 
 /* 그리드 */
 .fc-col-header-cell-cushion {
-  font-size: 10px;
+  font-size: 0.7vw;
 }
 
 .fc-daygrid-day-number {
-  font-size: 10px;
-  padding: 2px !important;
+  font-size: 0.7vw;
+  padding: 0.2vw !important;
+}
+
+.fc-daygrid-day-top {
+  height: 1.2vw;
 }
