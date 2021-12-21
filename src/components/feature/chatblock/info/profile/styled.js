@@ -11,20 +11,23 @@ export const Profile = styled.div`
 `;
 
 export const Information = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 16vw;
   height: 15vw;
+  padding: 1vw;
 `;
 
 export const Item = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 0.5vw;
+  font-size: 1.2vw;
 `;
 
 export const Tag = styled.div`
   margin-right: 0.5vw;
-  font-size: 18px;
+  font-size: 1.2vw;
   font-weight: bold;
 `;

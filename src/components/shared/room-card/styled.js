@@ -9,11 +9,11 @@ export const Card = styled.button`
   width: 22vw;
   height: 5vw;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5vw;
   margin-bottom: 1vw;
   padding: 0.5vw;
   background-color: white;
-  font-size: 16px;
+  font-size: 1vw;
   cursor: pointer;
 `;
 
@@ -35,22 +35,22 @@ export const Right = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 11vw;
-  font-size: 14px;
+  font-size: 1vw;
 `;
 
 export const Weight = styled.div`
   ${({ sender }) =>
     sender === true
       ? css`
-          width: 10px;
-          height: 10px;
-          border-radius: 5px;
+          width: 0.5vw;
+          height: 0.5vw;
+          border-radius: 0.25vw;
           background-color: orange;
         `
       : css`
-          width: 4px;
-          height: 4px;
-          border-radius: 2px;
+      width: 0.3vw;
+      height: 0.3vw;
+          border-radius: 0.15vw;
           background-color: grey;
         `}
 `;
@@ -59,15 +59,15 @@ export const Diet = styled.div`
   ${({ sender }) =>
     sender === true
       ? css`
-          width: 10px;
-          height: 10px;
-          border-radius: 5px;
+          width: 0.5vw;
+          height: 0.5vw;
+          border-radius: 0.25vw;
           background-color: green;
         `
       : css`
-          width: 4px;
-          height: 4px;
-          border-radius: 2px;
+          width: 0.3vw;
+          height: 0.3vw;
+          border-radius: 0.15vw;
           background-color: grey;
         `}
 `;
@@ -81,8 +81,8 @@ export const Bottom = styled.div`
 `;
 
 export const Name = styled.div`
-  margin-right: 8px;
-  font-size: 24px;
+  margin-right: 1vw;
+  font-size: 1.5vw;
   font-weight: bold;
   text-overflow: ellipsis;
 `;
@@ -100,9 +100,9 @@ export const Count = styled.div`
   justify-content: center;
   align-items: center;
   float: right;
-  width: 24px;
-  height: 24px;
-  border-radius: 12px;
+  width: 1.8vw;
+  height: 1.8vw;
+  border-radius: 0.9vw;
   font-weight: bold;
   background-color: red;
   color: white;

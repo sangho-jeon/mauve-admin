@@ -23,7 +23,7 @@ export const Title = styled.div`
 export const Text = styled.div`
   width: 6vw;
   text-align: center;
-  font-size: 14px;
+  font-size: 1vw;
 `;
 
 export const LogContainer = styled.div`
