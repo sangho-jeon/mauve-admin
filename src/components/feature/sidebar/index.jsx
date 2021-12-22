@@ -1,9 +1,8 @@
-import Reac, { useState } from "react";
+import React, { useState } from "react";
 import { MainContainer, CardContainer, Header } from "./styled";
 import RoomCard from "../../shared/room-card";
-import dummy from "./dummy.json";
 import RoomService from "../../../apis/rooms/room-service";
-import { useEffect } from "react/cjs/react.development";
+import { useEffect } from "react";
 
 const roomService = new RoomService();
 
