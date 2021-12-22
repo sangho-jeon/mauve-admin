@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MainContainer, CardContainer, Header } from "./styled";
 import RoomCard from "../../shared/room-card";
 import RoomService from "../../../apis/rooms/room-service";
-import { useEffect } from "react";
 
 const roomService = new RoomService();
 
