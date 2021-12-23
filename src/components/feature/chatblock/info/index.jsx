@@ -3,12 +3,13 @@ import { InfoContainer } from "./styled";
 import ProfileSection from "./profile";
 import LogSection from "./log";
 import NoteSection from "./note";
+import { isPropsEqual } from "@fullcalendar/common";
 
-const InfoSection = () => {
+const InfoSection = ({ id }) => {
   return (
     <InfoContainer>
       <ProfileSection />
-      <LogSection />
+      <LogSection id={id} />
       <NoteSection />
     </InfoContainer>
   );
