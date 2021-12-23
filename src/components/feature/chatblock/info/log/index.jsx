@@ -1,29 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Title, Text, LogContainer } from "./styled";
 import Log from "../../../../shared/log";
-import dummy from "./dummy.json";
+import InfoService from "../../../../../apis/info/info-service";
 
-const LogSection = () => {
+const infoService = new InfoService();
 
-  const weight = (e, tag) => ( e.filter((idx) => { return idx.time === tag }));
+const LogSection = (prop) => {
+  const [logList, setLogList] = useState([]);
 
-  const getWeight = (e, tag) => {
-    if (weight(e, tag).length === 0) {
+  const getLogData = async () => {
+    try {
+      const { log } = await infoService.getUserLog(prop);
+      setLogList(log);
+      console.log(log);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getLogData();
+  }, [prop]);
+
+  const getWeight = (e) => {
+    if (e) {
+      return e.body.kilograms;
+    } else {
       return "입력 전";
-    } else {
-      return weight(e, tag)[0].kilograms;
     }
   };
 
-  const menu = (e, tag) => ( e.filter((idx) => { return idx.tag === tag }));
-
-  const getMenu = (e, tag) => {
-    if (menu(e, tag).length === 0) {
-      return "";
-    } else {
-      return menu(e, tag)[0].body.location;
+  const getMenu = (e) => {
+    if (e) {
+      return e.body.location;
     }
-  };
+  }
 
   return (
   <Container>
@@ -36,17 +47,19 @@ const LogSection = () => {
       <Text>간식</Text>
     </Title>
     <LogContainer>
-      {dummy.slice(0).reverse().map((dummy) => (
-        <Log
-          date={dummy.date}
-          morning={getWeight(dummy.weight, "morning")}
-          night={getWeight(dummy.weight, "night")}
-          breakfast={getMenu(dummy.menu, "breakfast")}
-          lunch={getMenu(dummy.menu, "lunch")}
-          dinner={getMenu(dummy.menu, "dinner")}
-          snack={getMenu(dummy.menu, "snack")}
-        ></Log>
-      ))}
+      {logList.slice(0).reverse().map((log) => 
+        (Object.keys(log).map((date) => (
+          <Log
+            date = {date}
+            morning = {getWeight(log[date].weight_morning)}
+            night = {getWeight(log[date].weight_night)}
+            breakfast = {getMenu(log[date].breakfast)}
+            lunch = {getMenu(log[date].lunch)}
+            dinner = {getMenu(log[date].dinner)}
+            snack = {getMenu(log[date].snack)}
+          ></Log>
+        )))
+      )}
     </LogContainer>
   </Container>
   );

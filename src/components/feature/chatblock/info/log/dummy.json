@@ -1,119 +1,59 @@
-[
-  {
-    "date": "2021-11-29",
-    "weight": [
+{
+  "statusCode": 200,
+  "body": {
+    "userLogRecord": [
       {
-        "time": "morning",
-        "kilograms" : 56.6
-      },
-      {
-        "time": "night",
-        "kilograms" : 58.6
-      }
-    ],
-    "menu": [
-      {
-        "tag": "breakfast",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg"
-        }
-      },
-      {
-        "tag": "lunch",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/breakfast/1637149933756test.JPG"
-        }
-      },
-      {
-        "tag": "dinner",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/dinner/163817860095013.jpg"
-        }
-      }
-    ]
-  },
-  {
-    "date": "2021-11-30",
-    "weight": [
-      {
-        "time": "morning",
-        "kilograms" : 57.3
-      },
-      {
-        "time": "night",
-        "kilograms" : 58.2
-      }
-    ],
-    "menu": [
-      {
-        "tag": "breakfast",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg"
-        }
-      },
-      {
-        "tag": "lunch",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/dinner/1638178581156IMG_1593.JPG"
-        }
-      },
-      {
-        "tag": "dinner",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/dinner/163817860095013.jpg"
-        }
-      }
-    ]
-  },
-  {
-    "date": "2021-12-01",
-    "weight": [
-      {
-        "time": "morning",
-        "kilograms" : 56.4
-      },
-      {
-        "time": "night",
-        "kilograms" : 55.3
-      }
-    ],
-    "menu": [
-      {
-        "tag": "breakfast",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/dinner/1638178581156IMG_1593.JPG"
-        }
-      },
-      {
-        "tag": "lunch",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/breakfast/1637149933756test.JPG"
-        }
-      },
-      {
-        "tag": "dinner",
-        "body": {
-          "key": "chat/media_file/dinner/1637914905110061beae04bf13fac9d31593a29291a5e.jpeg",
-          "contentType": "image/jpeg",
-          "location": "https://wecan-app.s3.ap-northeast-2.amazonaws.com/chat/media_file/dinner/163817860095013.jpg"
+        "2021-12-22": {
+          "breakfast": {
+            "_id": "61c2cdacbed6c22be4b8eccf",
+            "tag": "breakfast",
+            "body": {
+              "key": "chat/media_file/breakfast/1640156588329IMG_8363.jpg",
+              "contentType": "image/jpeg",
+              "location": "https://mauve-static.s3.ap-northeast-2.amazonaws.com/chat/media_file/breakfast/1640156588329IMG_8363.jpg"
+            },
+            "created_at_date": "2021-12-22"
+          },
+          "dinner": {
+            "_id": "61c2cdc2bed6c22be4b8ecd2",
+            "tag": "dinner",
+            "body": {
+              "key": "chat/media_file/dinner/1640156610240IMG_5026.JPG",
+              "contentType": "image/jpeg",
+              "location": "https://mauve-static.s3.ap-northeast-2.amazonaws.com/chat/media_file/dinner/1640156610240IMG_5026.JPG"
+            },
+            "created_at_date": "2021-12-22"
+          },
+          "lunch": {
+            "_id": "61c2cde2bed6c22be4b8ecd6",
+            "tag": "lunch",
+            "body": {
+              "key": "chat/media_file/lunch/1640156641875IMG_6422.jpg",
+              "contentType": "image/jpeg",
+              "location": "https://mauve-static.s3.ap-northeast-2.amazonaws.com/chat/media_file/lunch/1640156641875IMG_6422.jpg"
+            },
+            "created_at_date": "2021-12-22"
+          },
+          "weight_morning": {
+            "_id": "61c2d50ba18b4162680ebd14",
+            "tag": "weight",
+            "body": {
+              "time": "morning",
+              "kilograms": 59.6
+            },
+            "created_at_date": "2021-12-22"
+          },
+          "weight_night": {
+            "_id": "61c2d525a18b4162680ebd1c",
+            "tag": "weight",
+            "body": {
+              "time": "night",
+              "kilograms": 60.6
+            },
+            "created_at_date": "2021-12-22"
+          }
         }
       }
     ]
   }
-]
+}

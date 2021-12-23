@@ -31,7 +31,7 @@ const ChatBlock = (props) => {
       {currentsocket ? (
         <ChatBlockSection>
           <ChatSection id={props.id} socket={currentsocket} />
-          <InfoSection />
+          <InfoSection id={props.id} />
         </ChatBlockSection>
       ) : (
         <div>loading</div>
