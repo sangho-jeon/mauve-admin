@@ -10,6 +10,10 @@ const apiUrl = {
     chat: API_HOST + `/chat/`,
     postchat: ``,
   },
+  info: {
+    log: API_HOST + `/coach/user/log/`,
+    profile: API_HOST + `/coach/user/info`
+  }
 };
 
 export default apiUrl;

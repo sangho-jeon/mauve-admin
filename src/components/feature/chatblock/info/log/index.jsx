@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Title, Text, LogContainer } from "./styled";
 import Log from "../../../../shared/log";
-import dummy from "./dummy.json";
+import InfoService from "../../../../../apis/info/info-service";
 
-const LogSection = () => {
+const infoService = new InfoService();
+
+const LogSection = (prop) => {
+  const [logList, setLogList] = useState([]);
+
+  const getLogData = async () => {
+    try {
+      const { log } = await infoService.getUserLog(prop);
+      setLogList(log);
+      console.log(log);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getLogData();
+  }, [prop]);
 
   const getWeight = (e) => {
     if (e) {
@@ -30,16 +47,16 @@ const LogSection = () => {
       <Text>간식</Text>
     </Title>
     <LogContainer>
-      {dummy.body.userLogRecord.slice(0).reverse().map((dateLog) => 
-        (Object.keys(dateLog).map((date) => (
+      {logList.slice(0).reverse().map((log) => 
+        (Object.keys(log).map((date) => (
           <Log
             date = {date}
-            morning = {getWeight(dateLog[date].weight_morning)}
-            night = {getWeight(dateLog[date].weight_night)}
-            breakfast = {getMenu(dateLog[date].breakfast)}
-            lunch = {getMenu(dateLog[date].lunch)}
-            dinner = {getMenu(dateLog[date].dinner)}
-            snack = {getMenu(dateLog[date].snack)}
+            morning = {getWeight(log[date].weight_morning)}
+            night = {getWeight(log[date].weight_night)}
+            breakfast = {getMenu(log[date].breakfast)}
+            lunch = {getMenu(log[date].lunch)}
+            dinner = {getMenu(log[date].dinner)}
+            snack = {getMenu(log[date].snack)}
           ></Log>
         )))
       )}
