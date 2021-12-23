@@ -6,18 +6,6 @@ import dummy from '../dummy.json';
 
 const Calendar = () => {
 
-	const getStart = (e) => {
-		if (e.phase === "period") {
-			return e.start_date;
-		}
-	};
-
-	const getEnd = (e) => {
-		if (e.phase === "period") {
-			return e.end_date;
-		}
-	};
-
 	return (
 		<FullCalendar
 		plugins={[ dayGridPlugin ]}
@@ -29,11 +17,11 @@ const Calendar = () => {
 			end: "",
 		}}          
 		events = {
-      dummy.body.periodPhaseRecord.map((dummy) => (
+      dummy.body.periodRecord.map((dummy) => (
         {
           allDay: true,
-          start: new Date(getStart(dummy)),
-          end: new Date(getEnd(dummy)).setDate(new Date(getEnd(dummy)).getDate() + 1),
+          start: new Date(dummy.start),
+          end: new Date(dummy.end).setDate(new Date(dummy.end).getDate() + 1)
         }
       ))
 		}
