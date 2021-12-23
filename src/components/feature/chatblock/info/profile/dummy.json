@@ -1,0 +1,65 @@
+{
+    "statusCode": 200,
+    "body": {
+        "userInfo": {
+            "_id": "61a88647f59eb0dfec433ae8",
+            "name": "정지원",
+            "phone_NO": "01051849798",
+            "next_payment": "2021-12-22T10:21:36.000Z",
+            "height": 168.9,
+            "age": 24,
+            "weight": 60,
+            "next_payment_d_day": 0
+        },
+        "periodRecord": [
+            {
+                "_id": "619387b4bacb3e2e6047c7ab",
+                "ovulation_day": "2021-10-22",
+                "start": "2021-11-05",
+                "end": "2021-11-09"
+            },
+            {
+                "_id": "619387b4bacb3e2e6047c7aa",
+                "ovulation_day": "2021-09-21",
+                "start": "2021-10-05",
+                "end": "2021-10-09"
+            },
+            {
+                "_id": "619387b4bacb3e2e6047c7a9",
+                "ovulation_day": "2021-08-19",
+                "start": "2021-09-02",
+                "end": "2021-09-06"
+            },
+            {
+                "_id": "619387b4bacb3e2e6047c7a8",
+                "ovulation_day": "2021-07-20",
+                "start": "2021-08-03",
+                "end": "2021-08-07"
+            },
+            {
+                "_id": "619387b4bacb3e2e6047c7a7",
+                "ovulation_day": "2021-06-20",
+                "start": "2021-07-04",
+                "end": "2021-07-08"
+            },
+            {
+                "_id": "619387b4bacb3e2e6047c7a6",
+                "ovulation_day": "2021-05-18",
+                "start": "2021-06-01",
+                "end": "2021-06-05"
+            },
+            {
+                "_id": "619387b4bacb3e2e6047c7a5",
+                "ovulation_day": "2021-04-21",
+                "start": "2021-05-05",
+                "end": "2021-05-09"
+            },
+            {
+                "_id": "619387b4bacb3e2e6047c7a4",
+                "ovulation_day": "2021-03-24",
+                "start": "2021-04-07",
+                "end": "2021-04-11"
+            }
+        ]
+    }
+}

@@ -3,7 +3,6 @@ import { ChatContainer, ChatInput, Chatlayout } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
 import { coachInfo } from "../../../../utils/coachInfo";
-import { initiateSocket } from "../../../../utils/socket";
 
 const chatService = new ChatService();
 
@@ -49,7 +48,6 @@ const ChatSection = ({ id, socket }) => {
   useEffect(() => {
     if (socket) {
       socket.on("chat", (data) => {
-        console.log("chat 들어온다~~~~~" + JSON.stringify(data));
         setRecentChat(data);
         updateChat(data);
       });
@@ -74,7 +72,7 @@ const ChatSection = ({ id, socket }) => {
 
   const handleEnter = (e) => {
     if (e.key === "Enter" && inputMessage !== "\n") {
-      // console.log(buildChat(inputMessage));
+      console.log("눌렸다잉");
       sendChat(inputMessage);
     } else if (e.key === "Enter" && inputMessage === "\n") {
       setInputMessage("");
@@ -87,10 +85,11 @@ const ChatSection = ({ id, socket }) => {
         chatSection {myId}
         {chatMonitor.map(
           (chats) =>
-            chats.tag === "chat" &&
             chats.body && (
               <ChatBox
+                tag={chats.tag}
                 text={chats.body.text}
+                src={chats.body.location}
                 sender={myId === chats.sender._id ? true : false}
               />
             )
