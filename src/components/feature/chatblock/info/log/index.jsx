@@ -37,12 +37,13 @@ const LogSection = (prop) => {
   };
 
   const isData = (e) => {
-    if (JSON.stringify(e) === "[]") {
+    console.log(JSON.stringify(e));
+    if (JSON.stringify(e.userLogRecord) === "[]") {
       return false;
     } else {
       return true;
     }
-  }
+  };
 
   return (
     <Container>
@@ -55,8 +56,8 @@ const LogSection = (prop) => {
         <Text>간식</Text>
       </Title>
       <LogContainer>
-        { isData(logList) 
-          ? logList // 효원님 여기서 에러가 납니다. 아마 받아온 api 데이터가 아직 없어서 slice함수가 안 먹히는 것 같습니다.
+        {isData(logList) &&
+          logList // 효원님 여기서 에러가 납니다. 아마 받아온 api 데이터가 아직 없어서 slice함수가 안 먹히는 것 같습니다.
             .slice(0)
             .reverse()
             .map((log) =>
@@ -71,9 +72,7 @@ const LogSection = (prop) => {
                   snack={getMenu(log[date].snack)}
                 ></Log>
               ))
-            )
-          : ""
-        }
+            )}
       </LogContainer>
     </Container>
   );
