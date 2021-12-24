@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Profile, Information, Item, Tag } from "./styled";
 import Calendar from "./calendar/calendar";
 import InfoService from "../../../../../apis/info/info-service";
+import dummy from './dummy.json';
 
 const infoService = new InfoService();
 
@@ -35,26 +36,18 @@ const ProfileSection = (prop) => {
 		}
 		return e;
 	};
-
-	const isData = (e, taddddg) => {
-		if (JSON.stringify(e) === "[]") {
-			return "";
-		} else {
-			return e.body.userInfo;
-		}
-  };
 	
 	return (
 		<Profile>
 		<Information>
-		<Item><Tag>이름:</Tag>{isData(profile).name}</Item>
-		<Item><Tag>번호:</Tag>{getNumber(isData(profile).phone_NO)}</Item>
-		<Item><Tag>나이:</Tag>{isData(profile).age}세</Item>
-		<Item><Tag>신장:</Tag>{isData(profile).height}cm</Item>
-		<Item><Tag>체중:</Tag>{isData(profile).weight}kg</Item>
-		<Item><Tag>결제:</Tag>D-{getDay(isData(profile).next_payment_d_day)}</Item>
+		<Item><Tag>이름:</Tag>{dummy.body.userInfo.name}</Item>
+		<Item><Tag>번호:</Tag>{getNumber(dummy.body.userInfo.phone_NO)}</Item>
+		<Item><Tag>나이:</Tag>{dummy.body.userInfo.age}세</Item>
+		<Item><Tag>신장:</Tag>{dummy.body.userInfo.height}cm</Item>
+		<Item><Tag>체중:</Tag>{dummy.body.userInfo.weight}kg</Item>
+		<Item><Tag>결제:</Tag>D-{getDay(dummy.body.userInfo.next_payment_d_day)}</Item>
 		</Information>
-		<Calendar data={profile} />
+		<Calendar data={dummy} />
 		</Profile>
 	);
 };
