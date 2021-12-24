@@ -27,6 +27,8 @@ class RoomService {
         body: { room },
       } = result;
 
+      console.log(room);
+
       return {
         isLogin: true,
         room,

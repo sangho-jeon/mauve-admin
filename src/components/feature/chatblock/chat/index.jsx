@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { ChatContainer, ChatInput, Chatlayout } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
@@ -8,6 +8,8 @@ const chatService = new ChatService();
 
 const ChatSection = ({ id, socket }) => {
   const myId = coachInfo.myId;
+  const messagesRef = useRef(null);
+
   const [inputMessage, setInputMessage] = useState(""); //textarea에 입력되는 데이터를 저장하는 state
 
   // 여기 두가지 상태 값이 있는데
@@ -74,15 +76,21 @@ const ChatSection = ({ id, socket }) => {
     if (e.key === "Enter" && inputMessage !== "\n") {
       console.log("눌렸다잉");
       sendChat(inputMessage);
+      setInputMessage("");
     } else if (e.key === "Enter" && inputMessage === "\n") {
       setInputMessage("");
     }
   };
 
+  // 채팅 자동 스크롤 적용
+  useEffect(() => {
+    messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+  }, [chatMonitor]);
+
   return (
     <Chatlayout>
-      <ChatContainer>
-        chatSection {myId}
+      <ChatContainer ref={messagesRef}>
+        {/* chatSection {myId} */}
         {chatMonitor.map(
           (chats) =>
             chats.body && (
