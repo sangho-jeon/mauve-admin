@@ -2,9 +2,16 @@ import React from "react";
 import './calendar.css';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import dummy from '../dummy.json';
 
-const Calendar = () => {
+const Calendar = (prop) => {
+
+	const isData = (e) => {
+    if (JSON.stringify(e) === "[]") {
+      return false;
+    } else {
+      return true;
+    }
+  };
 
 	return (
 		<FullCalendar
@@ -16,12 +23,12 @@ const Calendar = () => {
 			center: "prev title next",
 			end: "",
 		}}          
-		events = {
-      dummy.body.periodRecord.map((dummy) => (
+		events = {isData(prop.data) &&
+      prop.data.body.periodRecord.map((period) => (
         {
           allDay: true,
-          start: new Date(dummy.start),
-          end: new Date(dummy.end).setDate(new Date(dummy.end).getDate() + 1)
+          start: new Date(period.start),
+          end: new Date(period.end).setDate(new Date(period.end).getDate() + 1)
         }
       ))
 		}
