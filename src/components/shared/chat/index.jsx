@@ -11,7 +11,9 @@ const ChatBox = (prop) => {
     return (
       <BubbleContainer>
         <Bubble>
-          <img src={prop.src} width="200" height="200"></img>
+          <a href={prop.src} target="blank">
+            <img src={prop.src} width="200" height="200"></img>
+          </a>
         </Bubble>
       </BubbleContainer>
     );

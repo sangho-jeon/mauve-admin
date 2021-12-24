@@ -20,7 +20,7 @@ const LogSection = (prop) => {
 
   useEffect(() => {
     getLogData();
-  }, [prop]);
+  }, [prop.id]);
 
   const getWeight = (e) => {
     if (e) {
