@@ -29,6 +29,7 @@ const SideBar = (props) => {
           <RoomCard
             click={props.click}
             id={room._id}
+            userId={room.user._id}
             name={room.user.name}
             count={room.non_read_chats_num}
             morning={room.morning_weight ? true : false}
