@@ -3,7 +3,7 @@ import { Card, Name, Text, Count, Waiting, Left, Right, Top, Bottom, Weight, Die
 
 const RoomCard = (props) => {
   return (
-    <Card onClick={props.click} value={props.id}>
+    <Card onClick={props.click} value={props.userId}>
       <Top>
         <Left>
           <Name>{props.name}</Name>

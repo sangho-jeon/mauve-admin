@@ -11,7 +11,7 @@ const LogSection = (prop) => {
   const getLogData = async () => {
     try {
       const { log } = await infoService.getUserLog(prop.id);
-      setLogList(log); // 이부분은 밑에 slice함수에서 에러가 나서 막아놨습니다. 데이터가 있을 때만 slice할 수 있도록 변경하는것이 좋을 것 같습니다.
+      setLogList(log);
       console.log(log);
     } catch (error) {
       console.log(error);
@@ -24,7 +24,7 @@ const LogSection = (prop) => {
 
   const getWeight = (e) => {
     if (e) {
-      return e.body.kilograms;
+      return e.body.kilograms + "kg";
     } else {
       return "입력 전";
     }
@@ -37,8 +37,7 @@ const LogSection = (prop) => {
   };
 
   const isData = (e) => {
-    console.log(JSON.stringify(e));
-    if (JSON.stringify(e.userLogRecord) === "[]") {
+    if (JSON.stringify(e) === "[]") {
       return false;
     } else {
       return true;
@@ -56,8 +55,8 @@ const LogSection = (prop) => {
         <Text>간식</Text>
       </Title>
       <LogContainer>
-        {isData(logList) &&
-          logList // 효원님 여기서 에러가 납니다. 아마 받아온 api 데이터가 아직 없어서 slice함수가 안 먹히는 것 같습니다.
+      {isData(logList) &&
+          logList.userLogRecord
             .slice(0)
             .reverse()
             .map((log) =>
