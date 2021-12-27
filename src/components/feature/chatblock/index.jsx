@@ -9,7 +9,7 @@ import { coachInfo } from "../../../utils/coachInfo";
 //   "localhost:3030/chat?roomId=6188e48a9c10dd00179b767f",
 //   { transports: ["websocket"] }
 // );
-const ChatBlock = (props) => {
+const ChatBlock = ({ id, userId }) => {
   const [currentsocket, setSocket] = useState();
   //이 부분에서 socket이랑 연결한 후에 prop으로 소켓을 넘겨줘야 리렌더링이 발생하지 않는다.
   useEffect(() => {
@@ -30,8 +30,8 @@ const ChatBlock = (props) => {
     <div>
       {currentsocket ? (
         <ChatBlockSection>
-          <ChatSection id={props.id} socket={currentsocket} />
-          <InfoSection id={props.id} />
+          <ChatSection id={id} socket={currentsocket} />
+          <InfoSection id={userId} />
         </ChatBlockSection>
       ) : (
         <div>loading</div>
