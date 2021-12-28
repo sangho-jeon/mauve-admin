@@ -21,6 +21,18 @@ const SideBar = (props) => {
     getRoomData();
   }, []);
 
+  const getRecentChat = (e) => {
+    console.log(e);
+    if (e.tag && e.tag === "weight") {
+      return "체중을 입력했습니다";
+    } else if (e.tag && e.tag === "breakfast" || e.tag === "lunch" || e.tag === "dinner") {
+      return "식단을 입력했습니다";
+    } else if (e.tag && e.tag === "chat") {
+      return e.body.text;
+    }
+    return "";
+  }
+
   return (
     <MainContainer>
       <Header>회원 리스트</Header>
@@ -37,7 +49,7 @@ const SideBar = (props) => {
             breakfast={room.input_breakfast}
             lunch={room.input_lunch}
             dinner={room.input_dinner}
-
+            text={getRecentChat(room.recent_non_read_chats)}
           ></RoomCard>
         ))}
       </CardContainer>

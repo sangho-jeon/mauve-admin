@@ -20,7 +20,7 @@ const RoomCard = (props) => {
         </Right>
       </Top>
       <Bottom>
-        <Text>텍스트텍스트스트텍스트스트텍스트트텍스트스트텍스트트텍스트텍스트{props.text}</Text>
+        <Text>{props.text}</Text>
         <Waiting>13:38{props.wait}</Waiting>
       </Bottom>
     </Card>
