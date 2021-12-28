@@ -24,7 +24,7 @@ const Calendar = (prop) => {
 			end: "",
 		}}          
 		events = {isData(prop.data) &&
-      prop.data.body.periodRecord.map((period) => (
+      prop.data.periodRecord.map((period) => (
         {
           allDay: true,
           start: new Date(period.start),

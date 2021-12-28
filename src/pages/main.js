@@ -8,9 +8,11 @@ const roomService = new RoomService();
 
 const MainPage = () => {
   const [id, setId] = useState("");
+  const [userId, setUserId] = useState("");
 
-  const OnClick = (e) => {
-    setId(e.target.value);
+  const OnClick = (id, userId) => {
+    setId(id);
+    setUserId(userId);
   };
 
   ////////////////////////////////////////////////////////
@@ -18,7 +20,7 @@ const MainPage = () => {
   return (
     <MainLayOut>
       <SideBar click={OnClick} />
-      <ChatBlock id={id} />
+      <ChatBlock id={id} userId={userId} />
     </MainLayOut>
   );
 };
