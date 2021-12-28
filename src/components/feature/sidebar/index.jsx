@@ -36,6 +36,11 @@ const SideBar = (props) => {
             breakfast={room.breakfast ? true : false}
             lunch={room.lunch ? true : false}
             dinner={room.dinner ? true : false}
+            text={
+              room.recent_non_read_chats.tag === "chat"
+                ? room.recent_non_read_chats.body.text
+                : "이미지를 전송했습니다"
+            }
           ></RoomCard>
         ))}
       </CardContainer>
