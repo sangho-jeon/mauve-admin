@@ -4,24 +4,23 @@ export const Chatlayout = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30vw;
-  height: 50vw;
-  background-color: #cccccc;
-  box-shadow: 0px 5px 10px #00000015;
+  width: 31vw;
+  height: 53vw;
 `;
 
 export const ChatContainer = styled.div`
+  box-sizing: border-box;
   display: block;
   overflow-y: auto;
-  margin-top: 1vw;
-  width: 30vw;
-  height: 40vw;
+  width: 31vw;
+  height: 46vw;
+  padding: 1vw 0;
   background-color: white;
 `;
 
 export const ChatInput = styled.textarea`
-  width: 27vw;
-  height: 4vw;
+  width: 30vw;
+  height: 5vw;
   margin-top: 1vw;
   padding: 0.5vw;
   resize: none;

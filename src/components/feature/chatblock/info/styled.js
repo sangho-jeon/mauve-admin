@@ -6,9 +6,6 @@ export const InfoContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 40vw;
-  height: 50vw;
-  padding: 1vw;
-  box-shadow: 0px 5px 10px #00000015;
-  background-color: #cccccc;
+  width: 41vw;
+  height: 53vw;
 `;

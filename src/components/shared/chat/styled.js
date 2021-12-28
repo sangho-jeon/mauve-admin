@@ -24,11 +24,12 @@ export const Bubble = styled.div`
   ${({ sender }) =>
     sender !== true
       ? css`
-          margin-left: 2vw;
-          background-color: #c490e4;
+          margin-left: 1vw;
+          background-color: rgb(229, 229, 232);
+          color: black;
         `
       : css`
-          margin-right: 2vw;
-          background-color: #a6b1e1;
+          margin-right: 1vw;
+          background-color: rgb(52, 120, 246);
         `}
 `;
