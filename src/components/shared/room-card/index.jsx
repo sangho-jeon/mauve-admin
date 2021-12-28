@@ -21,7 +21,7 @@ const RoomCard = (props) => {
       </Top>
       <Bottom>
         <Text>{props.text}</Text>
-        <Waiting>13:38{props.wait}</Waiting>
+        <Waiting>{props.wait}</Waiting>
       </Bottom>
     </Card>
   );

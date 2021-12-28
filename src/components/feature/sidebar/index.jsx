@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { MainContainer, CardContainer, Header } from "./styled";
 import RoomCard from "../../shared/room-card";
 import RoomService from "../../../apis/rooms/room-service";
+import moment from "moment";
 
 const roomService = new RoomService();
 
@@ -33,6 +34,25 @@ const SideBar = (props) => {
     return "";
   }
 
+  const getWaitTime = (e) => {
+    const chatDateStr = e.created_at;
+    const chatDateT = chatDateStr.replace(" ", "T");
+    const chatDate = new Date(chatDateT);
+    chatDate.setHours(chatDate.getHours() + 9);
+
+    const nowDate = new Date(moment());
+    nowDate.setHours(nowDate.getHours() + 9);
+
+    const waitTime = (nowDate.getTime() - chatDate.getTime()) / 1000;
+
+    const waitHour = parseInt(waitTime/3600);
+    const waitMin = parseInt((waitTime-waitHour*3600)/60);
+    const waitSec = parseInt((waitTime-waitHour*3600-waitMin*60));
+
+
+    return waitHour + ":" + waitMin + ":" + waitSec;
+  }
+
   return (
     <MainContainer>
       <Header>회원 리스트</Header>
@@ -50,6 +70,7 @@ const SideBar = (props) => {
             lunch={room.input_lunch}
             dinner={room.input_dinner}
             text={getRecentChat(room.recent_non_read_chats)}
+            wait={getWaitTime(room.recent_non_read_chats)}
           ></RoomCard>
         ))}
       </CardContainer>
