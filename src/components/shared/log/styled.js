@@ -4,7 +4,7 @@ export const MainContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 38vw;
+  width: 41vw;
   min-height: 6.5vw;
   margin-bottom: 0.5vw;
   background-color: white;

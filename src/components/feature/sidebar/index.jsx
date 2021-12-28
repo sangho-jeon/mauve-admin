@@ -32,16 +32,13 @@ const SideBar = (props) => {
             userId={room.user._id}
             name={room.user.name}
             count={room.non_read_chats_num}
-            morning={room.morning_weight ? true : false}
-            night={room.night_weight ? true : false}
-            breakfast={room.breakfast ? true : false}
-            lunch={room.lunch ? true : false}
-            dinner={room.dinner ? true : false}
-            text={
-              room.recent_non_read_chats.tag === "chat"
-                ? room.recent_non_read_chats.body.text
-                : "이미지를 전송했습니다"
-            }
+            morning={room.input_morning_weight}
+            night={room.input_night_weight}
+            breakfast={room.input_breakfast}
+            lunch={room.input_lunch}
+            dinner={room.input_dinner}
+            text={room.recent_non_read_chats}
+            wait={room.recent_non_read_chats}
           ></RoomCard>
         ))}
       </CardContainer>

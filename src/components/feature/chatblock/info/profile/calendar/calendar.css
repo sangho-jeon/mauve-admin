@@ -14,17 +14,21 @@
   align-items: center;
 }
 
-.fc-button {
-  width: 0.5em;
-  height: 0.5em;
-}
-
 .fc-icon {
   visibility: hidden;
 }
 
 #fc-dom-2, #fc-dom-1 {
   font-size: 1vw;
+  margin: 0 0.7vw ! important;
+}
+
+.fe-prev-button, .fc-next.button, .fc-button, .fc-button-primary {
+  width: 1vw;
+  height: 1vw;
+  padding: 0 ! important;
+  margin: 0 ! important;
+  border-radius: 0.5vw ! important;
 }
 
 
@@ -59,4 +63,8 @@
 
 .fc-daygrid-day-top {
   height: 1.2vw;
+}
+
+.fc-scrollgrid-sync-table {
+  overflow: hidden;
 }
