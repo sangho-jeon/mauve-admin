@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Profile, Information, Item, Tag } from "./styled";
+import { Profile, Information, Item, Tag, Button } from "./styled";
+import Modal from "./questionnaire/index";
 import Calendar from "./calendar/calendar";
 import InfoService from "../../../../../apis/info/info-service";
-import dummy from './dummy.json';
 
 const infoService = new InfoService();
 
 const ProfileSection = (prop) => {
 	const [profile, setProfile] = useState([]);
+	const [showModal, setShowModal] = useState(false);
 
 	const getProfileData = async () => {
     try {
@@ -40,10 +41,16 @@ const ProfileSection = (prop) => {
 	const isData = (e) => {
     if (JSON.stringify(e) === "[]") {
       return false;
-    } else {
+    } else { 
       return true;
     }
-  }
+  };
+
+	const buttonClick = (e) => {
+		if (e != "") {
+			setShowModal(true);
+		}
+	};
 
 	return (
 		<Profile>
@@ -54,6 +61,12 @@ const ProfileSection = (prop) => {
 		<Item><Tag>신장:</Tag>{isData(profile) && profile.userInfo.height + "cm"}</Item>
 		<Item><Tag>체중:</Tag>{isData(profile) && profile.userInfo.weight + "kg"}</Item>
 		<Item><Tag>결제:</Tag>{isData(profile) && "D-" + getDay(profile.userInfo.next_payment_d_day)}</Item>
+		<Button onClick={() => buttonClick(prop.id)}>문진표</Button>
+		<Modal 
+			showModal={showModal} 
+			click={() => setShowModal(false)}
+			id={prop.id}
+		></Modal>
 		</Information>
 		<Calendar data={profile} />
 		</Profile>

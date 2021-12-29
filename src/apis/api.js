@@ -12,7 +12,8 @@ const apiUrl = {
   },
   info: {
     log: API_HOST + `/coach/user/log/`,
-    profile: API_HOST + `/coach/user/info/`
+    profile: API_HOST + `/coach/user/info/`,
+    questionnaire: API_HOST + `/questionnaire/`
   }
 };
 
