@@ -7,6 +7,7 @@ class InfoService {
     this.base = axios.create();
     this.logUrl = apiUrl.info.log;
     this.profileUrl = apiUrl.info.profile;
+    this.questionnaireUrl = apiUrl.info.questionnaire;
     this.accessToken = coachInfo.accessToken;
     this.refreshToken = coachInfo.refreshToken;
   }
@@ -54,6 +55,31 @@ class InfoService {
       return {
         isLogin: true,
         profile,
+      };
+
+    }
+    return null;
+  }
+
+  async getUserQuestionnaire(userId) {
+    if (this.accessToken !== null && this.refreshToken !== null) {
+      const url = this.questionnaireUrl + userId;
+      console.log(url);
+      const config = {
+        headers: {
+          Refresh: this.refreshToken,
+          Authorization: `Bearer ${this.accessToken}`,
+        },
+      };
+
+      const response = await this.base.get(url, config);
+      const result = await response.data;
+
+      const { body: questionnaire } = result;
+
+      return {
+        isLogin: true,
+        questionnaire,
       };
 
     }

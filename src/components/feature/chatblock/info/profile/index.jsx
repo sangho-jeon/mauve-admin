@@ -44,7 +44,13 @@ const ProfileSection = (prop) => {
     } else { 
       return true;
     }
-  }
+  };
+
+	const buttonClick = (e) => {
+		if (e != "") {
+			setShowModal(true);
+		}
+	};
 
 	return (
 		<Profile>
@@ -55,8 +61,12 @@ const ProfileSection = (prop) => {
 		<Item><Tag>신장:</Tag>{isData(profile) && profile.userInfo.height + "cm"}</Item>
 		<Item><Tag>체중:</Tag>{isData(profile) && profile.userInfo.weight + "kg"}</Item>
 		<Item><Tag>결제:</Tag>{isData(profile) && "D-" + getDay(profile.userInfo.next_payment_d_day)}</Item>
-		<Button onClick={() => setShowModal(true)}>문진표</Button>
-		<Modal showModal={showModal} click={() => setShowModal(false)}></Modal>
+		<Button onClick={() => buttonClick(prop.id)}>문진표</Button>
+		<Modal 
+			showModal={showModal} 
+			click={() => setShowModal(false)}
+			id={prop.id}
+		></Modal>
 		</Information>
 		<Calendar data={profile} />
 		</Profile>
