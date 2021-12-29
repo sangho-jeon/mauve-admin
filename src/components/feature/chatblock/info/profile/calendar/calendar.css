@@ -52,8 +52,19 @@
 
 
 /* 그리드 */
+.fc-scrollgrid-sync-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fc-daygrid-day-frame {
+  display: block;
+}
+
 .fc-col-header-cell-cushion {
   font-size: 0.7vw;
+  padding: 0 ! important;
 }
 
 .fc-daygrid-day-number {
