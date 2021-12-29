@@ -31,3 +31,16 @@ export const Tag = styled.div`
   font-size: 1.2vw;
   font-weight: bold;
 `;
+
+export const Button = styled.div`
+  width: 4vw;
+  height: 1.5vw;
+  margin-top: 1vw;
+  padding: 0.4vw;
+  border-radius: 0.5vw;
+  background-color: lightblue;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1vw;
+`;
