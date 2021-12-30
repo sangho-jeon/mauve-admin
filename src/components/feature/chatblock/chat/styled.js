@@ -14,7 +14,7 @@ export const ChatContainer = styled.div`
   overflow-y: auto;
   width: 31vw;
   height: 46vw;
-  padding: 1vw 0;
+  padding: 1vw;
   background-color: white;
 `;
 
@@ -25,8 +25,7 @@ export const ChatInput = styled.textarea`
   padding: 0.5vw;
   resize: none;
   border-color: gray;
-
-  border-radius: 10px;
-
+  border-radius: 0.7vw;
   box-shadow: 0px 5px 10px #00000015;
+  font-size: 1vw;
 `;
