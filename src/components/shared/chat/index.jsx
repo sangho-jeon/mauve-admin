@@ -1,5 +1,5 @@
 import React from "react";
-import { BubbleContainer, Bubble } from "./styled";
+import { BubbleContainer, Bubble, Image } from "./styled";
 const ChatBox = (prop) => {
   if (prop.tag === "chat") {
     return (
@@ -12,7 +12,7 @@ const ChatBox = (prop) => {
       <BubbleContainer>
         <Bubble>
           <a href={prop.src} target="blank">
-            <img src={prop.src} width="200" height="200"></img>
+            <Image src={prop.src}></Image>
           </a>
         </Bubble>
       </BubbleContainer>

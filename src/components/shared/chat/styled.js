@@ -17,9 +17,10 @@ export const BubbleContainer = styled.div`
 export const Bubble = styled.div`
   max-width: 75%;
   word-break: break-all;
-  padding: 8px 15px 8px 13px;
-  border-radius: 20px;
-  margin: 2px;
+  padding: 0.6vw 1vw;
+  border-radius: 1.4vw;
+  margin: 0.15vw;
+  font-size: 1.1vw;
 
   ${({ sender }) =>
     sender !== true
@@ -32,4 +33,13 @@ export const Bubble = styled.div`
           margin-right: 1vw;
           background-color: rgb(52, 120, 246);
         `}
+`;
+
+export const Image = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 14vw;
+  height: 14vw;
+  object-fit: cover;
 `;
