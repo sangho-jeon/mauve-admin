@@ -14,7 +14,7 @@ export const ChatContainer = styled.div`
   overflow-y: auto;
   width: 31vw;
   height: 46vw;
-  padding: 1vw 0;
+  padding: 1vw;
   background-color: white;
 `;
 
