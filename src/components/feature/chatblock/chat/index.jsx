@@ -109,7 +109,8 @@ const ChatSection = ({ id, socket }) => {
                 tag={chats.tag}
                 text={chats.body.text}
                 src={chats.body.location}
-                weight={chats.body}
+                time = {chats.created_at_time}
+                date = {chats.created_at_date}
                 sender={myId === chats.sender._id ? true : false}
               />
             )

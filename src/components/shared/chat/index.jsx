@@ -1,9 +1,14 @@
 import React from "react";
-import { BubbleContainer, Bubble } from "./styled";
+import { BubbleContainer, Bubble, Image, Time } from "./styled";
 const ChatBox = (prop) => {
+  const getDate = (e) => {
+    return e.substring(5, 7) + "/" + e.substring(8, 10);
+  }
+
   if (prop.tag === "chat") {
     return (
       <BubbleContainer sender={prop.sender}>
+        <Time>{getDate(prop.date) + " " + prop.time}</Time>
         <Bubble sender={prop.sender}>{prop.text}</Bubble>
       </BubbleContainer>
     );
@@ -18,9 +23,10 @@ const ChatBox = (prop) => {
   } else {
     return (
       <BubbleContainer>
+        <Time>{getDate(prop.date) + " " + prop.time}</Time>
         <Bubble>
           <a href={prop.src} target="blank">
-            <img src={prop.src} width="200" height="200"></img>
+            <Image src={prop.src}></Image>
           </a>
         </Bubble>
       </BubbleContainer>

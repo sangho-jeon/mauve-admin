@@ -17,11 +17,15 @@ import moment from "moment";
 const RoomCard = (props) => {
   const [waitingTime, setWaitingTime] = useState("");
 
-  const getWaitTime = (e) => {
-    if (JSON.stringify(e) === "{}") {
+  const getWaitTime = (recent, user) => {
+    if (JSON.stringify(recent) === "{}") {
       return;
     }
-    const chatDateStr = e.created_at;
+    if (recent.created_at != user) {
+      return;
+    }
+    // console.log("차이", recent.created_at, user);
+    const chatDateStr = user;
     const chatDateISO = chatDateStr.replace(" ", "T");
     const chatDate = new Date(chatDateISO);
     chatDate.setHours(chatDate.getHours() + 9);
@@ -38,11 +42,11 @@ const RoomCard = (props) => {
     setWaitingTime(waitHour + ":" + waitMin + ":" + waitSec);
   };
 
-  const repeat = setInterval(function () {
-    getWaitTime(props.wait);
+  const repeat = setInterval(function() {
+    getWaitTime(props.recentTime, props.userTime);
   }, 1000);
 
-  if (JSON.stringify(props.wait) === "{}") {
+  if (JSON.stringify(props.recentTime) === "{}") {
     clearInterval(repeat);
   }
 
