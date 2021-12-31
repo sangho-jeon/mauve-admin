@@ -14,7 +14,7 @@ const ChatBlock = ({ id, userId }) => {
   //이 부분에서 socket이랑 연결한 후에 prop으로 소켓을 넘겨줘야 리렌더링이 발생하지 않는다.
   useEffect(() => {
     async function socketConnection() {
-      const socket = await io("https://api-test.mauve.care", {
+      const socket = await io("https://api-test.mauve.care/chat", {
         transports: ["websocket"],
 
         auth: {
@@ -22,6 +22,7 @@ const ChatBlock = ({ id, userId }) => {
           Refresh: `${coachInfo.refreshToken}`,
         },
       });
+      socket.connect();
       setSocket(socket);
     }
     socketConnection();

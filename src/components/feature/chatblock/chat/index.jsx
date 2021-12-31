@@ -31,7 +31,11 @@ const ChatSection = ({ id, socket }) => {
     //초기 기존 채팅 받아오는 부분.
     try {
       const { chat } = await chatService.getChatByRoomId(id);
-      socket.emit("join", id);
+      socket.emit("room-join", { roomId: id }, (error) => {
+        if (error) {
+          console.log(error);
+        }
+      });
       setChatMonitor(chat.reverse());
       console.log(chatMonitor);
       console.log(socket);
@@ -43,6 +47,7 @@ const ChatSection = ({ id, socket }) => {
   const sendChat = async (text) => {
     try {
       const { chat } = await chatService.postChat(id, text);
+      console.log(socket);
       setChatMonitor([...chatMonitor, chat]);
       setInputMessage("");
     } catch (error) {
@@ -56,13 +61,14 @@ const ChatSection = ({ id, socket }) => {
   }, [id]);
 
   useEffect(() => {
-    if (socket) {
-      socket.on("chat", (data) => {
-        setRecentChat(data);
-        updateChat(data);
-      });
-    }
-  });
+    console.log("chchchchchc");
+    socket.on("chat", (data) => {
+      console.log("chat 들어온다");
+
+      setRecentChat(data);
+      updateChat(data);
+    });
+  }, []);
 
   const updateChat = (data) => {
     recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
@@ -101,6 +107,7 @@ const ChatSection = ({ id, socket }) => {
   return (
     <Chatlayout>
       <ChatContainer ref={messagesRef}>
+        {/* <ChatContainer> */}
         {/* chatSection {myId} */}
         {chatMonitor.map(
           (chats) =>
@@ -109,6 +116,7 @@ const ChatSection = ({ id, socket }) => {
                 tag={chats.tag}
                 text={chats.body.text}
                 src={chats.body.location}
+                weight={chats.body}
                 time={chats.created_at_time}
                 date={chats.created_at_date}
                 sender={myId === chats.sender._id ? true : false}

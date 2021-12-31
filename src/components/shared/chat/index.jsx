@@ -16,7 +16,7 @@ const ChatBox = (prop) => {
     return (
       <BubbleContainer sender={prop.sender}>
         <Bubble sender={prop.sender}>
-          {/* {prop.weight.time}: {prop.weight.kilograms}kg */}
+          {prop.weight.time}: {prop.weight.kilograms}kg
         </Bubble>
       </BubbleContainer>
     );
