@@ -1,8 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
-import { ChatContainer, ChatInput, Chatlayout } from "./styled";
+import {
+  ChatContainer,
+  ChatInput,
+  ChatInputContainer,
+  Chatlayout,
+  ImageButton,
+  ImageIcon,
+} from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
 import { coachInfo } from "../../../../utils/coachInfo";
+import { AiFillCamera } from "react-icons/ai";
 
 const chatService = new ChatService();
 
@@ -72,9 +80,12 @@ const ChatSection = ({ id, socket }) => {
     setInputMessage(e.target.value);
   };
 
+  const handleImage = () => {
+    console.log("image");
+  };
+
   const handleEnter = (e) => {
     if (e.key === "Enter" && inputMessage !== "\n") {
-      console.log("눌렸다잉");
       sendChat(inputMessage);
       setInputMessage("");
     } else if (e.key === "Enter" && inputMessage === "\n") {
@@ -98,20 +109,26 @@ const ChatSection = ({ id, socket }) => {
                 tag={chats.tag}
                 text={chats.body.text}
                 src={chats.body.location}
+                weight={chats.body}
                 sender={myId === chats.sender._id ? true : false}
               />
             )
         )}
       </ChatContainer>
-      <ChatInput
-        type="textarea"
-        cols="40"
-        rows="5"
-        placeholder="내용을 입력해주세요"
-        onChange={handleInput}
-        onKeyUp={handleEnter}
-        value={inputMessage}
-      ></ChatInput>
+      <ChatInputContainer>
+        <ChatInput
+          type="textarea"
+          cols="40"
+          rows="5"
+          placeholder="내용을 입력해주세요"
+          onChange={handleInput}
+          onKeyUp={handleEnter}
+          value={inputMessage}
+        ></ChatInput>
+        <div>
+          <ImageButton type="file" accept="image/*" onClick={handleImage} />
+        </div>
+      </ChatInputContainer>
     </Chatlayout>
   );
 };

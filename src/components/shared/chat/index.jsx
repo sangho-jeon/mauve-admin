@@ -7,6 +7,14 @@ const ChatBox = (prop) => {
         <Bubble sender={prop.sender}>{prop.text}</Bubble>
       </BubbleContainer>
     );
+  } else if (prop.tag === "weight") {
+    return (
+      <BubbleContainer sender={prop.sender}>
+        <Bubble sender={prop.sender}>
+          {prop.weight.time}: {prop.weight.kilograms}kg
+        </Bubble>
+      </BubbleContainer>
+    );
   } else {
     return (
       <BubbleContainer>
