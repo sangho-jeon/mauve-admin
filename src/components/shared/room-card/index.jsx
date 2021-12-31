@@ -24,7 +24,7 @@ const RoomCard = (props) => {
     if (recent.created_at != user) {
       return;
     }
-    // console.log("차이", recent.created_at, user);
+    console.log("차이", recent.created_at, user);
     const chatDateStr = user;
     const chatDateISO = chatDateStr.replace(" ", "T");
     const chatDate = new Date(chatDateISO);
@@ -42,7 +42,7 @@ const RoomCard = (props) => {
     setWaitingTime(waitHour + ":" + waitMin + ":" + waitSec);
   };
 
-  const repeat = setInterval(function() {
+  const repeat = setInterval(function () {
     getWaitTime(props.recentTime, props.userTime);
   }, 1000);
 
@@ -51,6 +51,7 @@ const RoomCard = (props) => {
   }
 
   const getRecentChat = (e) => {
+    console.log(e);
     if (e.tag) {
       if (e.tag === "weight") {
         return "체중을 입력했습니다";

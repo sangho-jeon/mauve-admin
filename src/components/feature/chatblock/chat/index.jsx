@@ -62,7 +62,7 @@ const ChatSection = ({ id, socket }) => {
         updateChat(data);
       });
     }
-  }, []);
+  });
 
   const updateChat = (data) => {
     recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
@@ -70,10 +70,10 @@ const ChatSection = ({ id, socket }) => {
     setRecentChat(null);
   };
 
-  // useEffect(() => {
-  //   recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
-  //   setRecentChat(undefined);
-  // }, [recentChat]);
+  useEffect(() => {
+    recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
+    setRecentChat(undefined);
+  }, [recentChat]);
 
   ///////////////////////////////// 인풋 처리 부분
   const handleInput = (e) => {
@@ -109,8 +109,8 @@ const ChatSection = ({ id, socket }) => {
                 tag={chats.tag}
                 text={chats.body.text}
                 src={chats.body.location}
-                time = {chats.created_at_time}
-                date = {chats.created_at_date}
+                time={chats.created_at_time}
+                date={chats.created_at_date}
                 sender={myId === chats.sender._id ? true : false}
               />
             )

@@ -3,7 +3,7 @@ import { BubbleContainer, Bubble, Image, Time } from "./styled";
 const ChatBox = (prop) => {
   const getDate = (e) => {
     return e.substring(5, 7) + "/" + e.substring(8, 10);
-  }
+  };
 
   if (prop.tag === "chat") {
     return (
@@ -16,7 +16,7 @@ const ChatBox = (prop) => {
     return (
       <BubbleContainer sender={prop.sender}>
         <Bubble sender={prop.sender}>
-          {prop.weight.time}: {prop.weight.kilograms}kg
+          {/* {prop.weight.time}: {prop.weight.kilograms}kg */}
         </Bubble>
       </BubbleContainer>
     );
