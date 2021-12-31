@@ -16,7 +16,7 @@ class ChatService {
     if (this.accessToken !== null && this.refreshToken !== null) {
       const date = moment().tz("Asia/Seoul").format("YYYY-MM-DDTHH:59");
       const yesterday = moment()
-        .subtract(1, "day")
+        .subtract(2, "day")
         .tz("Asia/Seoul")
         .format("YYYY-MM-DDTHH:59");
       const url = this.chatUrl + room + "?from=" + yesterday + "&to=" + date;
@@ -67,6 +67,35 @@ class ChatService {
     }
     return null;
   }
+
+  async postChat(sendroom, text) {
+    if (this.accessToken !== null && this.refreshToken !== null) {
+      const url = this.chatUrl + sendroom;
+      console.log(url);
+      const config = {
+        headers: {
+          Refresh: this.refreshToken,
+          Authorization: `Bearer ${this.accessToken}`,
+        },
+      };
+      const body = {
+        chat: text,
+      };
+
+      const response = await this.base.post(url, body, config);
+      const result = await response.data;
+
+      const { body: chat } = result;
+      console.log(chat);
+      return {
+        chat,
+      };
+    }
+    return null;
+  }
+
+
+
 }
 
 export default ChatService;

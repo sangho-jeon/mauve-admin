@@ -1,9 +1,20 @@
-import React, {useState} from "react";
-import { Card, Name, Text, Count, Waiting, Left, Right, Top, Bottom, Weight, Diet } from "./styled";
+import React, { useState } from "react";
+import {
+  Card,
+  Name,
+  Text,
+  Count,
+  Waiting,
+  Left,
+  Right,
+  Top,
+  Bottom,
+  Weight,
+  Diet,
+} from "./styled";
 import moment from "moment";
 
 const RoomCard = (props) => {
-
   const [waitingTime, setWaitingTime] = useState("");
 
   const getWaitTime = (recent, time) => {
@@ -24,14 +35,14 @@ const RoomCard = (props) => {
 
     const waitTime = (nowDate.getTime() - chatDate.getTime()) / 1000;
 
-    const waitHour = parseInt(waitTime/3600);
-    const waitMin = parseInt((waitTime-waitHour*3600)/60);
-    const waitSec = parseInt((waitTime-waitHour*3600-waitMin*60));
+    const waitHour = parseInt(waitTime / 3600);
+    const waitMin = parseInt((waitTime - waitHour * 3600) / 60);
+    const waitSec = parseInt(waitTime - waitHour * 3600 - waitMin * 60);
 
     setWaitingTime(waitHour + ":" + waitMin + ":" + waitSec);
-  }
+  };
 
-  const repeat = setInterval(function() {
+  const repeat = setInterval(function () {
     getWaitTime(props.recentChat, props.userChatTime);
   }, 1000);
 
@@ -40,21 +51,29 @@ const RoomCard = (props) => {
   }
 
   const getRecentChat = (e) => {
+    console.log(e);
     if (e.tag) {
       if (e.tag === "weight") {
         return "체중을 입력했습니다";
-      } else if (e.tag === "breakfast" || e.tag === "lunch" || e.tag === "dinner") {
+      } else if (
+        e.tag === "breakfast" ||
+        e.tag === "lunch" ||
+        e.tag === "dinner"
+      ) {
         return "식단을 입력했습니다";
       } else if (e.tag === "chat") {
         return e.body.text;
       }
     }
     return "";
-  }
-
+  };
 
   return (
-    <Card onClick={() => {props.click(props.id, props.userId)}}>
+    <Card
+      onClick={() => {
+        props.click(props.id, props.userId);
+      }}
+    >
       <Top>
         <Left>
           <Name>{props.name}</Name>
@@ -63,7 +82,7 @@ const RoomCard = (props) => {
         <Right>
           체중
           <Weight sender={props.morning} />
-          <Weight sender={props.night} />    
+          <Weight sender={props.night} />
           식단
           <Diet sender={props.breakfast} />
           <Diet sender={props.lunch} />

@@ -1,8 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
-import { ChatContainer, ChatInput, Chatlayout } from "./styled";
+import {
+  ChatContainer,
+  ChatInput,
+  ChatInputContainer,
+  Chatlayout,
+  ImageButton,
+  ImageIcon,
+} from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
 import { coachInfo } from "../../../../utils/coachInfo";
+import { AiFillCamera } from "react-icons/ai";
 
 const chatService = new ChatService();
 
@@ -23,7 +31,11 @@ const ChatSection = ({ id, socket }) => {
     //초기 기존 채팅 받아오는 부분.
     try {
       const { chat } = await chatService.getChatByRoomId(id);
-      socket.emit("join", id);
+      socket.emit("room-join", { roomId: id }, (error) => {
+        if (error) {
+          console.log(error);
+        }
+      });
       setChatMonitor(chat.reverse());
       console.log(chatMonitor);
       console.log(socket);
@@ -35,6 +47,7 @@ const ChatSection = ({ id, socket }) => {
   const sendChat = async (text) => {
     try {
       const { chat } = await chatService.postChat(id, text);
+      console.log(socket);
       setChatMonitor([...chatMonitor, chat]);
       setInputMessage("");
     } catch (error) {
@@ -48,12 +61,13 @@ const ChatSection = ({ id, socket }) => {
   }, [id]);
 
   useEffect(() => {
-    if (socket) {
-      socket.on("chat", (data) => {
-        setRecentChat(data);
-        updateChat(data);
-      });
-    }
+    console.log("chchchchchc");
+    socket.on("chat", (data) => {
+      console.log("chat 들어온다");
+
+      setRecentChat(data);
+      updateChat(data);
+    });
   }, []);
 
   const updateChat = (data) => {
@@ -62,19 +76,22 @@ const ChatSection = ({ id, socket }) => {
     setRecentChat(null);
   };
 
-  // useEffect(() => {
-  //   recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
-  //   setRecentChat(undefined);
-  // }, [recentChat]);
+  useEffect(() => {
+    recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
+    setRecentChat(undefined);
+  }, [recentChat]);
 
   ///////////////////////////////// 인풋 처리 부분
   const handleInput = (e) => {
     setInputMessage(e.target.value);
   };
 
+  const handleImage = () => {
+    console.log("image");
+  };
+
   const handleEnter = (e) => {
     if (e.key === "Enter" && inputMessage !== "\n") {
-      console.log("눌렸다잉");
       sendChat(inputMessage);
       setInputMessage("");
     } else if (e.key === "Enter" && inputMessage === "\n") {
@@ -90,6 +107,7 @@ const ChatSection = ({ id, socket }) => {
   return (
     <Chatlayout>
       <ChatContainer ref={messagesRef}>
+        {/* <ChatContainer> */}
         {/* chatSection {myId} */}
         {chatMonitor.map(
           (chats) =>
@@ -98,22 +116,28 @@ const ChatSection = ({ id, socket }) => {
                 tag={chats.tag}
                 text={chats.body.text}
                 src={chats.body.location}
-                time = {chats.created_at_time}
-                date = {chats.created_at_date}
+                weight={chats.body}
+                time={chats.created_at_time}
+                date={chats.created_at_date}
                 sender={myId === chats.sender._id ? true : false}
               />
             )
         )}
       </ChatContainer>
-      <ChatInput
-        type="textarea"
-        cols="40"
-        rows="5"
-        placeholder="내용을 입력해주세요"
-        onChange={handleInput}
-        onKeyUp={handleEnter}
-        value={inputMessage}
-      ></ChatInput>
+      <ChatInputContainer>
+        <ChatInput
+          type="textarea"
+          cols="40"
+          rows="5"
+          placeholder="내용을 입력해주세요"
+          onChange={handleInput}
+          onKeyUp={handleEnter}
+          value={inputMessage}
+        ></ChatInput>
+        <div>
+          <ImageButton type="file" accept="image/*" onClick={handleImage} />
+        </div>
+      </ChatInputContainer>
     </Chatlayout>
   );
 };

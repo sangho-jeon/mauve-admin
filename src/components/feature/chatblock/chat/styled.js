@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AiFillCamera } from "react-icons/ai";
 
 export const Chatlayout = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ export const ChatContainer = styled.div`
 `;
 
 export const ChatInput = styled.textarea`
-  width: 30vw;
+  width: 27vw;
   height: 5vw;
   margin-top: 1vw;
   padding: 0.5vw;
@@ -28,4 +29,28 @@ export const ChatInput = styled.textarea`
   border-radius: 0.7vw;
   box-shadow: 0px 5px 10px #00000015;
   font-size: 1vw;
+`;
+
+export const ChatInputContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const ImageButton = styled.input`
+  width: 1.5vw;
+  height: 1.5vw;
+  padding-left: 0vw;
+  margin-left: 0.5vw;
+  background-color: transparent;
+
+  border: none;
+  cursor: pointer;
+`;
+
+export const ImageIcon = styled(AiFillCamera)`
+  width: 1.5vw;
+  height: 1.5vw;
+  padding-right: 0.2vw;
+  color: rgb(52, 120, 246);
+  pointer: cursor:
 `;
