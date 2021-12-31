@@ -37,9 +37,8 @@ const SideBar = (props) => {
             breakfast={room.input_breakfast}
             lunch={room.input_lunch}
             dinner={room.input_dinner}
-            text={room.recent_non_read_chats}
-            recentTime={room.recent_non_read_chats}
-            userTime={room.recent_time_user_send_chat}
+            recentChat={room.recent_chat}
+            userChatTime={room.recent_time_user_send_chat}
           ></RoomCard>
         ))}
       </CardContainer>
