@@ -13,7 +13,8 @@ const apiUrl = {
   info: {
     log: API_HOST + `/coach/user/log/`,
     profile: API_HOST + `/coach/user/info/`,
-    questionnaire: API_HOST + `/questionnaire/`
+    questionnaire: API_HOST + `/questionnaire/`,
+    note: API_HOST + `/coach/note/`
   }
 };
 

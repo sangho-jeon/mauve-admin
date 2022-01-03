@@ -47,7 +47,7 @@ const ProfileSection = (prop) => {
   };
 
 	const buttonClick = (e) => {
-		if (e != "") {
+		if (e !== "") {
 			setShowModal(true);
 		}
 	};

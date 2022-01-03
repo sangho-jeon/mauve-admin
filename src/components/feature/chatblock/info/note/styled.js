@@ -10,8 +10,24 @@ export const Note = styled.div`
 `;
 
 export const Title = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1.3vw;
   font-weight: bold;
+`;
+
+export const Button = styled.div`
+  box-sizing: border-box;
+  width: 3vw;
+  height: 1.8vw;
+  background-color: lightgray;
+  padding: 0.3vw;
+  border-radius: 0.2vw;
+  text-align: center;
+  font-size: 1vw;
+  font-weight: normal;
+  cursor: pointer;
 `;
 
 export const NoteInput = styled.textarea`
