@@ -23,9 +23,9 @@ const ChatBox = (prop) => {
     );
   } else {
     return (
-      <BubbleContainer>
+      <BubbleContainer sender={prop.sender}>
         <Time>{getDate(prop.date) + " " + prop.time}</Time>
-        <Bubble>
+        <Bubble sender={prop.sender}>
           <a href={prop.src} target="blank">
             <Image src={prop.src}></Image>
           </a>

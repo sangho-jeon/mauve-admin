@@ -60,8 +60,9 @@ const RoomCard = (props) => {
         e.tag === "snack"
       ) {
         return "식단을 입력했습니다";
-      } else if (e.tag === "chat") {
+      } else if (e.tag === "chat" && e.body.text) {
         return e.body.text;
+        // return;
       }
     }
     return "";

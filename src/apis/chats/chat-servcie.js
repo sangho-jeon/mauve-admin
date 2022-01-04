@@ -68,21 +68,23 @@ class ChatService {
     return null;
   }
 
-  async postChat(sendroom, text) {
+  async postMedia(sendroom, file) {
     if (this.accessToken !== null && this.refreshToken !== null) {
-      const url = this.chatUrl + sendroom;
+      const url = this.chatUrl + sendroom + "/media/lunch";
       console.log(url);
       const config = {
         headers: {
           Refresh: this.refreshToken,
           Authorization: `Bearer ${this.accessToken}`,
+          "Content-Type": "multipart/form-data",
         },
       };
-      const body = {
-        chat: text,
-      };
 
-      const response = await this.base.post(url, body, config);
+      // const body = {
+      //   media_file: file,
+      // };
+
+      const response = await this.base.post(url, file, config);
       const result = await response.data;
 
       const { body: chat } = result;
@@ -93,9 +95,6 @@ class ChatService {
     }
     return null;
   }
-
-
-
 }
 
 export default ChatService;

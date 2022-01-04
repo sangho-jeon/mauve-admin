@@ -42,7 +42,6 @@ export const ImageButton = styled.input`
   padding-left: 0vw;
   margin-left: 0.5vw;
   background-color: transparent;
-
   border: none;
   cursor: pointer;
 `;
@@ -50,7 +49,7 @@ export const ImageButton = styled.input`
 export const ImageIcon = styled(AiFillCamera)`
   width: 1.5vw;
   height: 1.5vw;
-  padding-right: 0.2vw;
+  padding-left: 0.3vw;
   color: rgb(52, 120, 246);
-  pointer: cursor:
+  cursor: pointer;
 `;
