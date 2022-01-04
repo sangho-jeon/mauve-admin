@@ -27,6 +27,26 @@ const ChatSection = ({ id, socket }) => {
   // 나머지 하나는 서버에서 받은 갱신된(새로 추가된) 내용을 받는 상태값이다.
   const [recentChat, setRecentChat] = useState();
 
+  useEffect(() => {
+    // 각 룸 페이지에 들어갈때
+    getChat();
+  }, [id]);
+
+  useEffect(() => {
+    console.log("chchchchchc");
+    socket.on("chat", (data) => {
+      console.log("chat 들어온다");
+
+      setRecentChat(data);
+      updateChat(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
+    setRecentChat(undefined);
+  }, [recentChat]);
+
   const getChat = async () => {
     //초기 기존 채팅 받아오는 부분.
     try {
@@ -55,39 +75,28 @@ const ChatSection = ({ id, socket }) => {
     }
   };
 
-  useEffect(() => {
-    // 각 룸 페이지에 들어갈때
-    getChat();
-  }, [id]);
-
-  useEffect(() => {
-    console.log("chchchchchc");
-    socket.on("chat", (data) => {
-      console.log("chat 들어온다");
-
-      setRecentChat(data);
-      updateChat(data);
-    });
-  }, []);
-
   const updateChat = (data) => {
     recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
     console.log(chatMonitor);
     setRecentChat(null);
   };
 
-  useEffect(() => {
-    recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
-    setRecentChat(undefined);
-  }, [recentChat]);
+  const fileClear = useRef();
 
   ///////////////////////////////// 인풋 처리 부분
   const handleInput = (e) => {
     setInputMessage(e.target.value);
   };
 
-  const handleImage = () => {
+  const handleImage = async (e) => {
     console.log("image");
+    const formData = new FormData();
+    formData.append("media_file", e.target.files[0]);
+    try {
+      await chatService.postMedia(id, formData);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleEnter = (e) => {
@@ -135,7 +144,17 @@ const ChatSection = ({ id, socket }) => {
           value={inputMessage}
         ></ChatInput>
         <div>
-          <ImageButton type="file" accept="image/*" onClick={handleImage} />
+          <label for="file-input">
+            <ImageIcon />
+          </label>
+          <input
+            type="file"
+            id="file-input"
+            accept="image/*"
+            onChange={handleImage}
+            ref={fileClear}
+            style={{ display: "none" }}
+          />
         </div>
       </ChatInputContainer>
     </Chatlayout>

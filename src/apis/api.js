@@ -8,14 +8,14 @@ const apiUrl = {
   chat: {
     room: API_HOST + `/room?limit=20&offset=0`,
     chat: API_HOST + `/chat/`,
-    postchat: ``,
+    media: `/chat/`,
   },
   info: {
     log: API_HOST + `/coach/user/log/`,
     profile: API_HOST + `/coach/user/info/`,
     questionnaire: API_HOST + `/questionnaire/`,
-    note: API_HOST + `/coach/note/`
-  }
+    note: API_HOST + `/coach/note/`,
+  },
 };
 
 export default apiUrl;
