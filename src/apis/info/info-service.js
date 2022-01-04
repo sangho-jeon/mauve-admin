@@ -103,10 +103,7 @@ class InfoService {
 
       const { body: note } = result;
 
-      return {
-        isLogin: true,
-        note,
-      };
+      return note.note;
 
     }
     return null;
