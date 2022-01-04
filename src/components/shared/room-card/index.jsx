@@ -24,7 +24,6 @@ const RoomCard = (props) => {
     if (recent.sender_role === "coach") {
       return;
     }
-    // console.log("차이", recent.created_at, user);
     const chatDateStr = time;
     const chatDateISO = chatDateStr.replace(" ", "T");
     const chatDate = new Date(chatDateISO);
@@ -51,14 +50,14 @@ const RoomCard = (props) => {
   }
 
   const getRecentChat = (e) => {
-    console.log(e);
     if (e.tag) {
       if (e.tag === "weight") {
         return "체중을 입력했습니다";
       } else if (
         e.tag === "breakfast" ||
         e.tag === "lunch" ||
-        e.tag === "dinner"
+        e.tag === "dinner" ||
+        e.tag === "snack"
       ) {
         return "식단을 입력했습니다";
       } else if (e.tag === "chat") {
