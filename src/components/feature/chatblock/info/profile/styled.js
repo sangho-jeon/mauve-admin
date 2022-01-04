@@ -33,12 +33,12 @@ export const Tag = styled.div`
 `;
 
 export const Button = styled.div`
-  width: 4vw;
+  width: 3.5vw;
   height: 1.5vw;
   margin-top: 1vw;
   padding: 0.4vw;
   border-radius: 0.5vw;
-  background-color: lightblue;
+  border: 0.2vw solid gray;
   cursor: pointer;
   text-align: center;
   font-weight: bold;
