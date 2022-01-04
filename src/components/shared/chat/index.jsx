@@ -15,6 +15,7 @@ const ChatBox = (prop) => {
   } else if (prop.tag === "weight") {
     return (
       <BubbleContainer sender={prop.sender}>
+        <Time>{getDate(prop.date) + " " + prop.time}</Time>
         <Bubble sender={prop.sender}>
           {prop.weight.time}: {prop.weight.kilograms}kg
         </Bubble>
