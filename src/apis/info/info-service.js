@@ -8,6 +8,7 @@ class InfoService {
     this.logUrl = apiUrl.info.log;
     this.profileUrl = apiUrl.info.profile;
     this.questionnaireUrl = apiUrl.info.questionnaire;
+    this.noteUrl = apiUrl.info.note;
     this.accessToken = coachInfo.accessToken;
     this.refreshToken = coachInfo.refreshToken;
   }
@@ -84,6 +85,49 @@ class InfoService {
 
     }
     return null;
+  }
+
+  async getUserNote(userId) {
+    if (this.accessToken !== null && this.refreshToken !== null) {
+      const url = this.noteUrl + userId;
+      console.log(url);
+      const config = {
+        headers: {
+          Refresh: this.refreshToken,
+          Authorization: `Bearer ${this.accessToken}`,
+        },
+      };
+
+      const response = await this.base.get(url, config);
+      const result = await response.data;
+
+      const { body: note } = result;
+
+      return note.note;
+
+    }
+    return null;
+  }
+
+  async updateUserNote(userId, text) {
+    if (this.accessToken !== null && this.refreshToken !== null) {
+      const url = this.noteUrl + userId;
+      console.log(url);
+      const config = {
+        headers: {
+          Refresh: this.refreshToken,
+          Authorization: `Bearer ${this.accessToken}`,
+        },
+      };
+
+      const response = await this.base.put(url, {note: text}, config);
+      const result = await response.data;
+
+      const statusCode = result.statusCode;
+
+      return statusCode === 200;
+    }
+    return false;
   }
 
 }

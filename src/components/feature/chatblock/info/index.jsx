@@ -10,7 +10,7 @@ const InfoSection = ({ id }) => {
     <InfoContainer>
       <ProfileSection id={id} />
       <LogSection id={id} />
-      <NoteSection />
+      <NoteSection id={id} />
     </InfoContainer>
   );
 };
