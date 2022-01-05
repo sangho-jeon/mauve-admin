@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   Card,
   Name,
@@ -14,19 +14,39 @@ import {
 } from "./styled";
 import moment from "moment";
 
+const useInterval = (callback, delay) => {
+  const savedCallback = useRef();
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+};
+
 const RoomCard = (props) => {
   const [waitingTime, setWaitingTime] = useState("");
+  
+  useInterval(() => {
+    getWaitTime(props.recentChat, props.userChatTime);
+  }, 1000);
 
   const getWaitTime = (recent, time) => {
-    if (JSON.stringify(recent) === "{}") {
+    if (JSON.stringify(recent) === "{}" || recent.sender_role === "coach") {
+      setWaitingTime("");
       return;
     }
-    if (recent.sender_role === "coach") {
-      return;
-    }
-    const chatDateStr = time;
-    const chatDateISO = chatDateStr.replace(" ", "T");
-    const chatDate = new Date(chatDateISO);
+    const chatDate = new Date(time.replace(" ", "T"));
     chatDate.setHours(chatDate.getHours() + 9);
 
     const nowDate = new Date(moment());
@@ -37,17 +57,9 @@ const RoomCard = (props) => {
     const waitHour = parseInt(waitTime / 3600);
     const waitMin = parseInt((waitTime - waitHour * 3600) / 60);
     const waitSec = parseInt(waitTime - waitHour * 3600 - waitMin * 60);
-
+    
     setWaitingTime(waitHour + ":" + waitMin + ":" + waitSec);
   };
-
-  const repeat = setInterval(function () {
-    getWaitTime(props.recentChat, props.userChatTime);
-  }, 1000);
-
-  if (JSON.stringify(props.recentChat) === "{}") {
-    clearInterval(repeat);
-  }
 
   const getRecentChat = (e) => {
     if (e.tag) {
@@ -62,7 +74,6 @@ const RoomCard = (props) => {
         return "식단을 입력했습니다";
       } else if (e.tag === "chat" && e.body.text) {
         return e.body.text;
-        // return;
       }
     }
     return "";
