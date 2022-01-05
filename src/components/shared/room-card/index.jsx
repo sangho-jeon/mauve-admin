@@ -74,6 +74,8 @@ const RoomCard = (props) => {
         return "식단을 입력했습니다";
       } else if (e.tag === "chat" && e.body.text) {
         return e.body.text;
+      } else if (e.tag === "picture") {
+        return "사진";
       }
     }
     return "";
