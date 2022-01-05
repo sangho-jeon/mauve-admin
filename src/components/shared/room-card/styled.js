@@ -81,7 +81,7 @@ export const Bottom = styled.div`
 `;
 
 export const Name = styled.div`
-  margin-right: 1vw;
+  margin-right: 0.8vw;
   font-size: 1.5vw;
   font-weight: bold;
   text-overflow: ellipsis;
@@ -100,12 +100,9 @@ export const Count = styled.div`
   justify-content: center;
   align-items: center;
   float: right;
-  width: 1.8vw;
-  height: 1.8vw;
-  border-radius: 0.9vw;
   font-weight: bold;
-  background-color: red;
-  color: white;
+  font-size: 1.2vw;
+  color: red;
 `;
 
 export const Waiting = styled.div`

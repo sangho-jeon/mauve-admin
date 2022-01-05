@@ -42,10 +42,10 @@ const RoomCard = (props) => {
   }, 1000);
 
   const getWaitTime = (recent, time) => {
-    if (JSON.stringify(recent) === "{}" || recent.sender_role === "coach") {
+    if (!recent || recent.sender_role === "coach") {
       setWaitingTime("");
       return;
-    }
+    } 
     const chatDate = new Date(time.replace(" ", "T"));
     chatDate.setHours(chatDate.getHours() + 9);
 
@@ -62,7 +62,7 @@ const RoomCard = (props) => {
   };
 
   const getRecentChat = (e) => {
-    if (e.tag) {
+    if (e) {
       if (e.tag === "weight") {
         return "체중을 입력했습니다";
       } else if (
