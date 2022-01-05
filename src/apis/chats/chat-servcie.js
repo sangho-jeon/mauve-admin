@@ -70,7 +70,7 @@ class ChatService {
 
   async postMedia(sendroom, file) {
     if (this.accessToken !== null && this.refreshToken !== null) {
-      const url = this.chatUrl + sendroom + "/media/lunch";
+      const url = this.chatUrl + sendroom + "/media/picture";
       console.log(url);
       const config = {
         headers: {
