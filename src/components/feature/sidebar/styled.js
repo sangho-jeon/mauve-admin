@@ -10,6 +10,9 @@ export const MainContainer = styled.div`
 `;
 
 export const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  width: 20vw;
   margin: 2vw 0 1vw;
   font-size: 2vw;
   font-weight: bold;
@@ -19,4 +22,10 @@ export const Header = styled.header`
 export const CardContainer = styled.div`
   height: 45vw;
   overflow-y: scroll;
+`;
+
+export const Refresh = styled.img`
+  width: 2vw;
+  height: 2vw;
+  cursor: pointer;
 `;

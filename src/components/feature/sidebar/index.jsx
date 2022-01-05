@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MainContainer, CardContainer, Header } from "./styled";
+import { MainContainer, CardContainer, Header, Refresh } from "./styled";
 import RoomCard from "../../shared/room-card";
 import RoomService from "../../../apis/rooms/room-service";
 
@@ -17,13 +17,17 @@ const SideBar = (props) => {
     }
   };
 
+  const buttonClick = () => {
+    getRoomData();
+	};
+
   useEffect(() => {
     getRoomData();
   }, []);
 
   return (
     <MainContainer>
-      <Header>회원 리스트</Header>
+      <Header>회원 리스트<Refresh src={"https://cdn-icons-png.flaticon.com/512/93/93641.png"}  onClick={() => buttonClick()}></Refresh></Header>
       <CardContainer>
         {roomList.map((room) => (
           <RoomCard
