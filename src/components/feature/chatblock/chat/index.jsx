@@ -124,6 +124,7 @@ const ChatSection = ({ id, socket }) => {
                 tag={chats.tag}
                 text={chats.body.text}
                 src={chats.body.location}
+                thumbnail={chats.body.thumbnail + "&w=250&h=250"}
                 weight={chats.body}
                 time={chats.created_at_time}
                 date={chats.created_at_date}
