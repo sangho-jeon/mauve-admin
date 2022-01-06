@@ -32,7 +32,7 @@ const LogSection = (prop) => {
 
   const getMenu = (e) => {
     if (e) {
-      return e.body.location;
+      return e.body.thumbnail + "&w=120&h=120";
     }
   };
 
