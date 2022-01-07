@@ -11,10 +11,15 @@ const SideBar = (props) => {
   const getRoomData = async () => {
     try {
       const { room } = await roomService.getAllRoom();
-      setRoomList(room);
+      sortRoomList(room);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const sortRoomList = (list) => {
+    list.sort((a, b) => -a.recent_chat.created_at.localeCompare(b.recent_chat.created_at));
+    setRoomList(list);
   };
 
   const buttonClick = () => {
