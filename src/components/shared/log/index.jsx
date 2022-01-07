@@ -17,10 +17,18 @@ const Log = (props) => {
       <MorningWeight>{props.morning}</MorningWeight>
       <NightWeight>{props.night}</NightWeight>
       </Weight>
-      <Breakfast src={showImage(props.breakfast)}></Breakfast>
-      <Lunch src={showImage(props.lunch)}></Lunch>
-      <Dinner src={showImage(props.dinner)}></Dinner>
-      <Snack src={showImage(props.snack)}></Snack>
+      <a href={props.breakfastLocation} target="blank">
+        <Breakfast src={showImage(props.breakfastThumbnail)}></Breakfast>
+      </a>
+      <a href={props.lunchLocation} target="blank">
+        <Lunch src={showImage(props.lunchThumbnail)}></Lunch>
+      </a>
+      <a href={props.dinnerLocation} target="blank">
+        <Dinner src={showImage(props.dinnerThumbnail)}></Dinner>
+      </a>
+      <a href={props.snackLocation} target="blank">
+       <Snack src={showImage(props.snackThumbnail)}></Snack>
+      </a>
     </MainContainer>
   );      
 };
