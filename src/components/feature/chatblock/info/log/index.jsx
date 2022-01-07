@@ -30,9 +30,15 @@ const LogSection = (prop) => {
     }
   };
 
-  const getMenu = (e) => {
+  const getMenuThumbnail = (e) => {
     if (e) {
       return e.body.thumbnail + "&w=120&h=120";
+    }
+  };
+
+  const getMenuLocation = (e) => {
+    if (e) {
+      return e.body.location;
     }
   };
 
@@ -65,10 +71,14 @@ const LogSection = (prop) => {
                   date={date}
                   morning={getWeight(log[date].weight_morning)}
                   night={getWeight(log[date].weight_night)}
-                  breakfast={getMenu(log[date].breakfast)}
-                  lunch={getMenu(log[date].lunch)}
-                  dinner={getMenu(log[date].dinner)}
-                  snack={getMenu(log[date].snack)}
+                  breakfastLocation={getMenuLocation(log[date].breakfast)}
+                  lunchLocation={getMenuLocation(log[date].lunch)}
+                  dinnerLocation={getMenuLocation(log[date].dinner)}
+                  snackLocation={getMenuLocation(log[date].snack)}
+                  breakfastThumbnail={getMenuThumbnail(log[date].breakfast)}
+                  lunchThumbnail={getMenuThumbnail(log[date].lunch)}
+                  dinnerThumbnail={getMenuThumbnail(log[date].dinner)}
+                  snackThumbnail={getMenuThumbnail(log[date].snack)}
                 ></Log>
               ))
             )}
