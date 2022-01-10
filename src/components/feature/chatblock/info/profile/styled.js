@@ -36,11 +36,11 @@ export const Button = styled.div`
   width: 3.5vw;
   height: 1.5vw;
   margin-top: 1vw;
-  padding: 0.4vw;
-  border-radius: 0.5vw;
-  border: 0.2vw solid gray;
+  padding: 0.5vw 0.7vw;
+  border-radius: 1.2vw;
+  border: 0.1vw solid;
   cursor: pointer;
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 1vw;
 `;

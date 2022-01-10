@@ -27,20 +27,27 @@ export const ModalContainer = styled.div`
   left: 50%;
   top: 25vw;
   transform: translate(-50%, -50%);
-  width: 45vw;
-  height: 32vw;
+  width: 50vw;
+  height: 33vw;
   padding: 1.5vw;
-  border: 2px solid;
+  border: 0.1vw solid;
   background: white;
   border-radius: 1vw;
   font-size: 1.2vw;
 `;
 
 export const Question = styled.div`
+  white-space: nowrap;
+  margin-right: 0.3vw;
+`;
+
+export const Item = styled.div`
   display: flex;
   font-weight: bold;
 `;
 
 export const Answer = styled.div`
   font-weight: 400;
+  text-align: left;
+  white-space: pre-wrap;
 `;
