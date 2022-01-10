@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Background, ModalContainer, ModalText, Question, Answer } from './styled';
+import { Background, ModalContainer, Item, Question, Answer } from './styled';
 import InfoService from "../../../../../../apis/info/info-service";
 
 const infoService = new InfoService();
@@ -37,13 +37,10 @@ const Modal = (props) => {
     }
   };
 
-  const getUserGoal = (e) => {
+  const getArray = (e) => {
     var result = "";
     for ( var i = 0; i < e.length; i++) {
-      result += e[i];
-      if (i !== e.length - 1) {
-        result += ", ";
-      }
+      result += "- " + e[i] + "\n";
     }
     return result;
   }
@@ -60,29 +57,24 @@ const Modal = (props) => {
     <Background sender={props.showModal} onClick={props.click}>
       {isData(questionnaire) &&
         <ModalContainer>
-          <Question>1-1. 현재 체중: <Answer>{questionnaire.body_info.weight.now}kg</Answer></Question>
-          <Question>1-2. 목표 체중: <Answer>{questionnaire.body_info.weight.goal}kg</Answer></Question>
-          <Question>1-3. 과거 5년 평균 체중: <Answer>{questionnaire.body_info.weight.avg_over_last_5y}kg</Answer></Question>
-          <Question>1-4. 최저 체중: <Answer>{questionnaire.body_info.weight.min_since_age20}kg</Answer></Question>
-          <Question>2. 회원 목표: <Answer>{getUserGoal(questionnaire.goal)}</Answer></Question>
-          <Question>3. 월경 주기: <Answer>{questionnaire.menstrual_cycle}</Answer></Question>
-          <Question>4-1. 출산 경험: <Answer>{getChildBirth(questionnaire.childbirth)}</Answer></Question>
-          <Question>4-2. 현재 임신 여부: <Answer>{getPregnancy(questionnaire.during_pregnancy)}</Answer></Question>
-          <Question>5. 식습관, 생활습관(규칙적): <Answer>{questionnaire.lifestyle}</Answer></Question>
-          <Question>6. 식사 종류(밥/밀가루): <Answer>{questionnaire.eating_category}</Answer></Question>
-          <Question>7. 식사 구성: <Answer>{questionnaire.eating_habits}</Answer></Question>
-          <Question>8. 하루 식사 횟수: <Answer>{questionnaire.number_of_eating}</Answer></Question>
-          <Question>9. 커피 섭취 여부: <Answer>{questionnaire.number_of_coffee}</Answer></Question>
-          <Question>10. 질병 정보: <Answer>{questionnaire.diseases.name}</Answer></Question>
+          <Item><Question>1-1. 현재 체중: </Question><Answer>{questionnaire.body_info.weight.now}kg</Answer></Item>
+          <Item><Question>1-2. 목표 체중: </Question><Answer>{questionnaire.body_info.weight.goal}kg</Answer></Item>
+          <Item><Question>1-3. 과거 5년 평균 체중: </Question><Answer>{questionnaire.body_info.weight.avg_over_last_5y}kg</Answer></Item>
+          <Item><Question>1-4. 최저 체중: </Question><Answer>{questionnaire.body_info.weight.min_since_age20}kg</Answer></Item>
+          <Item><Question>2. 회원 목표: </Question><Answer>{getArray(questionnaire.goal)}</Answer></Item>
+          <Item><Question>3. 월경 주기: </Question><Answer>{questionnaire.menstrual_cycle}</Answer></Item>
+          <Item><Question>4-1. 출산 경험: </Question><Answer>{getChildBirth(questionnaire.childbirth)}</Answer></Item>
+          <Item><Question>4-2. 현재 임신 여부: </Question><Answer>{getPregnancy(questionnaire.during_pregnancy)}</Answer></Item>
+          <Item><Question>5. 식습관, 생활습관(규칙적): </Question><Answer>{questionnaire.lifestyle}</Answer></Item>
+          <Item><Question>6. 식사 종류(밥/밀가루): </Question><Answer>{questionnaire.eating_category}</Answer></Item>
+          <Item><Question>7. 식사 구성: </Question><Answer>{getArray(questionnaire.eating_habits)}</Answer></Item>
+          <Item><Question>8. 식사 횟수: </Question><Answer>{questionnaire.number_of_eating}</Answer></Item>
+          <Item><Question>9. 커피 섭취 여부: </Question><Answer>{questionnaire.number_of_coffee}</Answer></Item>
+          <Item><Question>10. 질병 정보: </Question><Answer>{questionnaire.diseases.name}</Answer></Item>
         </ModalContainer>
       };
     </Background>
   );
 };
-
-// Modal.propTypes = {
-//   visible: PropTypes.bool,
-// }
-
 
 export default Modal;
