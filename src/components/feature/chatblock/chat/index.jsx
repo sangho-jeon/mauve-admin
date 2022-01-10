@@ -50,11 +50,6 @@ const ChatSection = ({ id, socket }) => {
     //초기 기존 채팅 받아오는 부분.
     try {
       const { chat } = await chatService.getChatByRoomId(id);
-      // socket.emit("room-join", { roomId: id }, (error) => {
-      //   if (error) {
-      //     console.log(error);
-      //   }
-      // });
       setChatMonitor(chat.reverse());
       console.log(chatMonitor);
       console.log(socket);
@@ -66,9 +61,9 @@ const ChatSection = ({ id, socket }) => {
   const sendChat = async (text) => {
     try {
       const { chat } = await chatService.postChat(id, text);
-      console.log(socket);
-      setChatMonitor([...chatMonitor, chat]);
-      setInputMessage("");
+      // console.log(socket);
+      // setChatMonitor([...chatMonitor, chat]);
+      // setInputMessage("");
     } catch (error) {
       console.log(error);
     }
@@ -115,8 +110,6 @@ const ChatSection = ({ id, socket }) => {
   return (
     <Chatlayout>
       <ChatContainer ref={messagesRef}>
-        {/* <ChatContainer> */}
-        {/* chatSection {myId} */}
         {chatMonitor.map(
           (chats) =>
             chats.body && (
