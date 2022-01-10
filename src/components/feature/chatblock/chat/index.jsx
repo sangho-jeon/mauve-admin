@@ -61,9 +61,6 @@ const ChatSection = ({ id, socket }) => {
   const sendChat = async (text) => {
     try {
       const { chat } = await chatService.postChat(id, text);
-      // console.log(socket);
-      // setChatMonitor([...chatMonitor, chat]);
-      // setInputMessage("");
     } catch (error) {
       console.log(error);
     }
@@ -95,8 +92,10 @@ const ChatSection = ({ id, socket }) => {
 
   const handleEnter = (e) => {
     if (e.key === "Enter" && inputMessage !== "\n") {
-      sendChat(inputMessage);
-      setInputMessage("");
+      if (!e.shiftKey) {
+        sendChat(inputMessage.slice(0, -1));
+        setInputMessage("");
+      }
     } else if (e.key === "Enter" && inputMessage === "\n") {
       setInputMessage("");
     }
