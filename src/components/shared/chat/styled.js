@@ -21,6 +21,7 @@ export const Bubble = styled.div`
   padding: 0.6vw 1vw;
   border-radius: 1vw;
   font-size: 1.1vw;
+  white-space: pre-wrap;
 
   ${({ sender }) =>
     sender !== true
