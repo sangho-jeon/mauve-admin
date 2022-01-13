@@ -10,6 +10,12 @@ class AuthService {
     this.refreshToken = coachInfo.refreshToken;
   }
 
+  login(password) {
+    if (password == "paul") {
+      return true;
+    } else return false;
+  }
+
   async postChat(sendroom, text) {
     if (this.accessToken !== null && this.refreshToken !== null) {
       const url = this.chatUrl + sendroom;

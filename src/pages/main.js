@@ -8,7 +8,7 @@ import { coachInfo } from "../utils/coachInfo";
 
 const roomService = new RoomService();
 
-const MainPage = () => {
+const MainPage = ({ auth }) => {
   const [currentId, setId] = useState("");
   const [userId, setUserId] = useState("");
   const [currentsocket, setSocket] = useState();
