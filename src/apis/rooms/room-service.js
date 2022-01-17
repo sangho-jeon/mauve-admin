@@ -1,6 +1,5 @@
 import axios from "axios";
 import apiUrl, { API_HOST } from "../api";
-import { coachInfo } from "../../utils/coachInfo";
 
 class RoomService {
   constructor() {

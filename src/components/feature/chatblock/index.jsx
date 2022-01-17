@@ -3,7 +3,6 @@ import { ChatBlockSection } from "./styled";
 import ChatSection from "./chat";
 import InfoSection from "./info";
 import io from "socket.io-client";
-import { coachInfo } from "../../../utils/coachInfo";
 
 const ChatBlock = ({ id, userId, currentsocket }) => {
   return (

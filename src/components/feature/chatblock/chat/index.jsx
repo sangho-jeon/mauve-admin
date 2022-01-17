@@ -9,7 +9,6 @@ import {
 } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
-import { coachInfo } from "../../../../utils/coachInfo";
 import { Context } from "../../../../utils/contextProvider";
 
 const chatService = new ChatService();
@@ -17,7 +16,6 @@ const chatService = new ChatService();
 const ChatSection = ({ id, socket }) => {
   const { value, contextDispatch } = useContext(Context);
 
-  const myId = coachInfo.myId;
   const messagesRef = useRef(null);
 
   const [inputMessage, setInputMessage] = useState(""); //textarea에 입력되는 데이터를 저장하는 state
@@ -131,7 +129,7 @@ const ChatSection = ({ id, socket }) => {
                 weight={chats.body}
                 time={chats.created_at_time}
                 date={chats.created_at_date}
-                sender={myId === chats.sender._id ? true : false}
+                sender={id === chats.sender._id ? true : false}
               />
             )
         )}
