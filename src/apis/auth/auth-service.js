@@ -1,19 +1,23 @@
 import axios from "axios";
 import apiUrl, { API_HOST } from "../api";
-import { coachInfo } from "../../utils/coachInfo";
 
 class AuthService {
   constructor() {
     this.base = axios.create();
-    this.chatUrl = apiUrl.auth;
-    this.accessToken = coachInfo.accessToken;
-    this.refreshToken = coachInfo.refreshToken;
+    this.auth = apiUrl.auth.login;
   }
 
-  login(password) {
-    if (password == "paul") {
-      return true;
-    } else return false;
+  async login(password) {
+    const url = this.auth;
+    const body = {
+      pass_code: password,
+    };
+    const response = await this.base.post(url, body);
+    const result = response.data.body;
+
+    return {
+      result,
+    };
   }
 
   async postChat(sendroom, text) {

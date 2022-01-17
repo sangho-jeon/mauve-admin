@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import RoomService from "../apis/rooms/room-service";
 import ChatBlock from "../components/feature/chatblock";
 import SideBar from "../components/feature/sidebar";
 import { MainLayOut } from "../components/layout/styled";
 import io from "socket.io-client";
-import { coachInfo } from "../utils/coachInfo";
+import { Context } from "../utils/contextProvider";
 
 const roomService = new RoomService();
 
 const MainPage = ({ auth }) => {
+  const { value, contextDispatch } = useContext(Context);
   const [currentId, setId] = useState("");
   const [userId, setUserId] = useState("");
   const [currentsocket, setSocket] = useState();
@@ -19,8 +20,8 @@ const MainPage = ({ auth }) => {
         transports: ["websocket"],
 
         auth: {
-          authorization: `Bearer ${coachInfo.accessToken}`,
-          Refresh: `${coachInfo.refreshToken}`,
+          authorization: `Bearer ${value.accessToken}`,
+          Refresh: `${value.refreshToken}`,
         },
       });
       socket.connect();

@@ -1,16 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Container, Title, Text, LogContainer } from "./styled";
 import Log from "../../../../shared/log";
 import InfoService from "../../../../../apis/info/info-service";
+import { Context } from "../../../../../utils/contextProvider";
 
 const infoService = new InfoService();
 
 const LogSection = (prop) => {
   const [logList, setLogList] = useState([]);
+  const { value, contextDispatch } = useContext(Context);
 
   const getLogData = async () => {
     try {
-      const { log } = await infoService.getUserLog(prop.id);
+      const { log } = await infoService.getUserLog(
+        prop.id,
+        value.accessToken,
+        value.refreshToken
+      );
       setLogList(log);
       console.log(log);
     } catch (error) {
@@ -61,7 +67,7 @@ const LogSection = (prop) => {
         <Text>간식</Text>
       </Title>
       <LogContainer>
-      {isData(logList) &&
+        {isData(logList) &&
           logList.userLogRecord
             .slice(0)
             .reverse()

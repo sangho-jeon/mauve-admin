@@ -2,8 +2,8 @@ export const API_HOST = "https://api-test.mauve.care/app";
 
 const apiUrl = {
   auth: {
-    login: `/auth/login`,
-    refresh: `/auth/refresh`,
+    login: API_HOST + `/coach/login`,
+    refresh: API_HOST + `/coach/refresh`,
   },
   chat: {
     room: API_HOST + `/room?limit=20&offset=0`,

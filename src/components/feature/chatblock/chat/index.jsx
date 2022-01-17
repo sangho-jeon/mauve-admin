@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import {
   ChatContainer,
   ChatInput,
@@ -9,13 +9,13 @@ import {
 } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
-import { coachInfo } from "../../../../utils/coachInfo";
-import { AiFillCamera } from "react-icons/ai";
+import { Context } from "../../../../utils/contextProvider";
 
 const chatService = new ChatService();
 
 const ChatSection = ({ id, socket }) => {
-  const myId = coachInfo.myId;
+  const { value, contextDispatch } = useContext(Context);
+
   const messagesRef = useRef(null);
 
   const [inputMessage, setInputMessage] = useState(""); //textarea에 입력되는 데이터를 저장하는 state
@@ -49,7 +49,11 @@ const ChatSection = ({ id, socket }) => {
   const getChat = async () => {
     //초기 기존 채팅 받아오는 부분.
     try {
-      const { chat } = await chatService.getChatByRoomId(id);
+      const { chat } = await chatService.getChatByRoomId(
+        id,
+        value.accessToken,
+        value.refreshToken
+      );
       setChatMonitor(chat.reverse());
       console.log(chatMonitor);
       console.log(socket);
@@ -60,7 +64,12 @@ const ChatSection = ({ id, socket }) => {
 
   const sendChat = async (text) => {
     try {
-      const { chat } = await chatService.postChat(id, text);
+      const { chat } = await chatService.postChat(
+        id,
+        text,
+        value.accessToken,
+        value.refreshToken
+      );
     } catch (error) {
       console.log(error);
     }
@@ -120,7 +129,7 @@ const ChatSection = ({ id, socket }) => {
                 weight={chats.body}
                 time={chats.created_at_time}
                 date={chats.created_at_date}
-                sender={myId === chats.sender._id ? true : false}
+                sender={id === chats.sender._id ? true : false}
               />
             )
         )}

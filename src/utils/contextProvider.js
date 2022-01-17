@@ -7,14 +7,20 @@ export const Context = React.createContext();
 // state의 초기 값을 설정한다
 const initialState = {
   authenticated: false,
-  token: null,
+  accessToken: null,
+  refreshToken: null,
 };
 
 // reducer는 action에서 받은 type에 따라서 state를 변경한다.
 function reducer(state, action) {
   switch (action.type) {
     case "SET_TOKEN":
-      return { ...state, token: action.token, authenticated: action.result };
+      return {
+        ...state,
+        accessToken: action.accessToken,
+        refreshToken: action.refreshToken,
+        authenticated: action.result,
+      };
     default:
       return state;
   }
