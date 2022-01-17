@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import {
   ChatContainer,
   ChatInput,
@@ -11,10 +11,13 @@ import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
 import { coachInfo } from "../../../../utils/coachInfo";
 import { AiFillCamera } from "react-icons/ai";
+import { Context } from "../../../../utils/contextProvider";
 
 const chatService = new ChatService();
 
 const ChatSection = ({ id, socket }) => {
+  const { value, contextDispatch } = useContext(Context);
+
   const myId = coachInfo.myId;
   const messagesRef = useRef(null);
 
