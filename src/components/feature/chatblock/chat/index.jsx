@@ -93,7 +93,7 @@ const ChatSection = ({ id, socket }) => {
   const handleEnter = (e) => {
     if (e.key === "Enter" && inputMessage !== "\n") {
       if (!e.shiftKey) {
-        sendChat(inputMessage.slice(0, -1));
+        sendChat(inputMessage.replace(/\s+$/, ''));
         setInputMessage("");
       }
     } else if (e.key === "Enter" && inputMessage === "\n") {
