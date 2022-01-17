@@ -10,7 +10,6 @@ import {
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
 import { coachInfo } from "../../../../utils/coachInfo";
-import { AiFillCamera } from "react-icons/ai";
 import { Context } from "../../../../utils/contextProvider";
 
 const chatService = new ChatService();
@@ -52,7 +51,11 @@ const ChatSection = ({ id, socket }) => {
   const getChat = async () => {
     //초기 기존 채팅 받아오는 부분.
     try {
-      const { chat } = await chatService.getChatByRoomId(id);
+      const { chat } = await chatService.getChatByRoomId(
+        id,
+        value.accessToken,
+        value.refreshToken
+      );
       setChatMonitor(chat.reverse());
       console.log(chatMonitor);
       console.log(socket);
@@ -63,7 +66,12 @@ const ChatSection = ({ id, socket }) => {
 
   const sendChat = async (text) => {
     try {
-      const { chat } = await chatService.postChat(id, text);
+      const { chat } = await chatService.postChat(
+        id,
+        text,
+        value.accessToken,
+        value.refreshToken
+      );
     } catch (error) {
       console.log(error);
     }

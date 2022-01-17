@@ -1,16 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { MainContainer, CardContainer, Header, Refresh } from "./styled";
 import RoomCard from "../../shared/room-card";
 import RoomService from "../../../apis/rooms/room-service";
+import { Context } from "../../../utils/contextProvider";
 
 const roomService = new RoomService();
 
 const SideBar = (props) => {
   const [roomList, setRoomList] = useState([]);
+  const { value, contextDispatch } = useContext(Context);
 
   const getRoomData = async () => {
     try {
-      const { room } = await roomService.getAllRoom();
+      const { room } = await roomService.getAllRoom(
+        value.accessToken,
+        value.refreshToken
+      );
       sortRoomList(room);
     } catch (error) {
       console.log(error);
@@ -18,13 +23,16 @@ const SideBar = (props) => {
   };
 
   const sortRoomList = (list) => {
-    list.sort((a, b) => -a.recent_chat.created_at.localeCompare(b.recent_chat.created_at));
+    list.sort(
+      (a, b) =>
+        -a.recent_chat.created_at.localeCompare(b.recent_chat.created_at)
+    );
     setRoomList(list);
   };
 
   const buttonClick = () => {
     getRoomData();
-	};
+  };
 
   useEffect(() => {
     getRoomData();
@@ -32,7 +40,13 @@ const SideBar = (props) => {
 
   return (
     <MainContainer>
-      <Header>회원 리스트<Refresh src={"https://cdn-icons-png.flaticon.com/512/93/93641.png"}  onClick={() => buttonClick()}></Refresh></Header>
+      <Header>
+        회원 리스트
+        <Refresh
+          src={"https://cdn-icons-png.flaticon.com/512/93/93641.png"}
+          onClick={() => buttonClick()}
+        ></Refresh>
+      </Header>
       <CardContainer>
         {roomList.map((room) => (
           <RoomCard

@@ -8,12 +8,10 @@ class ChatService {
   constructor() {
     this.base = axios.create();
     this.chatUrl = apiUrl.chat.chat;
-    this.accessToken = coachInfo.accessToken;
-    this.refreshToken = coachInfo.refreshToken;
   }
 
-  async getChatByRoomId(room) {
-    if (this.accessToken !== null && this.refreshToken !== null) {
+  async getChatByRoomId(room, access, refresh) {
+    if (access !== null && refresh !== null) {
       const date = moment().tz("Asia/Seoul").format("YYYY-MM-DDTHH:59");
       const yesterday = moment()
         .subtract(2, "day")
@@ -23,8 +21,8 @@ class ChatService {
       console.log(url);
       const config = {
         headers: {
-          Refresh: this.refreshToken,
-          Authorization: `Bearer ${this.accessToken}`,
+          Refresh: refresh,
+          Authorization: `Bearer ${access}`,
         },
       };
 
@@ -42,14 +40,14 @@ class ChatService {
     return null;
   }
 
-  async postChat(sendroom, text) {
-    if (this.accessToken !== null && this.refreshToken !== null) {
+  async postChat(sendroom, text, access, refresh) {
+    if (access !== null && refresh !== null) {
       const url = this.chatUrl + sendroom;
       console.log(url);
       const config = {
         headers: {
-          Refresh: this.refreshToken,
-          Authorization: `Bearer ${this.accessToken}`,
+          Refresh: refresh,
+          Authorization: `Bearer ${access}`,
         },
       };
       const body = {
@@ -68,21 +66,17 @@ class ChatService {
     return null;
   }
 
-  async postMedia(sendroom, file) {
-    if (this.accessToken !== null && this.refreshToken !== null) {
+  async postMedia(sendroom, file, access, refresh) {
+    if (access !== null && refresh !== null) {
       const url = this.chatUrl + sendroom + "/media/picture";
       console.log(url);
       const config = {
         headers: {
-          Refresh: this.refreshToken,
-          Authorization: `Bearer ${this.accessToken}`,
+          Refresh: refresh,
+          Authorization: `Bearer ${access}`,
           "Content-Type": "multipart/form-data",
         },
       };
-
-      // const body = {
-      //   media_file: file,
-      // };
 
       const response = await this.base.post(url, file, config);
       const result = await response.data;

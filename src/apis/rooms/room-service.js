@@ -6,17 +6,15 @@ class RoomService {
   constructor() {
     this.base = axios.create();
     this.chatUrl = apiUrl.chat.room;
-    this.accessToken = coachInfo.accessToken;
-    this.refreshToken = coachInfo.refreshToken;
   }
-  async getAllRoom() {
-    if (this.accessToken !== null && this.refreshToken !== null) {
+  async getAllRoom(access, refresh) {
+    if (access !== null && refresh !== null) {
       const url = this.chatUrl;
       console.log(url);
       const config = {
         headers: {
-          Refresh: this.refreshToken,
-          Authorization: `Bearer ${this.accessToken}`,
+          Refresh: refresh,
+          Authorization: `Bearer ${access}`,
         },
       };
 
