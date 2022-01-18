@@ -70,21 +70,20 @@ const ProfileSection = (prop) => {
           {isData(profile) && getNumber(profile.userInfo.phone_NO)}
         </Item>
         <Item>
-          <Tag>나이:</Tag>
-          {isData(profile) && profile.userInfo.age + "세"}
+          <Tag>생년월일:</Tag>
+          {isData(profile) && profile.userInfo.birthdate + "(만 " + profile.userInfo.age + "세)"}
         </Item>
         <Item>
           <Tag>신장:</Tag>
           {isData(profile) && profile.userInfo.height + "cm"}
         </Item>
         <Item>
-          <Tag>체중:</Tag>
-          {isData(profile) && profile.userInfo.weight.begin + "kg"}
+          <Tag>현재 체중:</Tag>
+          {isData(profile) && profile.userInfo.weight.now + "kg"}
         </Item>
         <Item>
-          <Tag>결제:</Tag>
-          {isData(profile) &&
-            "D-" + getDay(profile.userInfo.next_payment_d_day)}
+          <Tag>목표 체중:</Tag>
+          {isData(profile) && profile.userInfo.weight.goal + "kg"}
         </Item>
         <Button onClick={() => buttonClick(prop.id)}>문진표</Button>
         <Modal

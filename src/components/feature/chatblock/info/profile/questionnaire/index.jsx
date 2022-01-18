@@ -17,7 +17,6 @@ const Modal = (props) => {
         value.refreshToken
       );
       setQuestionnaire(questionnaire);
-      console.log(questionnaire);
     } catch (error) {
       console.log(error);
     }
@@ -64,20 +63,12 @@ const Modal = (props) => {
       {isData(questionnaire) && (
         <ModalContainer>
           <Item>
-            <Question>1-1. 현재 체중: </Question>
-            <Answer>{questionnaire.body_info.weight.now}kg</Answer>
+            <Question>1-1. 과거 5년 평균 체중: </Question>
+            <Answer>{questionnaire.additional_weight.avg_over_last_5y}kg</Answer>
           </Item>
           <Item>
-            <Question>1-2. 목표 체중: </Question>
-            <Answer>{questionnaire.body_info.weight.goal}kg</Answer>
-          </Item>
-          <Item>
-            <Question>1-3. 과거 5년 평균 체중: </Question>
-            <Answer>{questionnaire.body_info.weight.avg_over_last_5y}kg</Answer>
-          </Item>
-          <Item>
-            <Question>1-4. 최저 체중: </Question>
-            <Answer>{questionnaire.body_info.weight.min_since_age20}kg</Answer>
+            <Question>1-2. 최저 체중: </Question>
+            <Answer>{questionnaire.additional_weight.min_since_age20}kg</Answer>
           </Item>
           <Item>
             <Question>2. 회원 목표: </Question>
