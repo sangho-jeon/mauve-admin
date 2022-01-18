@@ -20,9 +20,11 @@ const Login = () => {
       const result = await authService.login(password);
       const accessToken = result.result.accessToken;
       const refreshToken = result.result.refreshToken;
+      const id = result.result.id;
       contextDispatch({
         type: "SET_TOKEN",
         result: true,
+        id: id,
         accessToken: accessToken,
         refreshToken: refreshToken,
       });
