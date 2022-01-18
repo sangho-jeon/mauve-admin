@@ -25,10 +25,10 @@ export const ModalContainer = styled.div`
   justify-content: space-between;
   position: fixed;
   left: 50%;
-  top: 25vw;
+  top: 26vw;
   transform: translate(-50%, -50%);
   width: 50vw;
-  height: 33vw;
+  height: 35vw;
   padding: 1.5vw;
   border: 0.1vw solid;
   background: white;
