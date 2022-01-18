@@ -129,7 +129,7 @@ const ChatSection = ({ id, socket }) => {
                 weight={chats.body}
                 time={chats.created_at_time}
                 date={chats.created_at_date}
-                sender={id === chats.sender._id ? true : false}
+                sender={value.id === chats.sender._id ? true : false}
               />
             )
         )}

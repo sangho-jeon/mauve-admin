@@ -9,6 +9,7 @@ const initialState = {
   authenticated: false,
   accessToken: null,
   refreshToken: null,
+  id: null,
 };
 
 // reducer는 action에서 받은 type에 따라서 state를 변경한다.
@@ -20,6 +21,7 @@ function reducer(state, action) {
         accessToken: action.accessToken,
         refreshToken: action.refreshToken,
         authenticated: action.result,
+        id: action.id,
       };
     default:
       return state;
