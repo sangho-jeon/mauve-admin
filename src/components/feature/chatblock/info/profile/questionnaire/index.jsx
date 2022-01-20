@@ -108,7 +108,7 @@ const Modal = (props) => {
           </Item>
           <Item>
             <Question>10. 질병 정보: </Question>
-            <Answer>{getArray(questionnaire.diseases.name)}</Answer>
+            <Answer>{getArray(questionnaire.diseases)}</Answer>
           </Item>
         </ModalContainer>
       )}
