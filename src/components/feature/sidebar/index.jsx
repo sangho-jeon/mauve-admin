@@ -24,8 +24,13 @@ const SideBar = (props) => {
 
   const sortRoomList = (list) => {
     list.sort(
-      (a, b) =>
-        -a.recent_chat.created_at.localeCompare(b.recent_chat.created_at)
+      (a, b) => {
+        if (!a.recent_chat || !b.recent_chat) {
+          return 0;
+        } else {
+          return -a.recent_chat.created_at.localeCompare(b.recent_chat.created_at);
+        }
+      }
     );
     setRoomList(list);
   };
