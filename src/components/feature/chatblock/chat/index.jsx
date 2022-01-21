@@ -93,7 +93,12 @@ const ChatSection = ({ id, socket }) => {
     const formData = new FormData();
     formData.append("media_file", e.target.files[0]);
     try {
-      await chatService.postMedia(id, formData);
+      await chatService.postMedia(
+        id,
+        formData,
+        value.accessToken,
+        value.refreshToken
+      );
     } catch (error) {
       console.log(error);
     }
@@ -102,7 +107,7 @@ const ChatSection = ({ id, socket }) => {
   const handleEnter = (e) => {
     if (e.key === "Enter" && inputMessage !== "\n") {
       if (!e.shiftKey) {
-        sendChat(inputMessage.replace(/\s+$/, ''));
+        sendChat(inputMessage.replace(/\s+$/, ""));
         setInputMessage("");
       }
     } else if (e.key === "Enter" && inputMessage === "\n") {

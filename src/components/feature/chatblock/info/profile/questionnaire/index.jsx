@@ -52,8 +52,10 @@ const Modal = (props) => {
 
   const isData = (e) => {
     if (e === undefined || JSON.stringify(e) === "[]") {
+      console.log(questionnaire);
       return false;
     } else {
+      console.log(e);
       return true;
     }
   };
@@ -64,7 +66,9 @@ const Modal = (props) => {
         <ModalContainer>
           <Item>
             <Question>1-1. 과거 5년 평균 체중: </Question>
-            <Answer>{questionnaire.additional_weight.avg_over_last_5y}kg</Answer>
+            <Answer>
+              {questionnaire.additional_weight.avg_over_last_5y}kg
+            </Answer>
           </Item>
           <Item>
             <Question>1-2. 최저 체중: </Question>
