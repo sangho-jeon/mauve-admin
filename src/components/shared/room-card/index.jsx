@@ -54,11 +54,19 @@ const RoomCard = (props) => {
 
     const waitTime = (nowDate.getTime() - chatDate.getTime()) / 1000;
 
+    const refineTime = (time) => {
+      if (time.toString().length === 1) {
+        return "0" + time;
+      } else {
+        return time;
+      }
+    }
+
     const waitHour = parseInt(waitTime / 3600);
     const waitMin = parseInt((waitTime - waitHour * 3600) / 60);
     const waitSec = parseInt(waitTime - waitHour * 3600 - waitMin * 60);
     
-    setWaitingTime(waitHour + ":" + waitMin + ":" + waitSec);
+    setWaitingTime(refineTime(waitHour) + ":" + refineTime(waitMin) + ":" + refineTime(waitSec));
   };
 
   const getRecentChat = (e) => {
