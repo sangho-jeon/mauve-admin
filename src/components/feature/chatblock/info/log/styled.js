@@ -16,7 +16,8 @@ export const Title = styled.div`
   align-items: center;
   width: 41vw;
   height: 2vw;
-  background-color: #d5d2ff;
+  background-color: white;
+  border-bottom: 0.1vw solid #cccccc;
   text-align: center;
 `;
 
@@ -24,6 +25,7 @@ export const Text = styled.div`
   width: 6vw;
   text-align: center;
   font-size: 1vw;
+  font-weight: 500;
 `;
 
 export const LogContainer = styled.div`
