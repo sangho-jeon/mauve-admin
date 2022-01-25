@@ -7,6 +7,7 @@ import {
   setAccessCookie,
   getAccessCookie,
   getId,
+  setIdCookie,
 } from "../../utils/cookie";
 import {
   Banner,
@@ -53,6 +54,7 @@ const Login = () => {
       });
       setRefreshCookie(refreshToken);
       setAccessCookie(accessToken);
+      setIdCookie(id);
       console.log(getRefreshCookie());
     } catch (error) {
       console.log(error);
