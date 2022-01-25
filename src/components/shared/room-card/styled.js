@@ -7,10 +7,10 @@ export const Card = styled.button`
   align-items: center;
   z-index: 10000;
   width: 22vw;
-  height: 5vw;
+  height: 4.4vw;
   border: none;
   border-radius: 0.5vw;
-  margin-bottom: 1vw;
+  margin-bottom: 0.8vw;
   padding: 0.5vw;
   background-color: white;
   font-size: 1vw;
@@ -82,13 +82,13 @@ export const Bottom = styled.div`
 
 export const Name = styled.div`
   margin-right: 0.8vw;
-  font-size: 1.5vw;
+  font-size: 1.3vw;
   font-weight: bold;
   text-overflow: ellipsis;
 `;
 
 export const Text = styled.div`
-  width: 17vw;
+  width: 16.5vw;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -101,7 +101,7 @@ export const Count = styled.div`
   align-items: center;
   float: right;
   font-weight: bold;
-  font-size: 1.2vw;
+  font-size: 1.1vw;
   color: red;
 `;
 

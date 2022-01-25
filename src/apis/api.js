@@ -1,4 +1,4 @@
-export const API_HOST = "https://api.mauve.care/app";
+export const API_HOST = "https://api-test.mauve.care/app";
 
 const apiUrl = {
   auth: {

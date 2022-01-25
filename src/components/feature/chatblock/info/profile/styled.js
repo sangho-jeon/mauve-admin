@@ -38,7 +38,7 @@ export const Button = styled.div`
   margin-top: 1vw;
   padding: 0.5vw 0.7vw;
   border-radius: 1.2vw;
-  border: 0.1vw solid;
+  border: 0.1vw solid #cccccc;
   cursor: pointer;
   text-align: center;
   font-weight: 600;

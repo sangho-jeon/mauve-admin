@@ -13,8 +13,8 @@ export const Header = styled.header`
   display: flex;
   justify-content: space-between;
   width: 20vw;
-  margin: 2vw 0 1vw;
-  font-size: 2vw;
+  margin: 1.5vw 0 1vw;
+  font-size: 1.8vw;
   font-weight: bold;
   color: white;
 `;
@@ -25,7 +25,7 @@ export const CardContainer = styled.div`
 `;
 
 export const Refresh = styled.img`
-  width: 2vw;
-  height: 2vw;
+  width: 1.8vw;
+  height: 1.8vw;
   cursor: pointer;
 `;
