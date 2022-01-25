@@ -1,6 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import AuthService from "../../apis/auth/auth-service";
 import { Context } from "../../utils/contextProvider";
+import {
+  setRefreshCookie,
+  getRefreshCookie,
+  setAccessCookie,
+  getAccessCookie,
+  getId,
+} from "../../utils/cookie";
 import {
   Banner,
   Loginblock,
@@ -15,6 +22,22 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const { value, contextDispatch } = useContext(Context);
 
+  useEffect(() => {
+    const accessToken = getAccessCookie();
+    const refreshToken = getRefreshCookie();
+    const id = getId();
+    console.log(accessToken);
+    if (accessToken) {
+      contextDispatch({
+        type: "SET_TOKEN",
+        result: true,
+        id: id,
+        accessToken: accessToken,
+        refreshToken: refreshToken,
+      });
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     try {
       const result = await authService.login(password);
@@ -28,6 +51,9 @@ const Login = () => {
         accessToken: accessToken,
         refreshToken: refreshToken,
       });
+      setRefreshCookie(refreshToken);
+      setAccessCookie(accessToken);
+      console.log(getRefreshCookie());
     } catch (error) {
       console.log(error);
     }
