@@ -13,7 +13,7 @@ class ChatService {
     if (access !== null && refresh !== null) {
       const date = moment().tz("Asia/Seoul").format("YYYY-MM-DDTHH:59");
       const yesterday = moment()
-        .subtract(2, "day")
+        .subtract(7, "day")
         .tz("Asia/Seoul")
         .format("YYYY-MM-DDTHH:59");
       const url = this.chatUrl + room + "?from=" + yesterday + "&to=" + date;
