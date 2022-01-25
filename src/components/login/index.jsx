@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import AuthService from "../../apis/auth/auth-service";
 import { Context } from "../../utils/contextProvider";
+import { setRefreshCookie, getRefreshCookie } from "../../utils/cookie";
 import {
   Banner,
   Loginblock,
@@ -28,6 +29,8 @@ const Login = () => {
         accessToken: accessToken,
         refreshToken: refreshToken,
       });
+      setRefreshCookie(refreshToken);
+      console.log(getRefreshCookie());
     } catch (error) {
       console.log(error);
     }
