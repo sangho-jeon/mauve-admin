@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import { MainContainer, CardContainer, Header, Refresh } from "./styled";
 import RoomCard from "../../shared/room-card";
 import RoomService from "../../../apis/rooms/room-service";
@@ -6,11 +6,31 @@ import { Context } from "../../../utils/contextProvider";
 
 const roomService = new RoomService();
 
+const useInterval = (callback, delay) => {
+  const savedCallback = useRef();
+
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+};
+
 const SideBar = (props) => {
   const [roomList, setRoomList] = useState([]);
   const { value, contextDispatch } = useContext(Context);
 
-  setInterval(() => {
+  useInterval(() => {
     getRoomData();
   }, 60000);
 
