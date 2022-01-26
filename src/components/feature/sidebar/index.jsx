@@ -10,6 +10,10 @@ const SideBar = (props) => {
   const [roomList, setRoomList] = useState([]);
   const { value, contextDispatch } = useContext(Context);
 
+  setInterval(() => {
+    getRoomData();
+  }, 60000);
+
   const getRoomData = async () => {
     try {
       const { room } = await roomService.getAllRoom(
