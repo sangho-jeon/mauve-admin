@@ -71,7 +71,7 @@ const ProfileSection = (prop) => {
         </Item>
         <Item>
           <Tag>생년월일:</Tag>
-          {isData(profile) && profile.userInfo.birthdate + "(만 " + profile.userInfo.age + "세)"}
+          {/* {isData(profile) && profile.userInfo.birthdate + "(만 " + profile.userInfo.age + "세)"} */}
         </Item>
         <Item>
           <Tag>신장:</Tag>
