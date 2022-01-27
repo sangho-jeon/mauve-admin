@@ -4,34 +4,35 @@ import { AiFillCamera } from "react-icons/ai";
 export const Chatlayout = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 31vw;
-  height: 53vw;
+  width: 33vw;
+  height: 55vw;
 `;
 
 export const ChatContainer = styled.div`
   box-sizing: border-box;
   display: block;
   overflow-y: auto;
-  width: 31vw;
-  height: 46vw;
+  width: 33vw;
+  height: 48vw;
   padding: 1vw;
   background-color: white;
+  border: 0.2vw solid #E0E0E0;
 `;
 
 export const ChatInput = styled.textarea`
-  width: 27vw;
-  height: 5vw;
-  margin-top: 1vw;
+  width: 33vw;
+  height: 6vw;
   padding: 0.5vw;
+  padding-right: 2vw;
   resize: none;
-  border-color: gray;
-  border-radius: 0.7vw;
-  box-shadow: 0px 5px 10px #00000015;
   font-size: 1vw;
+  border: 0.2vw solid #E0E0E0;
+  border-top: none;
+  outline: none;
 `;
 
 export const ChatInputContainer = styled.div`
+  width: 33vw;
   display: flex;
   align-items: center;
 `;
@@ -47,9 +48,12 @@ export const ImageButton = styled.input`
 `;
 
 export const ImageIcon = styled(AiFillCamera)`
+  position: fixed;
+  top: 48.1vw;
+  left: 53.6vw;
   width: 1.5vw;
   height: 1.5vw;
   padding-left: 0.3vw;
-  color: rgb(52, 120, 246);
+  color: #D0D0D0;
   cursor: pointer;
 `;

@@ -5,8 +5,6 @@ export const ChatBlockSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 75vw;
+  width: 77vw;
   height: 55vw;
-  padding: 1vw;
-  background-color: #cccccc;
 `;
