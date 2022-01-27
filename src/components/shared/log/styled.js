@@ -1,78 +1,66 @@
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
   justify-content: space-around;
-  align-items: center;
   width: 41vw;
-  min-height: 6.5vw;
-  margin-bottom: 0.5vw;
+  padding: 0.5vw 0;
+  font-size: 0.9vw;
   background-color: white;
+  border-bottom: 0.1vw solid #F0F0F0;
 `;
 
 export const Date = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 6vw;
-  height: 6vw;
-  font-size: 1vw;
+  width: 6.5vw;
+  height: 5vw;
+`;
+
+export const Time = styled.div`
+  width: 3.5vw;
+  height: 5vw;
+`;
+
+export const WeightTime = styled.div`
+  display: flex;
+  width: 3.5vw;
+  height: 1.8vw;
 `;
 
 export const Weight = styled.div`
-  width: 6vw;
+  width: 5vw;
+  height: 5vw;
+`;
+
+export const WeightData = styled.div`
+  display: flex;
+  width: 5vw;
+  height: 1.8vw;
+`;
+
+export const Diet = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 5vw;
   height: 6vw;
-  font-size: 1vw;
 `;
 
-export const MorningWeight = styled.div`
+export const DietTime = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 6vw;
-  height: 3vw;
-`;
+  width: 5vw;
+  height: 1vw;
+  color: #303030;
+`
 
-export const NightWeight = styled.div`
+export const DietImage = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 6vw;
-  height: 3vw;
-`;
-
-export const Breakfast = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 6vw;
-  height: 6vw;
+  width: 5vw;
+  height: 5vw;
+  margin-bottom: 0.1vw;
   object-fit: cover;
-`;
-
-export const Lunch = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 6vw;
-  height: 6vw;
-  object-fit: cover;
-`;
-
-export const Dinner = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 6vw;
-  height: 6vw;
-  object-fit: cover;
-`;
-
-export const Snack = styled.img`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 6vw;
-  height: 6vw;
-  object-fit: cover;
-`;
+`
