@@ -6,7 +6,7 @@ export const MainContainer = styled.div`
   align-items: center;
   width: 23vw;
   height: 55vw;
-  background-color: white;
+  background-color: #F2F2F2;
 `;
 
 export const Header = styled.header`
