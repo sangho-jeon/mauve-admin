@@ -25,29 +25,31 @@ export const ModalContainer = styled.div`
   justify-content: space-between;
   position: fixed;
   left: 50%;
-  top: 26vw;
+  top: 27vw;
   transform: translate(-50%, -50%);
-  width: 50vw;
-  height: 35vw;
-  padding: 1.5vw;
-  border: 0.1vw solid;
+  width: 24vw;
+  height: 50vw;
+  padding: 1.2vw;
   background: white;
   border-radius: 1vw;
-  font-size: 1.2vw;
-`;
-
-export const Question = styled.div`
-  white-space: nowrap;
-  margin-right: 0.3vw;
+  font-size: 1vw;
 `;
 
 export const Item = styled.div`
   display: flex;
-  font-weight: bold;
+  flex-direction: column;
+  border-bottom: 0.1vw solid #E0E0E0;
+`;
+
+export const Question = styled.div`
+  white-space: nowrap;
+  color: #808080;
+  margin-bottom: 0.4vw;
 `;
 
 export const Answer = styled.div`
   font-weight: 400;
-  text-align: left;
+  color: #303030;
   white-space: pre-wrap;
+  margin-bottom: 0.2vw;
 `;

@@ -45,7 +45,7 @@ const Modal = (props) => {
   const getArray = (e) => {
     var result = "";
     for (var i = 0; i < e.length; i++) {
-      result += "- " + e[i] + "\n";
+      result += " - " + e[i];
     }
     return result;
   };
@@ -65,53 +65,53 @@ const Modal = (props) => {
       {isData(questionnaire) && (
         <ModalContainer>
           <Item>
-            <Question>1-1. 과거 5년 평균 체중: </Question>
+            <Question>1-1. 과거 5년 평균 체중</Question>
             <Answer>
               {questionnaire.additional_weight.avg_over_last_5y}kg
             </Answer>
           </Item>
           <Item>
-            <Question>1-2. 최저 체중: </Question>
+            <Question>1-2. 최저 체중</Question>
             <Answer>{questionnaire.additional_weight.min_since_age20}kg</Answer>
           </Item>
           <Item>
-            <Question>2. 회원 목표: </Question>
+            <Question>2. 회원 목표</Question>
             <Answer>{getArray(questionnaire.goal)}</Answer>
           </Item>
           <Item>
-            <Question>3. 월경 주기: </Question>
+            <Question>3. 월경 주기</Question>
             <Answer>{questionnaire.menstrual_cycle}</Answer>
           </Item>
           <Item>
-            <Question>4-1. 출산 경험: </Question>
+            <Question>4-1. 출산 경험</Question>
             <Answer>{getChildBirth(questionnaire.childbirth)}</Answer>
           </Item>
           <Item>
-            <Question>4-2. 현재 임신 여부: </Question>
+            <Question>4-2. 현재 임신 여부</Question>
             <Answer>{getPregnancy(questionnaire.during_pregnancy)}</Answer>
           </Item>
           <Item>
-            <Question>5. 식습관, 생활습관(규칙적): </Question>
+            <Question>5. 식습관, 생활습관(규칙적)</Question>
             <Answer>{questionnaire.lifestyle}</Answer>
           </Item>
           <Item>
-            <Question>6. 식사 종류(밥/밀가루): </Question>
+            <Question>6. 식사 종류(밥/밀가루)</Question>
             <Answer>{questionnaire.eating_category}</Answer>
           </Item>
           <Item>
-            <Question>7. 식사 구성: </Question>
+            <Question>7. 식사 구성</Question>
             <Answer>{getArray(questionnaire.eating_habits)}</Answer>
           </Item>
           <Item>
-            <Question>8. 식사 횟수: </Question>
+            <Question>8. 식사 횟수</Question>
             <Answer>{questionnaire.number_of_eating}</Answer>
           </Item>
           <Item>
-            <Question>9. 커피 섭취 여부: </Question>
+            <Question>9. 커피 섭취 여부</Question>
             <Answer>{questionnaire.number_of_coffee}</Answer>
           </Item>
           <Item>
-            <Question>10. 질병 정보: </Question>
+            <Question>10. 질병 정보</Question>
             <Answer>{getArray(questionnaire.diseases)}</Answer>
           </Item>
         </ModalContainer>
