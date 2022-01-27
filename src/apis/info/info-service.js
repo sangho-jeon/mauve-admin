@@ -10,7 +10,7 @@ class InfoService {
     this.noteUrl = apiUrl.info.note;
   }
   async getUserLog(userId, access, refresh) {
-    if (access !== null && refresh !== null) {
+    if (userId !== "" && access !== null && refresh !== null) {
       const url = this.logUrl + userId;
       console.log(url);
       const config = {
@@ -34,7 +34,7 @@ class InfoService {
   }
 
   async getUserInfo(userId, access, refresh) {
-    if (access !== null && refresh !== null) {
+    if (userId !== "" && access !== null && refresh !== null) {
       const url = this.profileUrl + userId;
       console.log(url);
       const config = {
@@ -58,8 +58,9 @@ class InfoService {
   }
 
   async getUserQuestionnaire(userId, access, refresh) {
-    if (access !== null && refresh !== null) {
+    if (userId !== "" && access !== null && refresh !== null) {
       const url = this.questionnaireUrl + userId;
+      console.log(userId);
       console.log(url);
       const config = {
         headers: {
@@ -82,7 +83,7 @@ class InfoService {
   }
 
   async getUserNote(userId, access, refresh) {
-    if (access !== null && refresh !== null) {
+    if (userId !== "" && access !== null && refresh !== null) {
       const url = this.noteUrl + userId;
       console.log(url);
       const config = {
@@ -103,7 +104,7 @@ class InfoService {
   }
 
   async updateUserNote(userId, text, access, refresh) {
-    if (access !== null && refresh !== null) {
+    if (userId !== "" && access !== null && refresh !== null) {
       const url = this.noteUrl + userId;
       console.log(url);
       const config = {
