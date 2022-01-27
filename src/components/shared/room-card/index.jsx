@@ -5,12 +5,14 @@ import {
   Text,
   Count,
   Waiting,
-  Left,
-  Right,
   Top,
   Bottom,
   Weight,
   Diet,
+  WeightMark,
+  DietMark,
+  Mark,
+  First,
 } from "./styled";
 import moment from "moment";
 
@@ -96,22 +98,24 @@ const RoomCard = (props) => {
       }}
     >
       <Top>
-        <Left>
+        <First>
           <Name>{props.name}</Name>
-          <Count>{props.count}</Count>
-        </Left>
-        <Right>
-          체중
-          <Weight sender={props.morning} />
-          <Weight sender={props.night} />
-          식단
-          <Diet sender={props.breakfast} />
-          <Diet sender={props.lunch} />
-          <Diet sender={props.dinner} />
-        </Right>
+          <Count count={props.count}>{props.count}</Count>
+        </First>
+        <Text>{getRecentChat(props.recentChat)}</Text>
       </Top>
       <Bottom>
-        <Text>{getRecentChat(props.recentChat)}</Text>
+        <Mark>
+          <WeightMark>
+            <Weight sender={props.morning} />
+            <Weight sender={props.night} />
+          </WeightMark>
+          <DietMark>
+            <Diet sender={props.breakfast} />
+            <Diet sender={props.lunch} />
+            <Diet sender={props.dinner} />
+          </DietMark>
+        </Mark>
         <Waiting>{waitingTime}</Waiting>
       </Bottom>
     </Card>
