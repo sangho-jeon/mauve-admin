@@ -70,7 +70,7 @@ const SideBar = (props) => {
   return (
     <MainContainer>
       <Header>
-        회원 리스트
+        회원목록
         <Refresh
           src={"https://cdn-icons-png.flaticon.com/512/93/93641.png"}
           onClick={() => buttonClick()}
