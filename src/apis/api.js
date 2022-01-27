@@ -7,6 +7,7 @@ const apiUrl = {
   },
   chat: {
     room: API_HOST + `/room?limit=20&offset=0`,
+    roomId: API_HOST + `/room/`,
     chat: API_HOST + `/chat/`,
     media: `/chat/`,
   },
