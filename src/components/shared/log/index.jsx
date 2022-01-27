@@ -4,12 +4,9 @@ import { MainContainer, Date, Weight, Time, WeightTime, WeightData, Diet, DietTi
 const Log = (props) => {  
   
   const showImage = (image) => {
-    // if (!image) {
-    //   return "https://vignette.wikia.nocookie.net/ark-survival-evolved/images/2/29/Light_Gray_429810_i0.png/revision/latest?cb\u003d20161013024245";
-    // } else {
-    //   return image;
-    // }
-    if (image) {
+    if (!image) {
+      return "https://www.haceonline.org/wp-content/uploads/2017/08/light-gray-solid-color-background.jpg";
+    } else {
       return image;
     }
   };

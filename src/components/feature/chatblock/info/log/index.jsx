@@ -31,8 +31,6 @@ const LogSection = (prop) => {
   const getWeight = (e) => {
     if (e) {
       return e.body.kilograms + "kg";
-    } else {
-      return "입력 전";
     }
   };
 

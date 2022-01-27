@@ -15,6 +15,7 @@ export const Date = styled.div`
   display: flex;
   width: 6.5vw;
   height: 5vw;
+  font-weight: 700;
 `;
 
 export const Time = styled.div`
