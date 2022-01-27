@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Container, Title, Text, LogContainer } from "./styled";
+import { Container, Title, Text, LogContainer , DateText, TimeText} from "./styled";
 import Log from "../../../../shared/log";
 import InfoService from "../../../../../apis/info/info-service";
 import { Context } from "../../../../../utils/contextProvider";
@@ -48,6 +48,12 @@ const LogSection = (prop) => {
     }
   };
 
+  const getTime = (e) => {
+    if (e) {
+      return e.created_at_time;
+    }
+  };
+
   const isData = (e) => {
     if (JSON.stringify(e) === "[]") {
       return false;
@@ -59,7 +65,8 @@ const LogSection = (prop) => {
   return (
     <Container>
       <Title>
-        <Text>날짜</Text>
+        <DateText>날짜</DateText>
+        <TimeText>시간</TimeText>
         <Text>체중</Text>
         <Text>아침</Text>
         <Text>점심</Text>
@@ -77,6 +84,8 @@ const LogSection = (prop) => {
                   date={date}
                   morning={getWeight(log[date].weight_morning)}
                   night={getWeight(log[date].weight_night)}
+                  morningTime={getTime(log[date].weight_morning)}
+                  nightTime={getTime(log[date].weight_night)}
                   breakfastLocation={getMenuLocation(log[date].breakfast)}
                   lunchLocation={getMenuLocation(log[date].lunch)}
                   dinnerLocation={getMenuLocation(log[date].dinner)}
@@ -85,6 +94,10 @@ const LogSection = (prop) => {
                   lunchThumbnail={getMenuThumbnail(log[date].lunch)}
                   dinnerThumbnail={getMenuThumbnail(log[date].dinner)}
                   snackThumbnail={getMenuThumbnail(log[date].snack)}
+                  breakfastTime={getTime(log[date].breakfast)}
+                  lunchTime={getTime(log[date].lunch)}
+                  dinnerTime={getTime(log[date].dinner)}
+                  snackTime={getTime(log[date].snack)}
                 ></Log>
               ))
             )}
