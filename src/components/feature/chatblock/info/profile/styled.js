@@ -5,11 +5,10 @@ export const Profile = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 41vw;
+  width: 42vw;
   height: 17vw;
-  padding: 1vw;
   background-color: white;
-  box-shadow: 0px 5px 10px #00000015;
+  border-radius: 0.3vw;
 `;
 
 export const Information = styled.div`
@@ -17,19 +16,23 @@ export const Information = styled.div`
   flex-direction: column;
   width: 18vw;
   height: 15vw;
+  padding: 1vw;
 `;
 
 export const Item = styled.div`
   display: flex;
   align-items: center;
+  height: 1.6vw;
   margin-bottom: 0.5vw;
-  font-size: 1.2vw;
+  font-size: 1vw;
+  color: #303030;
+  border-bottom: 0.1vw solid #F0F0F0;
 `;
 
 export const Tag = styled.div`
   margin-right: 0.5vw;
-  font-size: 1.2vw;
-  font-weight: bold;
+  width: 4.5vw;
+  color: #808080;
 `;
 
 export const Button = styled.div`

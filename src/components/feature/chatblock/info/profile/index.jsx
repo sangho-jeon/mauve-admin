@@ -62,35 +62,39 @@ const ProfileSection = (prop) => {
     <Profile>
       <Information>
         <Item>
-          <Tag>이름:</Tag>
+          <Tag>이름</Tag>
           {isData(profile) && profile.userInfo.name}
         </Item>
         <Item>
-          <Tag>번호:</Tag>
+          <Tag>번호</Tag>
           {isData(profile) && getNumber(profile.userInfo.phone_NO)}
         </Item>
         <Item>
-          <Tag>생년월일:</Tag>
-          {isData(profile) && profile.userInfo.birthdate + "(만 " + profile.userInfo.age + "세)"}
+          <Tag>생년월일</Tag>
+          {isData(profile) && profile.userInfo.birthdate + " (만 " + profile.userInfo.age + "세)"}
         </Item>
         <Item>
-          <Tag>신장:</Tag>
-          {isData(profile) && profile.userInfo.height + "cm"}
+          <Tag>신장</Tag>
+          {isData(profile) && profile.userInfo.height + " cm"}
         </Item>
         <Item>
-          <Tag>현재 체중:</Tag>
-          {isData(profile) && profile.userInfo.weight.now + "kg"}
+          <Tag>현재 체중</Tag>
+          {isData(profile) && profile.userInfo.weight.now + " kg"}
         </Item>
         <Item>
-          <Tag>목표 체중:</Tag>
-          {isData(profile) && profile.userInfo.weight.goal + "kg"}
+          <Tag>목표 체중</Tag>
+          {isData(profile) && profile.userInfo.weight.goal + " kg"}
         </Item>
-        <Button onClick={() => buttonClick(prop.id)}>문진표</Button>
+        <Item>
+          <Tag>현재 주기</Tag>
+          {isData(profile) && profile.userInfo.currentPhase.phase_kor}
+        </Item>
+        {/* <Button onClick={() => buttonClick(prop.id)}>문진표</Button>
         <Modal
           showModal={showModal}
           click={() => setShowModal(false)}
           id={prop.id}
-        ></Modal>
+        ></Modal> */}
       </Information>
       <Calendar data={profile} />
     </Profile>
