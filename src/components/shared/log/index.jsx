@@ -1,11 +1,11 @@
 import React from "react";
-import { MainContainer, Date, Weight, MorningWeight, NightWeight, Breakfast, Lunch, Dinner, Snack } from "./styled";
+import { MainContainer, Date, Weight, Time, WeightTime, WeightData, Diet, DietTime, DietImage } from "./styled";
 
 const Log = (props) => {  
   
   const showImage = (image) => {
     if (!image) {
-      return "https://cdn4.iconfinder.com/data/icons/summer-and-holidays-24/60/fork__spoon__utensils__kitchen__restaurant-512.png";
+      return "https://www.haceonline.org/wp-content/uploads/2017/08/light-gray-solid-color-background.jpg";
     } else {
       return image;
     }
@@ -13,22 +13,38 @@ const Log = (props) => {
   return (
     <MainContainer>
       <Date>{props.date}</Date>
+      <Time>
+        <WeightTime>{props.morningTime}</WeightTime>
+        <WeightTime>{props.nightTime}</WeightTime>
+      </Time>
       <Weight>
-      <MorningWeight>{props.morning}</MorningWeight>
-      <NightWeight>{props.night}</NightWeight>
+        <WeightData>{props.morning}</WeightData>
+        <WeightData>{props.night}</WeightData>
       </Weight>
-      <a href={props.breakfastLocation} target="blank">
-        <Breakfast src={showImage(props.breakfastThumbnail)}></Breakfast>
-      </a>
-      <a href={props.lunchLocation} target="blank">
-        <Lunch src={showImage(props.lunchThumbnail)}></Lunch>
-      </a>
-      <a href={props.dinnerLocation} target="blank">
-        <Dinner src={showImage(props.dinnerThumbnail)}></Dinner>
-      </a>
-      <a href={props.snackLocation} target="blank">
-       <Snack src={showImage(props.snackThumbnail)}></Snack>
-      </a>
+      <Diet>
+        <a href={props.breakfastLocation} target="blank">
+          <DietImage src={showImage(props.breakfastThumbnail)}></DietImage>
+        </a>
+        <DietTime>{props.breakfastTime}</DietTime>
+      </Diet>
+      <Diet>
+        <a href={props.lunchLocation} target="blank">
+          <DietImage src={showImage(props.lunchThumbnail)}></DietImage>
+        </a>
+        <DietTime>{props.lunchTime}</DietTime>
+      </Diet>
+      <Diet>
+        <a href={props.dinnerLocation} target="blank">
+          <DietImage src={showImage(props.dinnerThumbnail)}></DietImage>
+        </a>
+        <DietTime>{props.dinnerTime}</DietTime>
+      </Diet>
+      <Diet>
+        <a href={props.snackLocation} target="blank">
+        <DietImage src={showImage(props.snackThumbnail)}></DietImage>
+        </a>
+        <DietTime>{props.snackTime}</DietTime>
+      </Diet>
     </MainContainer>
   );      
 };

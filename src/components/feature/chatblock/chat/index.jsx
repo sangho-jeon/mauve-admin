@@ -6,12 +6,16 @@ import {
   Chatlayout,
   ImageButton,
   ImageIcon,
+  ChatRoomTitle,
+  UserName
 } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
+import RoomService from "../../../../apis/rooms/room-service";
 import { Context } from "../../../../utils/contextProvider";
 
 const chatService = new ChatService();
+const roomService = new RoomService();
 
 const ChatSection = ({ id, socket }) => {
   const { value, contextDispatch } = useContext(Context);
@@ -26,6 +30,8 @@ const ChatSection = ({ id, socket }) => {
 
   // 나머지 하나는 서버에서 받은 갱신된(새로 추가된) 내용을 받는 상태값이다.
   const [recentChat, setRecentChat] = useState();
+
+  const [room, setRoom] = useState("");
 
   useEffect(() => {
     // 각 룸 페이지에 들어갈때
@@ -45,6 +51,25 @@ const ChatSection = ({ id, socket }) => {
     recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
     setRecentChat(undefined);
   }, [recentChat]);
+
+  useEffect(() => {
+    getRoomById();
+  }, [id]);
+
+  const getRoomById = async () => {
+    try {
+      const { room } = await roomService.getRoomById(
+        id,
+        value.accessToken,
+        value.refreshToken
+      );
+      setRoom(room);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
 
   const getChat = async () => {
     //초기 기존 채팅 받아오는 부분.
@@ -120,8 +145,19 @@ const ChatSection = ({ id, socket }) => {
     messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
   }, [chatMonitor]);
 
+  const isData = (e) => {
+    if (e === "") {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   return (
     <Chatlayout>
+      <ChatRoomTitle>
+        <UserName>{isData(room) && room.user.name}</UserName>
+      </ChatRoomTitle>
       <ChatContainer ref={messagesRef}>
         {chatMonitor.map(
           (chats) =>

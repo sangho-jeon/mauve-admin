@@ -54,14 +54,14 @@ const NoteSection = (prop) => {
 
   return (
     <Note>
-      <Title>
-        회원 노트 테이킹<Button onClick={() => buttonClick()}>저장</Button>
-      </Title>
       <NoteInput
         value={userNote}
         placeholder="회원에 대해 기록하세요"
         onChange={onChange}
       ></NoteInput>
+      <Title>
+        <Button onClick={() => buttonClick()}>저장</Button>
+      </Title>
     </Note>
   );
 };

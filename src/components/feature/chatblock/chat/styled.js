@@ -4,34 +4,55 @@ import { AiFillCamera } from "react-icons/ai";
 export const Chatlayout = styled.div`
   display: flex;
   flex-direction: column;
+  width: 32.8vw;
+  height: 55vw;
+  border: 0.1vw solid #E0E0E0;
+  border-bottom: none;
+  border-top: none;
+`;
+
+export const ChatRoomTitle = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  width: 31vw;
-  height: 53vw;
+  width: 32.8vw;
+  height: 4vw;
+  padding: 0 1vw;
+  border-bottom: 0.1vw solid #E0E0E0;
+`;
+
+export const UserName = styled.div`
+  font-size: 1.3vw;
+  font-weight: 600;
+  color: #303030;
 `;
 
 export const ChatContainer = styled.div`
   box-sizing: border-box;
   display: block;
   overflow-y: auto;
-  width: 31vw;
-  height: 46vw;
+  width: 32.8vw;
+  height: 45vw;
   padding: 1vw;
   background-color: white;
+  border-bottom: 0.1vw solid #E0E0E0;
 `;
 
 export const ChatInput = styled.textarea`
-  width: 27vw;
-  height: 5vw;
-  margin-top: 1vw;
+  box-sizing: border-box;
+  width: 32.8vw;
+  height: 6vw;
   padding: 0.5vw;
+  padding-right: 2vw;
   resize: none;
-  border-color: gray;
-  border-radius: 0.7vw;
-  box-shadow: 0px 5px 10px #00000015;
   font-size: 1vw;
+  border: none;
+  outline: none;
 `;
 
 export const ChatInputContainer = styled.div`
+  width: 32.8vw;
   display: flex;
   align-items: center;
 `;
@@ -47,9 +68,25 @@ export const ImageButton = styled.input`
 `;
 
 export const ImageIcon = styled(AiFillCamera)`
+  position: fixed;
+  top: 49.3vw;
+  left: 53.8vw;
   width: 1.5vw;
   height: 1.5vw;
   padding-left: 0.3vw;
-  color: rgb(52, 120, 246);
+  color: #D0D0D0;
   cursor: pointer;
+`;
+
+export const Button = styled.div`
+  width: 3.5vw;
+  height: 1.5vw;
+  margin-top: 1vw;
+  padding: 0.5vw 0.7vw;
+  border-radius: 1.2vw;
+  border: 0.1vw solid #cccccc;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1vw;
 `;

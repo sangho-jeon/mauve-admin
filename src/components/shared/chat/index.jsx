@@ -9,14 +9,14 @@ const ChatBox = (prop) => {
     return (
       <BubbleContainer sender={prop.sender}>
         <Time>{getDate(prop.date) + " " + prop.time}</Time>
-        <Bubble sender={prop.sender}>{prop.text}</Bubble>
+        <Bubble sender={prop.sender} tag={prop.tag}>{prop.text}</Bubble>
       </BubbleContainer>
     );
   } else if (prop.tag === "weight") {
     return (
       <BubbleContainer sender={prop.sender}>
         <Time>{getDate(prop.date) + " " + prop.time}</Time>
-        <Bubble sender={prop.sender}>
+        <Bubble sender={prop.sender} tag={prop.tag}>
           {prop.weight.time}: {prop.weight.kilograms}kg
         </Bubble>
       </BubbleContainer>
@@ -25,7 +25,7 @@ const ChatBox = (prop) => {
     return (
       <BubbleContainer sender={prop.sender}>
         <Time>{getDate(prop.date) + " " + prop.time}</Time>
-        <Bubble sender={prop.sender}>
+        <Bubble sender={prop.sender} tag={prop.tag}>
           <a href={prop.src} target="blank">
             <Image src={prop.thumbnail}></Image>
           </a>
