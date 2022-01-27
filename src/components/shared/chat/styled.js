@@ -18,19 +18,20 @@ export const BubbleContainer = styled.div`
 export const Bubble = styled.div`
   max-width: 75%;
   word-break: break-all;
-  padding: 0.6vw 1vw;
-  border-radius: 1vw;
-  font-size: 1.1vw;
+  padding: 0.5vw 0.8vw;
+  font-size: 1vw;
   white-space: pre-wrap;
-
+  color: black;
   ${({ sender }) =>
     sender !== true
       ? css`
-          background-color: rgb(229, 229, 232);
-          color: black;
+          background-color: #F8F8F8;
+          border-radius: 0.1vw 0.6vw 0.6vw 0.6vw;
         `
       : css`
-          background-color: rgb(52, 120, 246);
+          background-color: #FFFFFF;
+          border: 0.1vw solid #F0F0F0;
+          border-radius: 0.6vw 0.1vw 0.6vw 0.6vw;
         `}
 `;
 
@@ -38,8 +39,9 @@ export const Image = styled.img`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 14vw;
-  height: 14vw;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 0.6vw;
   object-fit: cover;
 `;
 
