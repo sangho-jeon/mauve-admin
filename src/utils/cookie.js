@@ -3,7 +3,7 @@ import { Cookies } from "react-cookie";
 const cookie = new Cookies();
 
 export const setRefreshCookie = (refreshToken) => {
-  return cookie.set("refreshToken", refreshToken);
+  return cookie.set("refreshToken", refreshToken, { secure: true });
 };
 
 export const getRefreshCookie = () => {
@@ -11,7 +11,7 @@ export const getRefreshCookie = () => {
 };
 
 export const setAccessCookie = (accessToken) => {
-  return cookie.set("accessToken", accessToken);
+  return cookie.set("accessToken", accessToken, { secure: true });
 };
 
 export const getAccessCookie = () => {
@@ -19,7 +19,7 @@ export const getAccessCookie = () => {
 };
 
 export const setIdCookie = (id) => {
-  return cookie.set("id", id);
+  return cookie.set("id", id, { secure: true });
 };
 
 export const getId = () => {

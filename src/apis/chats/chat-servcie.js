@@ -10,7 +10,7 @@ class ChatService {
   }
 
   async getChatByRoomId(room, access, refresh) {
-    if (access !== null && refresh !== null) {
+    if (room !== "" && access !== null && refresh !== null) {
       const date = moment().tz("Asia/Seoul").format("YYYY-MM-DDTHH:59");
       const yesterday = moment()
         .subtract(7, "day")
