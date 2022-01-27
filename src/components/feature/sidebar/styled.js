@@ -22,7 +22,7 @@ export const Header = styled.header`
 `;
 
 export const CardContainer = styled.div`
-  height: 51vw;
+  height: 52vw;
   overflow-y: scroll;
 `;
 
