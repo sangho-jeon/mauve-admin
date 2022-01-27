@@ -89,12 +89,12 @@ const ProfileSection = (prop) => {
           <Tag>현재 주기</Tag>
           {isData(profile) && profile.userInfo.currentPhase.phase_kor}
         </Item>
-        {/* <Button onClick={() => buttonClick(prop.id)}>문진표</Button>
+        <Button onClick={() => buttonClick(prop.id)}>문진표</Button>
         <Modal
           showModal={showModal}
           click={() => setShowModal(false)}
           id={prop.id}
-        ></Modal> */}
+        ></Modal>
       </Information>
       <Calendar data={profile} />
     </Profile>

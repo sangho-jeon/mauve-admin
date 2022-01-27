@@ -9,6 +9,7 @@ export const Profile = styled.div`
   height: 17vw;
   background-color: white;
   border-radius: 0.3vw;
+  padding: 1vw;
 `;
 
 export const Information = styled.div`
@@ -16,7 +17,6 @@ export const Information = styled.div`
   flex-direction: column;
   width: 18vw;
   height: 15vw;
-  padding: 1vw;
 `;
 
 export const Item = styled.div`
@@ -30,20 +30,25 @@ export const Item = styled.div`
 `;
 
 export const Tag = styled.div`
-  margin-right: 0.5vw;
+  margin-right: 1.2vw;
   width: 4.5vw;
   color: #808080;
 `;
 
 export const Button = styled.div`
-  width: 3.5vw;
-  height: 1.5vw;
-  margin-top: 1vw;
-  padding: 0.5vw 0.7vw;
-  border-radius: 1.2vw;
-  border: 0.1vw solid #cccccc;
+  position: fixed;
+  top: 1vw;
+  left: 51vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4vw;
+  height: 2vw;
+  border-radius: 0.2vw;
   cursor: pointer;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1vw;
+  color: #878787;
+  background-color: #F4F4F4;
 `;

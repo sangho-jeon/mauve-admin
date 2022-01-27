@@ -7,7 +7,7 @@ export const InfoContainer = styled.div`
   width: 44vw;
   height: 55vw;
   padding: 0.5vw 1vw;
-  background-color: #FAFAFA;
+  background-color: #F2F2F2;
 `;
 
 export const Title = styled.div`

@@ -8,7 +8,7 @@ import { isPropsEqual } from "@fullcalendar/common";
 const InfoSection = ({ id }) => {
   return (
     <InfoContainer>
-      <Title>회원 노트</Title>
+      <Title>회원 정보</Title>
       <ProfileSection id={id} />
       <Title>회원 노트</Title>
       <NoteSection id={id} />
