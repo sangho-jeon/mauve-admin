@@ -15,6 +15,7 @@ import {
   LoginInput,
   LoginSection,
   LoginButton,
+  Logo,
 } from "./styled";
 
 const authService = new AuthService();
@@ -65,12 +66,21 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  const handleEnter = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
+    }
+  };
+
   return (
     <LoginSection>
       <Loginblock>
-        <Banner>Mauve</Banner>
-        <LoginInput placeholder="please type password" onChange={handleInput} />
-        <LoginButton onClick={handleSubmit}>Login</LoginButton>
+        <Banner>
+          <Logo src={"/images/mauve-logo.png"}></Logo>
+          코치용
+        </Banner>
+        <LoginInput placeholder="비밀번호" onChange={handleInput} onKeyUp={handleEnter}/>
+        <LoginButton onClick={handleSubmit}>로그인</LoginButton>
       </Loginblock>
     </LoginSection>
   );
