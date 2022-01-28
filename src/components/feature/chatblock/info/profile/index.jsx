@@ -78,7 +78,7 @@ const ProfileSection = (prop) => {
           {isData(profile) && profile.userInfo.height + " cm"}
         </Item>
         <Item>
-          <Tag>현재 체중</Tag>
+          <Tag>처음 체중</Tag>
           {isData(profile) && profile.userInfo.weight.now + " kg"}
         </Item>
         <Item>
