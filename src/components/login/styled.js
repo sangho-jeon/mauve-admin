@@ -7,7 +7,6 @@ export const LoginSection = styled.div`
   justify-content: center;
   width: 100vw;
   height: 55vw;
-  // background-color: #F1F1F1;
 `;
 
 export const Loginblock = styled.div`
@@ -16,7 +15,6 @@ export const Loginblock = styled.div`
   align-items: center;
   width: 40vw;
   height: 27vw;
-  // box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.39);
 `;
 
 export const Logo = styled.img`
@@ -43,6 +41,7 @@ export const LoginInput = styled.input`
   height: 4vw;
   padding: 1.5vw;
   border-radius: 0.6vw;
+  font-size: 1vw;
   border: 0.1vw solid #E0E0E0;
   outline: none;
 `;
