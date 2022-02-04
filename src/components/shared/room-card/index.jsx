@@ -38,7 +38,12 @@ const useInterval = (callback, delay) => {
 
 const RoomCard = (props) => {
   const [waitingTime, setWaitingTime] = useState("");
-  
+  const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    Clicked();
+  }, [props.currentId]);
+  // console.log(props.userId);
   useInterval(() => {
     getWaitTime(props.recentChat, props.userChatTime);
   }, 1000);
@@ -47,7 +52,7 @@ const RoomCard = (props) => {
     if (!recent || recent.sender_role === "coach") {
       setWaitingTime("");
       return;
-    } 
+    }
     const chatDate = new Date(time.replace(" ", "T"));
     chatDate.setHours(chatDate.getHours() + 9);
 
@@ -62,13 +67,19 @@ const RoomCard = (props) => {
       } else {
         return time;
       }
-    }
+    };
 
     const waitHour = parseInt(waitTime / 3600);
     const waitMin = parseInt((waitTime - waitHour * 3600) / 60);
     const waitSec = parseInt(waitTime - waitHour * 3600 - waitMin * 60);
-    
-    setWaitingTime(refineTime(waitHour) + ":" + refineTime(waitMin) + ":" + refineTime(waitSec));
+
+    setWaitingTime(
+      refineTime(waitHour) +
+        ":" +
+        refineTime(waitMin) +
+        ":" +
+        refineTime(waitSec)
+    );
   };
 
   const getRecentChat = (e) => {
@@ -91,11 +102,22 @@ const RoomCard = (props) => {
     return "";
   };
 
+  const Clicked = () => {
+    if (props.roomId === props.currentId) {
+      setIsClicked(true);
+      console.log("true!!!!!!!!");
+    } else {
+      setIsClicked(false);
+      console.log("false!!!!");
+    }
+  };
+
   return (
     <Card
       onClick={() => {
-        props.click(props.id, props.userId);
+        props.click(props.roomId, props.userId);
       }}
+      isClicked={isClicked}
     >
       <Top>
         <First>

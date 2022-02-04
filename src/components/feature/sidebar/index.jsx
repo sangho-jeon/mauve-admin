@@ -40,6 +40,7 @@ const SideBar = (props) => {
         value.accessToken,
         value.refreshToken
       );
+      console.log(room);
       sortRoomList(room);
     } catch (error) {
       console.log(error);
@@ -47,15 +48,15 @@ const SideBar = (props) => {
   };
 
   const sortRoomList = (list) => {
-    list.sort(
-      (a, b) => {
-        if (!a.recent_chat || !b.recent_chat) {
-          return 0;
-        } else {
-          return -a.recent_chat.created_at.localeCompare(b.recent_chat.created_at);
-        }
+    list.sort((a, b) => {
+      if (!a.recent_chat || !b.recent_chat) {
+        return 0;
+      } else {
+        return -a.recent_chat.created_at.localeCompare(
+          b.recent_chat.created_at
+        );
       }
-    );
+    });
     setRoomList(list);
   };
 
@@ -80,8 +81,9 @@ const SideBar = (props) => {
         {roomList.map((room) => (
           <RoomCard
             click={props.click}
-            id={room._id}
+            roomId={room._id}
             userId={room.user._id}
+            currentId={props.currentId}
             name={room.user.name}
             count={room.non_read_chats_num}
             morning={room.input_morning_weight}
