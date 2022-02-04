@@ -10,10 +10,20 @@ export const Card = styled.button`
   height: 6vw;
   border: none;
   padding: 1vw 1vw 0.5vw;
-  border-bottom: 0.1vw solid #E5E5E5;
-  background-color: white;
+  border-bottom: 0.1vw solid #e5e5e5;
   font-size: 1vw;
   cursor: pointer;
+
+  ${({ isClicked = false }) =>
+    isClicked !== false
+      ? css`
+          background-color: white;
+          color: #505050;
+        `
+      : css`
+          background-color: var(--color-blue);
+          color: white;
+        `}
 `;
 
 export const Top = styled.div`
@@ -54,13 +64,13 @@ export const Count = styled.div`
   float: right;
   font-weight: 700;
   ${({ count }) =>
-  count === 0
-    ? css`
-      color: #D0D0D0;
-      `
-    : css`
-      color: #F5532F;
-    `}
+    count === 0
+      ? css`
+          color: #d0d0d0;
+        `
+      : css`
+          color: #f5532f;
+        `}
 `;
 
 export const Bottom = styled.div`
@@ -99,11 +109,11 @@ export const Weight = styled.div`
   ${({ sender }) =>
     sender === true
       ? css`
-        background-color: #7B61FF;
+          background-color: #7b61ff;
         `
       : css`
-        background-color: #D0D0D0;
-      `}
+          background-color: #d0d0d0;
+        `}
 `;
 
 export const Diet = styled.div`
@@ -113,11 +123,11 @@ export const Diet = styled.div`
   ${({ sender }) =>
     sender === true
       ? css`
-        background-color: #7B61FF;
+          background-color: #7b61ff;
         `
       : css`
-        background-color: #D0D0D0;
-      `}
+          background-color: #d0d0d0;
+        `}
 `;
 
 export const Waiting = styled.div`

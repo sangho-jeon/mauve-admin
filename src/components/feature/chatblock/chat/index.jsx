@@ -7,7 +7,7 @@ import {
   ImageButton,
   ImageIcon,
   ChatRoomTitle,
-  UserName
+  UserName,
 } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
@@ -68,8 +68,6 @@ const ChatSection = ({ id, socket }) => {
       console.log(error);
     }
   };
-  
-
 
   const getChat = async () => {
     //초기 기존 채팅 받아오는 부분.

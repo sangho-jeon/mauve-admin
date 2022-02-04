@@ -10,8 +10,8 @@ const roomService = new RoomService();
 
 const MainPage = ({ auth }) => {
   const { value, contextDispatch } = useContext(Context);
-  const [currentId, setId] = useState("");
-  const [userId, setUserId] = useState("");
+  const [currentId, setId] = useState(""); // 클릭된 id 값
+  const [userId, setUserId] = useState(""); // 나의 id 값
   const [currentsocket, setSocket] = useState();
   //이 부분에서 socket이랑 연결한 후에 prop으로 소켓을 넘겨줘야 리렌더링이 발생하지 않는다.
   useEffect(() => {
@@ -59,7 +59,7 @@ const MainPage = ({ auth }) => {
 
   return (
     <MainLayOut>
-      <SideBar click={OnClick} />
+      <SideBar click={OnClick} currentId={currentId} />
       <ChatBlock id={currentId} userId={userId} currentsocket={currentsocket} />
     </MainLayOut>
   );
