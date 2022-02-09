@@ -42,8 +42,8 @@ const RoomCard = (props) => {
 
   useEffect(() => {
     Clicked();
-  }, [props.currentId]);
-  // console.log(props.userId);
+  }, [props.currentId, props.roomList]);
+
   useInterval(() => {
     getWaitTime(props.recentChat, props.userChatTime);
   }, 1000);
