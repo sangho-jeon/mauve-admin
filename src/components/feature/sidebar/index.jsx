@@ -80,6 +80,7 @@ const SideBar = (props) => {
       <CardContainer>
         {roomList.map((room) => (
           <RoomCard
+            roomList={roomList}
             click={props.click}
             roomId={room._id}
             userId={room.user._id}
