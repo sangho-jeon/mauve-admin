@@ -44,7 +44,7 @@ export const ChatInput = styled.textarea`
   width: 32.8vw;
   height: 6vw;
   padding: 0.5vw;
-  padding-right: 2vw;
+  padding-right: 0.7vw;
   resize: none;
   font-size: 1vw;
   border: none;
@@ -54,7 +54,6 @@ export const ChatInput = styled.textarea`
 export const ChatInputContainer = styled.div`
   width: 32.8vw;
   display: flex;
-  align-items: center;
 `;
 
 export const ImageButton = styled.input`
@@ -68,12 +67,9 @@ export const ImageButton = styled.input`
 `;
 
 export const ImageIcon = styled(AiFillCamera)`
-  position: fixed;
-  top: 49.3vw;
-  left: 53.8vw;
   width: 1.5vw;
   height: 1.5vw;
-  padding-left: 0.3vw;
+  padding: 0.3vw;
   color: #D0D0D0;
   cursor: pointer;
 `;
