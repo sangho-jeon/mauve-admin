@@ -34,21 +34,3 @@ export const Tag = styled.div`
   width: 4.5vw;
   color: #808080;
 `;
-
-export const Button = styled.div`
-  position: fixed;
-  top: 1vw;
-  left: 51vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 4vw;
-  height: 2vw;
-  border-radius: 0.2vw;
-  cursor: pointer;
-  text-align: center;
-  font-weight: 700;
-  font-size: 1vw;
-  color: #878787;
-  background-color: #F4F4F4;
-`;

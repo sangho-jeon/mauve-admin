@@ -52,10 +52,8 @@ const Modal = (props) => {
 
   const isData = (e) => {
     if (e === undefined || JSON.stringify(e) === "[]") {
-      console.log(questionnaire);
       return false;
     } else {
-      console.log(e);
       return true;
     }
   };

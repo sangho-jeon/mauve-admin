@@ -56,16 +56,6 @@ export const ChatInputContainer = styled.div`
   display: flex;
 `;
 
-export const ImageButton = styled.input`
-  width: 1.5vw;
-  height: 1.5vw;
-  padding-left: 0vw;
-  margin-left: 0.5vw;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-`;
-
 export const ImageIcon = styled(AiFillCamera)`
   width: 1.5vw;
   height: 1.5vw;
@@ -75,14 +65,16 @@ export const ImageIcon = styled(AiFillCamera)`
 `;
 
 export const Button = styled.div`
-  width: 3.5vw;
-  height: 1.5vw;
-  margin-top: 1vw;
-  padding: 0.5vw 0.7vw;
-  border-radius: 1.2vw;
-  border: 0.1vw solid #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4vw;
+  height: 2vw;
+  border-radius: 0.2vw;
   cursor: pointer;
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1vw;
+  color: #878787;
+  background-color: #F4F4F4;
 `;
