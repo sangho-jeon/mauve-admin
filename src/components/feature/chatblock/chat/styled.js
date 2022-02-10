@@ -17,7 +17,7 @@ export const ChatRoomTitle = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 32.8vw;
-  height: 4vw;
+  height: 3.5vw;
   padding: 0 1vw;
   border-bottom: 0.1vw solid #E0E0E0;
 `;
@@ -33,8 +33,8 @@ export const ChatContainer = styled.div`
   display: block;
   overflow-y: auto;
   width: 32.8vw;
-  height: 45vw;
-  padding: 1vw;
+  height: 45.5vw;
+  padding: 0.5vw 1vw;
   background-color: white;
   border-bottom: 0.1vw solid #E0E0E0;
 `;
