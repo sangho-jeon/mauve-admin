@@ -4,20 +4,21 @@ import {
   ChatInput,
   ChatInputContainer,
   Chatlayout,
-  ImageButton,
   ImageIcon,
   ChatRoomTitle,
   UserName,
+  Button,
 } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
 import RoomService from "../../../../apis/rooms/room-service";
+import Modal from "../info/profile/questionnaire/index";
 import { Context } from "../../../../utils/contextProvider";
 
 const chatService = new ChatService();
 const roomService = new RoomService();
 
-const ChatSection = ({ id, socket }) => {
+const ChatSection = ({ id, userId, socket }) => {
   const { value, contextDispatch } = useContext(Context);
 
   const messagesRef = useRef(null);
@@ -32,6 +33,16 @@ const ChatSection = ({ id, socket }) => {
   const [recentChat, setRecentChat] = useState();
 
   const [room, setRoom] = useState("");
+
+  //////////////// 문진표 모달
+  const [showModal, setShowModal] = useState(false);
+
+  const buttonClick = (e) => {
+    if (e !== "") {
+      setShowModal(true);
+    }
+  };
+  /////////////////////여기까지 문진표
 
   useEffect(() => {
     // 각 룸 페이지에 들어갈때
@@ -155,6 +166,12 @@ const ChatSection = ({ id, socket }) => {
     <Chatlayout>
       <ChatRoomTitle>
         <UserName>{isData(room) && room.user.name}</UserName>
+        <Button onClick={() => buttonClick(userId)}>문진표</Button>
+        <Modal
+          showModal={showModal}
+          click={() => setShowModal(false)}
+          id={userId}
+        ></Modal>
       </ChatRoomTitle>
       <ChatContainer ref={messagesRef}>
         {chatMonitor.map(

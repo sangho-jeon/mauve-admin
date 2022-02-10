@@ -9,7 +9,7 @@ const ChatBlock = ({ id, userId, currentsocket }) => {
     <div>
       {currentsocket ? (
         <ChatBlockSection>
-          <ChatSection id={id} socket={currentsocket} />
+          <ChatSection id={id} userId={userId} socket={currentsocket} />
           <InfoSection id={userId} />
         </ChatBlockSection>
       ) : (

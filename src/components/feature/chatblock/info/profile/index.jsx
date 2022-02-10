@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Profile, Information, Item, Tag, Button } from "./styled";
-import Modal from "./questionnaire/index";
+import { Profile, Information, Item, Tag } from "./styled";
 import Calendar from "./calendar/calendar";
 import InfoService from "../../../../../apis/info/info-service";
 import { Context } from "../../../../../utils/contextProvider";
@@ -9,7 +8,6 @@ const infoService = new InfoService();
 
 const ProfileSection = (prop) => {
   const [profile, setProfile] = useState([]);
-  const [showModal, setShowModal] = useState(false);
   const { value, contextDispatch } = useContext(Context);
 
   const getProfileData = async () => {
@@ -52,12 +50,6 @@ const ProfileSection = (prop) => {
     }
   };
 
-  const buttonClick = (e) => {
-    if (e !== "") {
-      setShowModal(true);
-    }
-  };
-
   return (
     <Profile>
       <Information>
@@ -89,12 +81,6 @@ const ProfileSection = (prop) => {
           <Tag>현재 주기</Tag>
           {isData(profile) && profile.userInfo.currentPhase.phase_kor}
         </Item>
-        <Button onClick={() => buttonClick(prop.id)}>문진표</Button>
-        <Modal
-          showModal={showModal}
-          click={() => setShowModal(false)}
-          id={prop.id}
-        ></Modal>
       </Information>
       <Calendar data={profile} />
     </Profile>
