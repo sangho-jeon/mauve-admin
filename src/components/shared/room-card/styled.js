@@ -17,12 +17,10 @@ export const Card = styled.button`
   ${({ isClicked = false }) =>
     isClicked !== false
       ? css`
-          background-color: white;
-          color: #505050;
+          background-color: #F4F4F4;
         `
       : css`
-          background-color: var(--color-blue);
-          color: white;
+          background-color: #FFFFFF;
         `}
 `;
 
