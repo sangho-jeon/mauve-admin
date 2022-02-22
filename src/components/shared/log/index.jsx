@@ -1,5 +1,5 @@
 import React from "react";
-import { MainContainer, Date, Weight, Time, WeightTime, WeightData, Diet, DietTime, DietImage } from "./styled";
+import { MainContainer, Date, Weight, WeightTime, WeightData, Diet, DietTime, DietImage } from "./styled";
 
 const Log = (props) => {  
   
@@ -13,13 +13,11 @@ const Log = (props) => {
   return (
     <MainContainer>
       <Date>{props.date}</Date>
-      <Time>
-        <WeightTime>{props.morningTime}</WeightTime>
-        <WeightTime>{props.nightTime}</WeightTime>
-      </Time>
       <Weight>
         <WeightData>{props.morning}</WeightData>
+        <WeightTime>{props.morningTime}</WeightTime>
         <WeightData>{props.night}</WeightData>
+        <WeightTime>{props.nightTime}</WeightTime>
       </Weight>
       <Diet>
         <a href={props.breakfastLocation} target="blank">
@@ -44,6 +42,12 @@ const Log = (props) => {
         <DietImage src={showImage(props.snackThumbnail)}></DietImage>
         </a>
         <DietTime>{props.snackTime}</DietTime>
+      </Diet>
+      <Diet>
+        <a href={props.yasikLocation} target="blank">
+        <DietImage src={showImage(props.yasikThumbnail)}></DietImage>
+        </a>
+        <DietTime>{props.yasikTime}</DietTime>
       </Diet>
     </MainContainer>
   );      

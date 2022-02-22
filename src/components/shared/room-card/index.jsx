@@ -90,7 +90,8 @@ const RoomCard = (props) => {
         e.tag === "breakfast" ||
         e.tag === "lunch" ||
         e.tag === "dinner" ||
-        e.tag === "snack"
+        e.tag === "snack" || 
+        e.tag === "yasik"
       ) {
         return "식단을 입력했습니다";
       } else if (e.tag === "chat" && e.body.text) {

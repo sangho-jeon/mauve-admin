@@ -18,15 +18,10 @@ export const Date = styled.div`
   font-weight: 700;
 `;
 
-export const Time = styled.div`
-  width: 3.5vw;
-  height: 5vw;
-`;
-
 export const WeightTime = styled.div`
   display: flex;
-  width: 3.5vw;
-  height: 1.8vw;
+  width: 5vw;
+  height: 1.5vw;
 `;
 
 export const Weight = styled.div`
@@ -37,7 +32,8 @@ export const Weight = styled.div`
 export const WeightData = styled.div`
   display: flex;
   width: 5vw;
-  height: 1.8vw;
+  height: 1.2vw;
+  font-weight: bold;
 `;
 
 export const Diet = styled.div`
