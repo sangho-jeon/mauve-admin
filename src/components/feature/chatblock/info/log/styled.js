@@ -33,12 +33,6 @@ export const DateText = styled.div`
   color: #808080;
 `;
 
-export const TimeText = styled.div`
-  width: 3.5vw;
-  font-size: 0.8vw;
-  color: #808080;
-`;
-
 export const LogContainer = styled.div`
   display: flex;
   flex-direction: column;

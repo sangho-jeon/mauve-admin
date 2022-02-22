@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Container, Title, Text, LogContainer , DateText, TimeText} from "./styled";
+import { Container, Title, Text, LogContainer , DateText } from "./styled";
 import Log from "../../../../shared/log";
 import InfoService from "../../../../../apis/info/info-service";
 import { Context } from "../../../../../utils/contextProvider";
@@ -64,12 +64,12 @@ const LogSection = (prop) => {
     <Container>
       <Title>
         <DateText>날짜</DateText>
-        <TimeText>시간</TimeText>
         <Text>체중</Text>
         <Text>아침</Text>
         <Text>점심</Text>
         <Text>저녁</Text>
         <Text>간식</Text>
+        <Text>야식</Text>
       </Title>
       <LogContainer>
         {isData(logList) &&
@@ -88,14 +88,17 @@ const LogSection = (prop) => {
                   lunchLocation={getMenuLocation(log[date].lunch)}
                   dinnerLocation={getMenuLocation(log[date].dinner)}
                   snackLocation={getMenuLocation(log[date].snack)}
+                  yasikLocation={getMenuLocation(log[date].yasik)}
                   breakfastThumbnail={getMenuThumbnail(log[date].breakfast)}
                   lunchThumbnail={getMenuThumbnail(log[date].lunch)}
                   dinnerThumbnail={getMenuThumbnail(log[date].dinner)}
                   snackThumbnail={getMenuThumbnail(log[date].snack)}
+                  yasikThumbnail={getMenuThumbnail(log[date].yasik)}
                   breakfastTime={getTime(log[date].breakfast)}
                   lunchTime={getTime(log[date].lunch)}
                   dinnerTime={getTime(log[date].dinner)}
                   snackTime={getTime(log[date].snack)}
+                  yasikTime={getTime(log[date].yasik)}
                 ></Log>
               ))
             )}
