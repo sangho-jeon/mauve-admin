@@ -78,3 +78,8 @@ export const Button = styled.div`
   color: #878787;
   background-color: #F4F4F4;
 `;
+
+export const Diet = styled.div`
+  font-size: 0.7vw;
+  color: #303030;
+`
