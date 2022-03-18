@@ -8,15 +8,18 @@ import {
   ChatRoomTitle,
   UserName,
   Button,
+  Diet
 } from "./styled";
 import ChatBox from "../../../shared/chat";
 import ChatService from "../../../../apis/chats/chat-servcie";
 import RoomService from "../../../../apis/rooms/room-service";
+import InfoService from "../../../../apis/info/info-service";
 import Modal from "../info/profile/questionnaire/index";
 import { Context } from "../../../../utils/contextProvider";
 
 const chatService = new ChatService();
 const roomService = new RoomService();
+const infoService = new InfoService();
 
 const ChatSection = ({ id, userId, socket }) => {
   const { value, contextDispatch } = useContext(Context);
@@ -43,6 +46,30 @@ const ChatSection = ({ id, userId, socket }) => {
     }
   };
   /////////////////////여기까지 문진표
+
+  /////////////// 식단 유형
+  const breakfast = ["X", "EO", "Best", "Late"];
+  const meal = ["X", "Worst", "EO", "Best", "Late"];
+
+  const [diet, setDiet] = useState("");
+
+  const getDietData = async () => {
+    try {
+      const { questionnaire } = await infoService.getUserQuestionnaire(
+        userId,
+        value.accessToken,
+        value.refreshToken
+      );
+      setDiet(questionnaire);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getDietData();
+  }, [userId]);
+  ///////////////
 
   useEffect(() => {
     // 각 룸 페이지에 들어갈때
@@ -165,7 +192,12 @@ const ChatSection = ({ id, userId, socket }) => {
   return (
     <Chatlayout>
       <ChatRoomTitle>
-        <UserName>{isData(room) && room.user.name}</UserName>
+        <div>
+          <UserName>{isData(room) && room.user.name}</UserName>
+          {isData(diet) &&
+            <Diet>(아침: {breakfast[diet.breakfast]} 점심: {meal[diet.lunch]} 저녁: {meal[diet.dinner]})</Diet>
+          }
+        </div>
         <Button onClick={() => buttonClick(userId)}>문진표</Button>
         <Modal
           showModal={showModal}
