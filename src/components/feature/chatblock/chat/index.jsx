@@ -47,11 +47,11 @@ const ChatSection = ({ id, userId, socket }) => {
   useEffect(() => {
     // 각 룸 페이지에 들어갈때
     getChat();
+    getRoomById();
   }, [id]);
 
   useEffect(() => {
     socket.on("chat", (data) => {
-      console.log("chat 들어온다");
       console.log(data);
       setRecentChat(data);
       updateChat(data);
@@ -62,10 +62,6 @@ const ChatSection = ({ id, userId, socket }) => {
     recentChat !== undefined && setChatMonitor([...chatMonitor, recentChat]);
     setRecentChat(undefined);
   }, [recentChat]);
-
-  useEffect(() => {
-    getRoomById();
-  }, [id]);
 
   const getRoomById = async () => {
     try {
