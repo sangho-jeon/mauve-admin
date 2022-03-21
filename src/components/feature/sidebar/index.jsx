@@ -78,24 +78,27 @@ const SideBar = (props) => {
         ></Refresh>
       </Header>
       <CardContainer>
-        {roomList.map((room) => (
-          <RoomCard
-            roomList={roomList}
-            click={props.click}
-            roomId={room._id}
-            userId={room.user._id}
-            currentId={props.currentId}
-            name={room.user.name}
-            count={room.non_read_chats_num}
-            morning={room.input_morning_weight}
-            night={room.input_night_weight}
-            breakfast={room.input_breakfast}
-            lunch={room.input_lunch}
-            dinner={room.input_dinner}
-            recentChat={room.recent_chat}
-            userChatTime={room.recent_time_user_send_chat}
-          ></RoomCard>
-        ))}
+        {roomList.map(
+          (room) =>
+            room.user && (
+              <RoomCard
+                roomList={roomList}
+                click={props.click}
+                roomId={room._id}
+                userId={room.user._id}
+                currentId={props.currentId}
+                name={room.user.name}
+                count={room.non_read_chats_num}
+                morning={room.input_morning_weight}
+                night={room.input_night_weight}
+                breakfast={room.input_breakfast}
+                lunch={room.input_lunch}
+                dinner={room.input_dinner}
+                recentChat={room.recent_chat}
+                userChatTime={room.recent_time_user_send_chat}
+              ></RoomCard>
+            )
+        )}
       </CardContainer>
     </MainContainer>
   );
