@@ -6,7 +6,7 @@ const apiUrl = {
     refresh: API_HOST + `/coach/refresh`,
   },
   chat: {
-    room: API_HOST + `/room?limit=20&offset=0`,
+    room: API_HOST + `/room?limit=40&offset=0`,
     roomId: API_HOST + `/room/`,
     chat: API_HOST + `/chat/`,
     media: `/chat/`,
